@@ -41,14 +41,29 @@ SRCS_APP_NANOBE = \
 	$(SRCS_UTIL) \
 	app/app_nanobe.c \
 
+ASMS_APP_PROFILE = \
+	$(ASMS_NANOBE) \
+	$(ASMS_SOC_NRF5) \
+
+SRCS_APP_PROFILE = \
+	$(SRCS_NANOBE) \
+	$(SRCS_SOC_NRF5) \
+	$(SRCS_HAL_NRF5) \
+	$(SRCS_UTIL) \
+	app/app_profile.c \
+
 LDSCRIPT = arch/arm/cortex_m/link.lds
 
 TARGETS = \
 	app/app_nanobe.elf \
+	app/app_profile.elf \
 
 all : $(SUBDIRS) $(TARGETS)
 
 app/app_nanobe.elf : $(ASMS_APP_NANOBE:.s=.o)
 app/app_nanobe.elf : $(SRCS_APP_NANOBE:.c=.o)
+
+app/app_profile.elf : $(ASMS_APP_PROFILE:.s=.o)
+app/app_profile.elf : $(SRCS_APP_PROFILE:.c=.o)
 
 include ./makefile.inc

@@ -1,5 +1,5 @@
 # Nanobe
-Seemingly smallest co-operating programming...
+Seemingly smallest co-operative programming...
 
 ## Evaluate
 

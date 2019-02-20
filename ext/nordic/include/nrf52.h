@@ -139,7 +139,7 @@ typedef enum {
 /** @} */ /* End of group Configuration_of_CMSIS */
 
 #include "core_cm4.h"                           /*!< ARM Cortex-M4 processor and core peripherals                              */
-#include "system_nrf52.h"                       /*!< nrf52 System                                                              */
+//#include "system_nrf52.h"                       /*!< nrf52 System                                                              */
 
 #ifndef __IM                                    /*!< Fallback for older CMSIS versions                                         */
   #define __IM   __I
