@@ -29,6 +29,7 @@ void *_nanobe_init(nanobe_t nanobe, void *stack);
 void _nanobe_switch(void *next_stack, void **curr_stack);
 
 extern uint8_t volatile _sgrd;
+extern uint8_t volatile _strg;
 void _nanobe_isr_inject(void *esf, nanobe_t nanobe);
 
 #endif /* _NANOBE_H_ */

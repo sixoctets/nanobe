@@ -89,4 +89,10 @@ void nanobe_sched_unlock(uint8_t lock)
 	}
 
 	_sgrd = 0;
+
+	if (_strg) {
+		_strg = 0;
+
+		nanobe_sched_yield();
+	}
 }
