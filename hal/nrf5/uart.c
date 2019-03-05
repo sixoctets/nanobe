@@ -13,8 +13,8 @@ Redistribution and use in source and binary forms, with or without modification,
 THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 */
 #include "soc.h"
-#include "util/util.h"
 #include "hal/uart.h"
+#include "util/util.h"
 
 #include "hal/debug.h"
 
@@ -24,14 +24,12 @@ THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND 
 #define UART_TX_BUFFER_SIZE (UART_TX_BUFFER_MAX + 1)
 #define UART_RX_BUFFER_SIZE (UART_RX_BUFFER_MAX + 1)
 
-static struct {
-	uint8_t tx[UART_TX_BUFFER_SIZE];
-	uint8_t volatile tx_first;
-	uint8_t tx_last;
-	uint8_t rx[UART_RX_BUFFER_SIZE];
-	uint8_t rx_first;
-	uint8_t volatile rx_last;
-} gs_uart_context;
+static uint8_t tx[UART_TX_BUFFER_SIZE];
+static uint8_t volatile tx_first;
+static uint8_t volatile tx_last;
+static uint8_t rx[UART_RX_BUFFER_SIZE];
+static uint8_t volatile rx_first;
+static uint8_t volatile rx_last;
 
 void uart_init(uint8_t pin, uint8_t hwfc)
 {
@@ -59,29 +57,29 @@ void uart_tx(uint8_t x)
 	uint8_t prev_last;
 	uint8_t last;
 
-	last = gs_uart_context.tx_last + 1;
+	last = tx_last + 1;
 	if (last == UART_TX_BUFFER_SIZE) {
 		last = 0;
 	}
 
-	while (last == gs_uart_context.tx_first) {
+	while (last == tx_first) {
 		__WFE();
 		__SEV();
 		__WFE();
 	}
 
-	gs_uart_context.tx[gs_uart_context.tx_last] = x;
-	prev_last = gs_uart_context.tx_last;
-	gs_uart_context.tx_last = last;
+	tx[tx_last] = x;
+	prev_last = tx_last;
+	tx_last = last;
 
-	if (gs_uart_context.tx_first == prev_last) {
-		NRF_UART0->TXD = gs_uart_context.tx[gs_uart_context.tx_first];
+	if (tx_first == prev_last) {
+		NRF_UART0->TXD = tx[tx_first];
 	}
 }
 
 uint32_t uart_tx_done(void)
 {
-	return (gs_uart_context.tx_first == gs_uart_context.tx_last);
+	return (tx_first == tx_last);
 }
 
 void uart_tx_str(char *s)
@@ -115,16 +113,16 @@ uint32_t uart_rx(uint8_t *p_x)
 {
 	uint8_t first;
 
-	if (gs_uart_context.rx_first == gs_uart_context.rx_last) {
+	if (rx_first == rx_last) {
 		return(0);
 	}
 
-	*p_x = gs_uart_context.rx[gs_uart_context.rx_first];
-	first = gs_uart_context.rx_first + 1;
+	*p_x = rx[rx_first];
+	first = rx_first + 1;
 	if (first == UART_RX_BUFFER_SIZE) {
 		first = 0;
 	}
-	gs_uart_context.rx_first = first;
+	rx_first = first;
 
 	if (NRF_UART0->EVENTS_RXDRDY) {
 		NRF_UART0->INTENSET = UART_INTENSET_RXDRDY_Msk;
@@ -152,35 +150,35 @@ void isr_uart0(void *param)
 
 		NRF_UART0->EVENTS_TXDRDY = 0;
 
-		first = gs_uart_context.tx_first + 1;
+		first = tx_first + 1;
 		if (first == UART_TX_BUFFER_SIZE) {
 			first = 0;
 		}
-		gs_uart_context.tx_first = first;
+		tx_first = first;
 
-		if (gs_uart_context.tx_first != gs_uart_context.tx_last) {
-			NRF_UART0->TXD =
-				gs_uart_context.tx[gs_uart_context.tx_first];
+		if (tx_first != tx_last) {
+			NRF_UART0->TXD = tx[tx_first];
 		}
 	}
 
-	while (NRF_UART0->EVENTS_RXDRDY) {
+	while ((NRF_UART0->INTENSET & UART_INTENSET_RXDRDY_Msk) &&
+	       NRF_UART0->EVENTS_RXDRDY) {
 		uint8_t last;
 
-		last = gs_uart_context.rx_last + 1;
-		if (last == UART_TX_BUFFER_SIZE) {
+		last = rx_last + 1;
+		if (last == UART_RX_BUFFER_SIZE) {
 			last = 0;
 		}
 
-		if (last == gs_uart_context.rx_first) {
+		if (last == rx_first) {
 			NRF_UART0->INTENCLR = UART_INTENSET_RXDRDY_Msk;
 
 			break;
 		}
 
 		NRF_UART0->EVENTS_RXDRDY = 0;
-		gs_uart_context.rx[gs_uart_context.rx_last] = NRF_UART0->RXD;
-		gs_uart_context.rx_last = last;
+		rx[rx_last] = NRF_UART0->RXD;
+		rx_last = last;
 	}
 
 	ASSERT(NRF_UART0->EVENTS_ERROR == 0);
