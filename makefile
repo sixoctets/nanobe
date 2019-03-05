@@ -52,11 +52,23 @@ SRCS_APP_PROFILE = \
 	$(SRCS_UTIL) \
 	app/app_profile.c \
 
+ASMS_APP_SENSOR = \
+	$(ASMS_NANOBE) \
+	$(ASMS_SOC_NRF5) \
+
+SRCS_APP_SENSOR = \
+	$(SRCS_NANOBE) \
+	$(SRCS_SOC_NRF5) \
+	$(SRCS_HAL_NRF5) \
+	$(SRCS_UTIL) \
+	app/app_sensor.c \
+
 LDSCRIPT = arch/arm/cortex_m/link.lds
 
 TARGETS = \
 	app/app_nanobe.elf \
 	app/app_profile.elf \
+	app/app_sensor.elf \
 
 all : $(SUBDIRS) $(TARGETS)
 
@@ -65,5 +77,8 @@ app/app_nanobe.elf : $(SRCS_APP_NANOBE:.c=.o)
 
 app/app_profile.elf : $(ASMS_APP_PROFILE:.s=.o)
 app/app_profile.elf : $(SRCS_APP_PROFILE:.c=.o)
+
+app/app_sensor.elf : $(ASMS_APP_SENSOR:.s=.o)
+app/app_sensor.elf : $(SRCS_APP_SENSOR:.c=.o)
 
 include ./makefile.inc
