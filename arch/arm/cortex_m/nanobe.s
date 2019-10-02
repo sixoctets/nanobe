@@ -76,6 +76,11 @@ _nanobe_isr_inject:
 	beq __not_nanobe
 	mrs r0, psp
 	ldr r3, [r0, #28]
+	/* Interruptible continuable instruction return unhandled as ICI/IT
+	 * cannot be restored other than by exception return.
+	 * maybe we use pendSV to perform injection using exception stack
+	 * frame manipulation?
+	 */
 	ldr r2, =0xF000
 	and r2, r3
 	bne __ici_skip
