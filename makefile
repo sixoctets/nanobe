@@ -63,12 +63,24 @@ SRCS_APP_SENSOR = \
 	$(SRCS_UTIL) \
 	app/app_sensor.c \
 
+ASMS_APP_ULTRASOUND = \
+	$(ASMS_NANOBE) \
+	$(ASMS_SOC_NRF5) \
+
+SRCS_APP_ULTRASOUND = \
+	$(SRCS_NANOBE) \
+	$(SRCS_SOC_NRF5) \
+	$(SRCS_HAL_NRF5) \
+	$(SRCS_UTIL) \
+	app/app_ultrasound.c \
+
 LDSCRIPT = arch/arm/cortex_m/link.lds
 
 TARGETS = \
 	app/app_nanobe.elf \
 	app/app_profile.elf \
 	app/app_sensor.elf \
+	app/app_ultrasound.elf \
 
 all : $(SUBDIRS) $(TARGETS)
 
@@ -80,5 +92,8 @@ app/app_profile.elf : $(SRCS_APP_PROFILE:.c=.o)
 
 app/app_sensor.elf : $(ASMS_APP_SENSOR:.s=.o)
 app/app_sensor.elf : $(SRCS_APP_SENSOR:.c=.o)
+
+app/app_ultrasound.elf : $(ASMS_APP_ULTRASOUND:.s=.o)
+app/app_ultrasound.elf : $(SRCS_APP_ULTRASOUND:.c=.o)
 
 include ./makefile.inc
