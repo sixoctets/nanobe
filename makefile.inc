@@ -47,7 +47,7 @@ $(TARGETS) :
 
 clean:
 	-for d in $(SUBDIRS); do ($(MAKE) -C $$d clean); done
-	$(RM) $(DEPS) $(OBJS) $(TOBJS) $(TARGETS) $(TARGETS:.elf=.map) $(TARGETS:.elf=.hex) $(TARGETS:.elf=.bin)
+	$(RM) $(DEPS) $(OBJS) $(TOBJS) $(TARGETS) $(TARGETS:.elf=.map) $(TARGETS:.elf=.hex) $(TARGETS:.elf=.bin) $(TARGETS:.elf=.lst)
 
 .PHONY: clean $(SUBDIRS)
 
