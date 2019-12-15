@@ -1,0 +1,39 @@
+OUTPUT_ARCH("riscv")
+
+ENTRY(_start)
+
+MEMORY {
+	FLASH (rxl) : ORIGIN = 0x20000000, LENGTH = 128K
+	RAM (rwx) : ORIGIN = 0x80000000, LENGTH = 16K
+}
+
+SECTIONS {
+
+	.text : {
+		KEEP(*(.text.entry))
+		*(.text*)
+	} > FLASH
+	__text_end = .;
+
+	. = ALIGN(4);
+	.data : AT (__text_end) {
+		__data_start = .;
+		__gp = . + 0x800;
+		*(.data*)
+		__data_end = .;
+	} > RAM
+
+	. = ALIGN(4);
+	.bss (NOLOAD) : {
+		__bss_start = .;
+		*(.bss*)
+		__bss_end = .;
+	} > RAM
+
+	. = ALIGN(8);
+	.noinit (NOLOAD) : {
+		__noinit_start = .;
+		*(.noinit*)
+		__noinit_end = .;
+	} > RAM
+}
