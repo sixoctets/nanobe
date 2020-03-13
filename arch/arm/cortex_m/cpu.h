@@ -16,8 +16,6 @@ THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND 
 #ifndef _CPU_H_
 #define _CPU_H_
 
-#include "soc.h"
-
 static inline void cpu_sleep(void)
 {
 	__WFE();

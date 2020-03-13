@@ -16,10 +16,6 @@ THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND 
 #ifndef _IRQ_H_
 #define _IRQ_H_
 
-#include <stdint.h>
-
-#include "soc.h"
-
 static inline uint32_t irq_lock(void)
 {
 	uint32_t mask;

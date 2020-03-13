@@ -15,15 +15,16 @@ THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND 
 
 #include "soc.h"
 #include "irq.h"
-#include "hal/uart.h"
 
 #include "util/misc.h"
 #include "util/util.h"
 
+#include "hal/isr.h"
+#include "hal/uart.h"
+#include "hal/debug.h"
+
 #include "nanobe.h"
 #include "nanobe_sched.h"
-
-#include "hal/debug.h"
 
 #if UART
 #define PRINT(x) do { \
@@ -93,9 +94,11 @@ int main(void)
 
 	DEBUG_PIN_INIT(13);
 
+#if 0
 	NRF_P1->DIRSET = (1 << 7); /* output */
 	NRF_P1->DIRCLR = (1 << 8); /* input */
 	NRF_P1->PIN_CNF[8] = 0; /* input no pull down, no pull up */
+#endif
 
 	#if UART
 	extern void isr_uart0(void *);
@@ -146,6 +149,7 @@ int main(void)
 		PRINT("nanobe main.\n");
 
 		/* trigger ultrasound */
+#if 0
 		NRF_P1->OUTSET = (1 << 7);
 		delay(10);
 		NRF_P1->OUTCLR = (1 << 7);
@@ -157,6 +161,7 @@ int main(void)
 		while ((NRF_P1->IN & (1 << 8)) != 0);
 		NRF_TIMER2->TASKS_CAPTURE[1] = 1;
 		e = NRF_TIMER2->CC[1];
+#endif
 
 		/* calculate distance */
 		t = (e - s) & 0x7FFFFFFF;

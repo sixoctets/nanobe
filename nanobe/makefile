@@ -1,4 +1,5 @@
 SRCS = $(wildcard *.c)
-INCLUDES =
+INCLUDES = \
+	-I../ \
 
 include ../makefile.inc

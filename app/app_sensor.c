@@ -16,15 +16,15 @@ THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND 
 #include "soc.h"
 #include "irq.h"
 
-#include "hal/uart.h"
-
 #include "util/misc.h"
 #include "util/util.h"
 
+#include "hal/isr.h"
+#include "hal/uart.h"
+#include "hal/debug.h"
+
 #include "nanobe.h"
 #include "nanobe_sched.h"
-
-#include "hal/debug.h"
 
 static uint8_t __noinit isr_stack[256];
 static uint8_t __noinit main_stack[512];

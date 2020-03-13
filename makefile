@@ -25,6 +25,7 @@ SRCS_SOC_NRF5 = \
 	soc/nrf5/soc_c.c \
 
 SRCS_HAL_NRF5 = \
+	hal/nrf5/clock.c \
 	hal/nrf5/uart.c \
 
 SRCS_UTIL = \

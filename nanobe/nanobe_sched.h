@@ -16,8 +16,6 @@ THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND 
 #ifndef _NANOBE_SCHED_H_
 #define _NANOBE_SCHED_H_
 
-#include <stdint.h>
-
 void nanobe_sched_enqueue(void *nanobe_sp);
 void nanobe_sched_yield(void);
 uint8_t nanobe_sched_lock(void);

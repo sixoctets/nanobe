@@ -14,6 +14,9 @@ THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND 
 */
 
 #include <stdint.h>
+
+#include "hal/isr.h"
+
 #include "nanobe.h"
 
 #define NUM_IRQS 32

@@ -16,18 +16,14 @@ THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND 
 #ifndef _NANOBE_H_
 #define _NANOBE_H_
 
-#include <stdint.h>
-
-typedef struct {
-	void *param;
-	void (*isr)(void *param);
-} _isr_table_entry_t;
-
+/* A Nanobe Signature */
 typedef void (*nanobe_t)(void);
 
+/* Nanobe Programming Interface */
 void *_nanobe_init(nanobe_t nanobe, void *stack);
 void _nanobe_switch(void *next_stack, void **curr_stack);
 
+/* Nanobe Injection definitions */
 extern uint8_t volatile _sgrd;
 extern uint8_t volatile _strg;
 void _nanobe_isr_inject(void *esf, nanobe_t nanobe);
