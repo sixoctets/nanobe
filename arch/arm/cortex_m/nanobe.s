@@ -32,6 +32,8 @@ _nanobe_init:
 	mov r6, r12
 	mrs r7, xpsr
 	push {r2-r7}
+	mov r2, #0
+	push {r2}
 	mrs r1, psp
 	msr psp, r0
 	mov r0, r1
@@ -50,9 +52,16 @@ _nanobe_switch:
 	mov r6, r12
 	mrs r7, xpsr
 	push {r2-r7}
+	ldr r3, =__igrd
+	ldrb r2, [r3]
+	push {r2}
+	mov r2, #1
+	str r2, [r3]
 	mrs r2, psp
 	str r2, [r1]
 	msr psp, r0
+	pop {r2}
+	strb r2, [r3]
 	ldr r3, =_sgrd
 	mov r2, #0
 	strb r2, [r3]
@@ -74,20 +83,17 @@ _nanobe_isr_inject:
 	mov r3, lr
 	tst r2, r3
 	beq __not_nanobe
-	mrs r0, psp
-	ldr r3, [r0, #28]
-	/* Interruptible continuable instruction return unhandled as ICI/IT
-	 * cannot be restored other than by exception return.
-	 * maybe we use pendSV to perform injection using exception stack
-	 * frame manipulation?
-	 */
-	ldr r2, =0xF000
-	and r2, r3
-	bne __ici_skip
 	ldr r3, = _sgrd
 	ldrb r2, [r3]
 	cmp r2, #0
 	bne __slocked
+	ldr r3, = __igrd
+	ldrb r2, [r3]
+	cmp r2, #0
+	bne __ilocked
+	mov r2, #1
+	strb r2, [r3]
+	mrs r0, psp
 	ldr r2, [r0, #24]
 	ldr r3, =__syringe
 	str r3, [r0, #24]
@@ -109,7 +115,12 @@ _nanobe_isr_inject:
 .endif /* NANOBE_USE_STACK_STORE */
 
 __not_nanobe:
-__ici_skip:
+	bx lr
+
+__ilocked:
+	ldr r3, =__itrg
+	mov r2, #1
+	strb r2, [r3]
 	bx lr
 
 __slocked:
@@ -149,17 +160,33 @@ __syringe:
 .endif /* NANOBE_USE_STACK_STORE */
 
 	push {r2, r3}
+__loop:
 	mov r2, r12
 	push {r1-r2, lr}
 	blx r1
 	pop {r1-r3}
 	mov lr, r3
 	mov r12, r2
+	ldr r3, =__igrd
+	mov r0, #0
+	strb r0, [r3]
+	ldr r3, =__itrg
+	ldrb r0, [r3]
+	cmp r0, #0
+	bne __again
 	pop {r2, r3}
 	pop {r0}
 	msr xpsr_nzcvq, r0
 	pop {r0, r1}
 	pop {pc}
+
+__again:
+	mov r0, #0
+	strb r0, [r3]
+	ldr r3, =__igrd
+	mov r0, #1
+	strb r0, [r3]
+	b __loop
 
 	.section .text
 	.thumb_func
@@ -187,6 +214,10 @@ __iret:
 __ical:
 	.word 0
 .endif /* !NANOBE_USE_STACK_STORE */
+__igrd:
+	.byte 0
+__itrg:
+	.byte 0
 
 	.section .bss._nanobe_sched
 	.global _sgrd
