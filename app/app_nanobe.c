@@ -60,9 +60,9 @@ void nanobe_0(void)
 
 	while(1) {
 		PRINT("nanobe_0.\n");
-		DEBUG_PIN_OFF(17);
+		DEBUG_PIN_OFF(13);
 		_nanobe_switch(nanobe_1_sp, &nanobe_0_sp);
-		DEBUG_PIN_ON(17);
+		DEBUG_PIN_ON(13);
 	}
 }
 
@@ -72,9 +72,9 @@ void nanobe_1(void)
 
 	while(1) {
 		PRINT("nanobe_1.\n");
-		DEBUG_PIN_OFF(18);
+		DEBUG_PIN_OFF(14);
 		_nanobe_switch(nanobe_main_sp, &nanobe_1_sp);
-		DEBUG_PIN_ON(18);
+		DEBUG_PIN_ON(14);
 	}
 }
 
@@ -84,9 +84,9 @@ void nanobe_2(void)
 
 	while(1) {
 		PRINT("nanobe_2.\n");
-		DEBUG_PIN_OFF(19);
+		DEBUG_PIN_OFF(15);
 		nanobe_sched_yield();
-		DEBUG_PIN_ON(19);
+		DEBUG_PIN_ON(15);
 	}
 }
 
@@ -96,23 +96,23 @@ void nanobe_3(void)
 
 	while(1) {
 		PRINT("nanobe_3.\n");
-		DEBUG_PIN_OFF(20);
+		DEBUG_PIN_OFF(16);
 		nanobe_sched_yield();
-		DEBUG_PIN_ON(20);
+		DEBUG_PIN_ON(16);
 	}
 }
 
 void nanobe_injection(void)
 {
-	DEBUG_PIN_ON(22);
+	DEBUG_PIN_ON(17);
 	PRINT("injection enter.\n");
 
-	DEBUG_PIN_ON(22);
+	DEBUG_PIN_ON(17);
 	nanobe_sched_yield();
-	DEBUG_PIN_OFF(22);
+	DEBUG_PIN_OFF(17);
 
 	PRINT("injection exit.\n");
-	DEBUG_PIN_OFF(22);
+	DEBUG_PIN_OFF(17);
 	return;
 }
 
@@ -122,14 +122,14 @@ void isr_timer2(void *param)
 {
 	(void)param;
 
-	DEBUG_PIN_ON(21);
+	DEBUG_PIN_ON(18);
 
 	if (NRF_TIMER2->EVENTS_COMPARE[0]) {
 		NRF_TIMER2->EVENTS_COMPARE[0] = 0;
 
 		ticks++;
 
-		DEBUG_PIN_OFF(21);
+		DEBUG_PIN_OFF(18);
 		return;
 	}
 
@@ -141,22 +141,22 @@ int main(void)
 	extern _isr_table_entry_t _isr_table[];
 	void *nanobe_sp;
 
+	DEBUG_PIN_INIT(12);
+	DEBUG_PIN_INIT(13);
+	DEBUG_PIN_INIT(14);
+	DEBUG_PIN_INIT(15);
 	DEBUG_PIN_INIT(16);
 	DEBUG_PIN_INIT(17);
 	DEBUG_PIN_INIT(18);
-	DEBUG_PIN_INIT(19);
-	DEBUG_PIN_INIT(20);
-	DEBUG_PIN_INIT(21);
-	DEBUG_PIN_INIT(22);
 
 	/* Dongle Blue LED */
-	NRF_GPIO->DIRSET = (1 << 23);
-	NRF_GPIO->OUTSET = (1 << 23);
+	NRF_GPIO->DIRSET = (1 << 22);
+	NRF_GPIO->OUTSET = (1 << 22);
 
 	#if UART
 	extern void isr_uart0(void *);
 
-	uart_init(UART, 1);
+	uart_init(UART, 0);
 	_isr_table[UART0_IRQn].isr = isr_uart0;
 	irq_priority_set(UART0_IRQn, 0xFF);
 	irq_enable(UART0_IRQn);
@@ -204,19 +204,19 @@ int main(void)
 
 	while (1) {
 		PRINT("nanobe main.\n");
-		DEBUG_PIN_OFF(16);
+		DEBUG_PIN_OFF(12);
 		_nanobe_switch(nanobe_0_sp, &nanobe_main_sp);
-		DEBUG_PIN_ON(16);
+		DEBUG_PIN_ON(12);
 
 		PRINT("pendsv.\n");
-		DEBUG_PIN_OFF(16);
+		DEBUG_PIN_OFF(12);
 		SCB->ICSR = SCB_ICSR_PENDSVSET_Msk;
-		DEBUG_PIN_ON(16);
+		DEBUG_PIN_ON(12);
 
 		if ((ticks % 100) == 0) {
-			NRF_GPIO->OUTCLR = (1 << 23);
+			NRF_GPIO->OUTCLR = (1 << 22);
 		} else if ((ticks % 20) == 0) {
-			NRF_GPIO->OUTSET = (1 << 23);
+			NRF_GPIO->OUTSET = (1 << 22);
 		}
 	}
 }
