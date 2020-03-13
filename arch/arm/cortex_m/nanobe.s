@@ -83,6 +83,16 @@ _nanobe_isr_inject:
 	mov r3, lr
 	tst r2, r3
 	beq __not_nanobe
+	/* Interruptible continuable instruction return unhandled as ICI/IT
+	 * cannot be restored other than by exception return.
+	 * maybe we use pendSV to perform injection using exception stack
+	 * frame manipulation?
+	 */
+	mrs r0, psp
+	ldr r3, [r0, #28]
+	ldr r2, =0xF000
+	and r2, r3
+	bne __ici_skip
 	ldr r3, = _sgrd
 	ldrb r2, [r3]
 	cmp r2, #0
@@ -115,6 +125,7 @@ _nanobe_isr_inject:
 .endif /* NANOBE_USE_STACK_STORE */
 
 __not_nanobe:
+__ici_skip:
 	bx lr
 
 __ilocked:
