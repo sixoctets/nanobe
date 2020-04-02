@@ -18,7 +18,7 @@ SECTIONS {
 	. = ALIGN(4);
 	.data : AT (__text_end) {
 		__data_start = .;
-		__gp = . + 0x800;
+		PROVIDE(__global_pointer$ = . + 0x800);
 		*(.data*)
 		__data_end = .;
 	} > RAM
