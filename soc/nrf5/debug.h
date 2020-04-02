@@ -27,6 +27,12 @@ THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND 
 				NRF_GPIO->DIRSET = (1 << x); \
 				NRF_GPIO->OUTCLR = (1 << x); \
 			  } while (0)
+#define DEBUG_PIN_SET(x)  do { \
+				NRF_GPIO->OUTSET = (1 << x); \
+			  } while (0)
+#define DEBUG_PIN_CLR(x)  do { \
+				NRF_GPIO->OUTCLR = (1 << x); \
+			  } while (0)
 #define DEBUG_PIN_ON(x)   do { \
 				NRF_GPIO->OUTCLR = (1 << x); \
 				NRF_GPIO->OUTSET = (1 << x); \
@@ -37,6 +43,8 @@ THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND 
 			  } while (0)
 #else
 #define DEBUG_PIN_INIT(x)
+#define DEBUG_PIN_SET(x)
+#define DEBUG_PIN_CLR(x)
 #define DEBUG_PIN_ON(x)
 #define DEBUG_PIN_OFF(x)
 #endif

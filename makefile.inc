@@ -4,14 +4,15 @@ AS = arm-none-eabi-as
 CC = arm-none-eabi-gcc
 LD = arm-none-eabi-ld
 OBJCOPY = arm-none-eabi-objcopy
+OBJDUMP = arm-none-eabi-objdump
 SIZE = arm-none-eabi-size
 
 ASFLAGS = \
-	-mcpu=cortex-m0 \
+	-mcpu=cortex-m4 \
 	-mthumb
 
 CFLAGS = \
-	-mcpu=cortex-m0 \
+	-mcpu=cortex-m4 \
 	-mthumb \
 	-Os \
 	-nostdlib \
@@ -23,9 +24,9 @@ CFLAGS = \
 	-Wextra \
 	-Wcast-align \
 	-DVERSION=\"$(VERSION)\" \
-	-DNRF51 \
+	-DNRF52840_XXAA \
 	-DDEBUG=1 \
-	-DUART=8 \
+	-DUART=5 \
 	$(INCLUDES)
 
 OBJS = $(SRCS:.c=.o) $(ASMS:.s=.o)
@@ -38,6 +39,7 @@ $(SUBDIRS) :
 
 $(TARGETS) :
 	$(CC) $(CFLAGS) -Wl,--gc-sections,--script=$(LDSCRIPT),-Map=$(basename $@).map -o $@ $^ -lgcc
+	$(OBJDUMP) -D $@ > $(basename $@).lst
 	$(OBJCOPY) -O ihex $@ $(basename $@).hex
 	$(OBJCOPY) -O binary $@ $(basename $@).bin
 	$(SIZE) $@

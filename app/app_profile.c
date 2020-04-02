@@ -32,10 +32,28 @@ static uint8_t __noinit nanobe_0_stack[256];
 void * const isr_stack_top = isr_stack + sizeof(isr_stack);
 void * const main_stack_top = main_stack + sizeof(main_stack);
 
-void nanobe_0(void)
+static uint32_t volatile ticks;
+static uint32_t volatile seconds;
+
+static void isr_clock_cb(void *param)
+{
+	DEBUG_PIN_ON(15);
+	ticks++;
+	if ((ticks % 100) == 0) {
+		seconds++;
+	}
+	DEBUG_PIN_OFF(15);
+}
+
+static void nanobe_0(void)
 {
 	while(1) {
 		DEBUG_PIN_OFF(13);
+		if (seconds & 1) {
+			DEBUG_PIN_CLR(6);
+		} else {
+			DEBUG_PIN_SET(6);
+		}
 		DEBUG_PIN_ON(13);
 	}
 }
@@ -53,19 +71,22 @@ int main(void)
 	void *nanobe_sp;
 	uint32_t irq;
 	isr_t isr;
+	void *isr_param[] = {isr_clock_cb, 0};
 
+	DEBUG_PIN_INIT(6);
 	DEBUG_PIN_INIT(12);
 	DEBUG_PIN_INIT(13);
 	DEBUG_PIN_INIT(14);
 	DEBUG_PIN_INIT(15);
 
-	nanobe_sp= _nanobe_init(nanobe_0,
-				nanobe_0_stack + sizeof(nanobe_0_stack));
+	nanobe_sp = _nanobe_init(nanobe_0,
+				 nanobe_0_stack + sizeof(nanobe_0_stack));
 	nanobe_sched_enqueue(nanobe_sp);
 
 	(void)clock_init();
 	(void)clock_irq_init(&irq, &isr);
 	_isr_table[irq].isr = isr;
+	_isr_table[irq].param = isr_param;
 
 	(void)clock_irq_on();
 	(void)clock_on();
