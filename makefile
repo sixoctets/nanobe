@@ -31,6 +31,12 @@ SRCS_HAL_NRF5 = \
 SRCS_UTIL = \
 	util/util.c \
 
+ASMS_APP_METAL = \
+	$(ASMS_COMMON) \
+
+SRCS_APP_METAL = \
+	app/app_metal.c \
+
 ASMS_APP_NANOBE = \
 	$(ASMS_NANOBE) \
 	$(ASMS_SOC_NRF5) \
@@ -78,12 +84,16 @@ SRCS_APP_ULTRASOUND = \
 LDSCRIPT = arch/arm/cortex_m/link.lds
 
 TARGETS = \
+	app/app_metal.elf \
 	app/app_nanobe.elf \
 	app/app_profile.elf \
 	app/app_sensor.elf \
 	app/app_ultrasound.elf \
 
 all : $(SUBDIRS) $(TARGETS)
+
+app/app_metal.elf : $(ASMS_APP_METAL:.s=.o)
+app/app_metal.elf : $(SRCS_APP_METAL:.c=.o)
 
 app/app_nanobe.elf : $(ASMS_APP_NANOBE:.s=.o)
 app/app_nanobe.elf : $(SRCS_APP_NANOBE:.c=.o)
