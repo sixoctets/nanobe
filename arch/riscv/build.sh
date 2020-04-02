@@ -1,6 +1,6 @@
 #! /bin/sh
 
-riscv64-unknown-elf-as -mabi=ilp32 -march=rv32imac --defsym TEST_IRQ=1 --defsym TEST_SWI=1 -o entry.o entry.s
+riscv64-unknown-elf-as -mabi=ilp32 -march=rv32imac --defsym TEST_IRQ=1 --defsym TEST_TIMER=1 -o entry.o entry.s
 riscv64-unknown-elf-gcc -mabi=ilp32 -march=rv32imac -c -o main.o main.c
 riscv64-unknown-elf-ld -march=rv32imac -melf32lriscv -Tlink.lds -o hello.elf entry.o main.o
 riscv64-unknown-elf-size hello.elf
