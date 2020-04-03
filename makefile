@@ -1,32 +1,25 @@
-SUBDIRS = \
-	arch/arm/cortex_m \
-	soc/nrf5 \
-	hal/nrf5 \
-	nanobe \
-	util \
-	app \
+NANOBE_BASE = $(shell pwd)
+export NANOBE_BASE
 
-ASMS_COMMON = \
+ifeq ($(ARCH), riscv)
+  ASMS_COMMON = \
+	arch/riscv/startup.s \
+
+  ASMS_NANOBE = \
+
+else ifeq ($(ARCH), arm)
+  ASMS_COMMON = \
 	arch/arm/cortex_m/startup.s \
 
-ASMS_NANOBE = \
-	$(ASMS_COMMON) \
+  ASMS_NANOBE = \
 	arch/arm/cortex_m/nanobe.s \
 	arch/arm/cortex_m/pendsv_ninject.s \
+
+endif
 
 SRCS_NANOBE = \
 	nanobe/isr_table.c \
 	nanobe/nanobe_sched.c \
-
-ASMS_SOC_NRF5 = \
-	soc/nrf5/soc.s \
-
-SRCS_SOC_NRF5 = \
-	soc/nrf5/soc_c.c \
-
-SRCS_HAL_NRF5 = \
-	hal/nrf5/clock.c \
-	hal/nrf5/uart.c \
 
 SRCS_UTIL = \
 	util/util.c \
@@ -37,74 +30,52 @@ ASMS_APP_METAL = \
 SRCS_APP_METAL = \
 	app/app_metal.c \
 
-ASMS_APP_NANOBE = \
+OBJS_APP_METAL = $(ASMS_APP_METAL:.s=.o) $(SRCS_APP_METAL:.c=.o)
+ASMS += $(ASMS_APP_METAL)
+SRCS += $(SRCS_APP_METAL)
+TARGETS += app/app_metal.elf
+
+ifeq ($(ARCH), arm)
+  ASMS_SOC_NRF5 = \
+	soc/nrf5/soc.s \
+
+  SRCS_SOC_NRF5 = \
+	soc/nrf5/soc_c.c \
+
+  SRCS_HAL_NRF5 = \
+	hal/nrf5/clock.c \
+	hal/nrf5/uart.c \
+
+  ASMS_APP_PROFILE = \
+	$(ASMS_COMMON) \
 	$(ASMS_NANOBE) \
 	$(ASMS_SOC_NRF5) \
 
-SRCS_APP_NANOBE = \
-	$(SRCS_NANOBE) \
-	$(SRCS_SOC_NRF5) \
-	$(SRCS_HAL_NRF5) \
-	$(SRCS_UTIL) \
-	app/app_nanobe.c \
-
-ASMS_APP_PROFILE = \
-	$(ASMS_NANOBE) \
-	$(ASMS_SOC_NRF5) \
-
-SRCS_APP_PROFILE = \
+  SRCS_APP_PROFILE = \
 	$(SRCS_NANOBE) \
 	$(SRCS_SOC_NRF5) \
 	$(SRCS_HAL_NRF5) \
 	$(SRCS_UTIL) \
 	app/app_profile.c \
 
-ASMS_APP_SENSOR = \
-	$(ASMS_NANOBE) \
-	$(ASMS_SOC_NRF5) \
+  INCLUDES += \
+	-I ext/arm/cmsis/include \
+	-I ext/nordic/include \
+	-I arch/arm/cortex_m \
+	-I soc/nrf5 \
+	-I hal \
+	-I nanobe \
 
-SRCS_APP_SENSOR = \
-	$(SRCS_NANOBE) \
-	$(SRCS_SOC_NRF5) \
-	$(SRCS_HAL_NRF5) \
-	$(SRCS_UTIL) \
-	app/app_sensor.c \
+  OBJS_APP_PROFILE = $(ASMS_APP_PROFILE:.s=.o) $(SRCS_APP_PROFILE:.c=.o)
+  ASMS += $(ASMS_APP_PROFILE)
+  SRCS += $(SRCS_APP_PROFILE)
+  TARGETS += app/app_profile.elf
+endif
 
-ASMS_APP_ULTRASOUND = \
-	$(ASMS_NANOBE) \
-	$(ASMS_SOC_NRF5) \
+all :
 
-SRCS_APP_ULTRASOUND = \
-	$(SRCS_NANOBE) \
-	$(SRCS_SOC_NRF5) \
-	$(SRCS_HAL_NRF5) \
-	$(SRCS_UTIL) \
-	app/app_ultrasound.c \
+app/app_metal.elf : $(OBJS_APP_METAL)
 
-LDSCRIPT = arch/arm/cortex_m/link.lds
+app/app_profile.elf : $(OBJS_APP_PROFILE)
 
-TARGETS = \
-	app/app_metal.elf \
-	app/app_nanobe.elf \
-	app/app_profile.elf \
-	app/app_sensor.elf \
-	app/app_ultrasound.elf \
-
-all : $(SUBDIRS) $(TARGETS)
-
-app/app_metal.elf : $(ASMS_APP_METAL:.s=.o)
-app/app_metal.elf : $(SRCS_APP_METAL:.c=.o)
-
-app/app_nanobe.elf : $(ASMS_APP_NANOBE:.s=.o)
-app/app_nanobe.elf : $(SRCS_APP_NANOBE:.c=.o)
-
-app/app_profile.elf : $(ASMS_APP_PROFILE:.s=.o)
-app/app_profile.elf : $(SRCS_APP_PROFILE:.c=.o)
-
-app/app_sensor.elf : $(ASMS_APP_SENSOR:.s=.o)
-app/app_sensor.elf : $(SRCS_APP_SENSOR:.c=.o)
-
-app/app_ultrasound.elf : $(ASMS_APP_ULTRASOUND:.s=.o)
-app/app_ultrasound.elf : $(SRCS_APP_ULTRASOUND:.c=.o)
-
-include ./makefile.inc
+include makefile.inc

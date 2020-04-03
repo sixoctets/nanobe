@@ -37,6 +37,8 @@ static uint32_t volatile seconds;
 
 static void isr_clock_cb(void *param)
 {
+	ARG_UNUSED(param);
+
 	DEBUG_PIN_ON(15);
 	ticks++;
 	if ((ticks % 100) == 0) {

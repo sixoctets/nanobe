@@ -1,0 +1,21 @@
+AS = arm-none-eabi-as
+CC = arm-none-eabi-gcc
+LD = arm-none-eabi-ld
+OBJCOPY = arm-none-eabi-objcopy
+OBJDUMP = arm-none-eabi-objdump
+SIZE = arm-none-eabi-size
+
+ASFLAGS = \
+	-mcpu=cortex-m4 \
+	-mthumb
+
+CFLAGS = \
+	-mcpu=cortex-m4 \
+	-mthumb \
+	-DNRF52840_XXAA \
+	-DDEBUG=1 \
+	-DUART=5 \
+
+LDSCRIPT = arch/arm/cortex_m/link.lds
+
+export AS CC LD OBJCOPY OBJDUMP SIZE ASFLAGS CFLAGS LDSCRIPT

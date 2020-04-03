@@ -1,19 +1,12 @@
-VERSION = $(shell git rev-parse --short HEAD)
+ifeq ($(ARCH), riscv)
+	include $(NANOBE_BASE)/makefile.riscv
+else ifeq ($(ARCH), arm)
+	include $(NANOBE_BASE)/makefile.arm
+endif
 
-AS = arm-none-eabi-as
-CC = arm-none-eabi-gcc
-LD = arm-none-eabi-ld
-OBJCOPY = arm-none-eabi-objcopy
-OBJDUMP = arm-none-eabi-objdump
-SIZE = arm-none-eabi-size
+ASFLAGS += \
 
-ASFLAGS = \
-	-mcpu=cortex-m4 \
-	-mthumb
-
-CFLAGS = \
-	-mcpu=cortex-m4 \
-	-mthumb \
+CFLAGS += \
 	-Os \
 	-nostdlib \
 	-fdata-sections \
@@ -23,19 +16,24 @@ CFLAGS = \
 	-Wall \
 	-Wextra \
 	-Wcast-align \
+	-I ./ \
+	$(INCLUDES) \
 	-DVERSION=\"$(VERSION)\" \
-	-DNRF52840_XXAA \
-	-DDEBUG=1 \
-	-DUART=5 \
-	$(INCLUDES)
 
-OBJS = $(SRCS:.c=.o) $(ASMS:.s=.o)
-DEPS = $(SRCS:.c=.d)
+OBJS += $(SRCS:.c=.o) $(ASMS:.s=.o)
+DEPS += $(SRCS:.c=.d)
 
-all : $(DEPS) $(OBJS)
+VERSION = $(shell git rev-parse --short HEAD)
 
-$(SUBDIRS) :
-	$(MAKE) -C $@
+all : $(TARGETS)
+
+info :
+	@echo NANOBE_BASE = $(NANOBE_BASE)
+	@echo TARGETS = $(TARGETS)
+	@echo ASFLAGS = $(ASFLAGS)
+	@echo CFLAGS = $(CFLAGS)
+	@echo OBJS = $(OBJS)
+	@echo DEPS = $(DEPS)
 
 $(TARGETS) :
 	$(CC) $(CFLAGS) -Wl,--gc-sections,--script=$(LDSCRIPT),-Map=$(basename $@).map -o $@ $^ -lgcc
@@ -47,10 +45,9 @@ $(TARGETS) :
 %.d : %.c
 	$(CC) $(CFLAGS) -M -o $@ $<
 
-clean:
-	-for d in $(SUBDIRS); do ($(MAKE) -C $$d clean); done
-	$(RM) $(DEPS) $(OBJS) $(TOBJS) $(TARGETS) $(TARGETS:.elf=.map) $(TARGETS:.elf=.hex) $(TARGETS:.elf=.bin) $(TARGETS:.elf=.lst)
+clean :
+	$(RM) $(DEPS) $(OBJS) $(TARGETS) $(TARGETS:.elf=.map) $(TARGETS:.elf=.hex) $(TARGETS:.elf=.bin) $(TARGETS:.elf=.lst)
 
-.PHONY: clean $(SUBDIRS)
+.PHONY : all info clean
 
 -include $(DEPS)
