@@ -24,6 +24,29 @@ else ifeq ($(ARCH), arm)
 	arch/arm/cortex_m/nanobe.s \
 	arch/arm/cortex_m/pendsv_ninject.s \
 
+  INCLUDES += \
+	-I ext/arm/cmsis/include \
+	-I arch/arm/cortex_m \
+
+  ASMS_SOC_NRF5 = \
+	soc/nrf5/soc.s \
+
+  SRCS_SOC_NRF5 = \
+	soc/nrf5/soc_c.c \
+
+  SRCS_HAL_NRF5 = \
+	hal/nrf5/gpio.c \
+	hal/nrf5/clock.c \
+	hal/nrf5/uart.c \
+
+  ASMS_SOC = $(ASMS_SOC_NRF5)
+  SRCS_SOC = $(SRCS_SOC_NRF5)
+  SRCS_HAL = $(SRCS_HAL_NRF5)
+
+  INCLUDES += \
+	-I . \
+	-I board/nRF52840Dongle_nRF52840 \
+
 endif
 
 SRCS_NANOBE = \
@@ -35,8 +58,10 @@ SRCS_UTIL = \
 
 ASMS_APP_METAL = \
 	$(ASMS_COMMON) \
+	$(ASMS_SOC) \
 
 SRCS_APP_METAL = \
+	$(SRCS_SOC) \
 	$(SRCS_HAL) \
 	app/app_metal.c \
 
@@ -46,16 +71,6 @@ SRCS += $(SRCS_APP_METAL)
 TARGETS += app/app_metal.elf
 
 ifeq ($(ARCH), arm)
-  ASMS_SOC_NRF5 = \
-	soc/nrf5/soc.s \
-
-  SRCS_SOC_NRF5 = \
-	soc/nrf5/soc_c.c \
-
-  SRCS_HAL_NRF5 = \
-	hal/nrf5/clock.c \
-	hal/nrf5/uart.c \
-
   ASMS_APP_PROFILE = \
 	$(ASMS_COMMON) \
 	$(ASMS_NANOBE) \
@@ -69,11 +84,8 @@ ifeq ($(ARCH), arm)
 	app/app_profile.c \
 
   INCLUDES += \
-	-I ext/arm/cmsis/include \
-	-I arch/arm/cortex_m \
 	-I ext/nordic/include \
 	-I soc/nrf5 \
-	-I hal \
 	-I nanobe \
 
   OBJS_APP_PROFILE = $(ASMS_APP_PROFILE:.s=.o) $(SRCS_APP_PROFILE:.c=.o)

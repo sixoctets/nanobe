@@ -98,7 +98,11 @@ no_bss:
 
 	/* jump to c main */
 	ldr r0,=main
-	bx r0
+	blx r0
+
+sleep:
+	wfe
+	b sleep
 
 	.section .text
 	.thumb_func
