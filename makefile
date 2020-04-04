@@ -7,6 +7,15 @@ ifeq ($(ARCH), riscv)
 
   ASMS_NANOBE = \
 
+  SRCS_HAL_FE310 = \
+	hal/fe310/gpio.c \
+
+  SRCS_HAL = $(SRCS_HAL_FE310)
+
+  INCLUDES += \
+	-I . \
+	-I board/HiFive1 \
+
 else ifeq ($(ARCH), arm)
   ASMS_COMMON = \
 	arch/arm/cortex_m/startup.s \
@@ -28,6 +37,7 @@ ASMS_APP_METAL = \
 	$(ASMS_COMMON) \
 
 SRCS_APP_METAL = \
+	$(SRCS_HAL) \
 	app/app_metal.c \
 
 OBJS_APP_METAL = $(ASMS_APP_METAL:.s=.o) $(SRCS_APP_METAL:.c=.o)
@@ -60,8 +70,8 @@ ifeq ($(ARCH), arm)
 
   INCLUDES += \
 	-I ext/arm/cmsis/include \
-	-I ext/nordic/include \
 	-I arch/arm/cortex_m \
+	-I ext/nordic/include \
 	-I soc/nrf5 \
 	-I hal \
 	-I nanobe \
