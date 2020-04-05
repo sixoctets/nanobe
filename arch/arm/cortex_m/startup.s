@@ -109,6 +109,7 @@ sleep:
 	.weak _soc_init
 	.type _soc_init, %function
 _soc_init:
+	add r0, #1
 	bx r0
 
 	.section .text
