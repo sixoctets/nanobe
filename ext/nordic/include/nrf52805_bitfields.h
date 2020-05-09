@@ -30,8 +30,8 @@ POSSIBILITY OF SUCH DAMAGE.
 
 */
 
-#ifndef __NRF52810_BITS_H
-#define __NRF52810_BITS_H
+#ifndef __NRF52805_BITS_H
+#define __NRF52805_BITS_H
 
 /*lint ++flb "Enter library region" */
 
@@ -169,7 +169,7 @@ POSSIBILITY OF SUCH DAMAGE.
 /* Register: AAR_SCRATCHPTR */
 /* Description: Pointer to data area used for temporary storage */
 
-/* Bits 31..0 : Pointer to a scratch data area used for temporary storage during resolution.A space of minimum 3 bytes must be reserved. */
+/* Bits 31..0 : Pointer to a scratch data area used for temporary storage during resolution. A space of minimum 3 bytes must be reserved. */
 #define AAR_SCRATCHPTR_SCRATCHPTR_Pos (0UL) /*!< Position of SCRATCHPTR field. */
 #define AAR_SCRATCHPTR_SCRATCHPTR_Msk (0xFFFFFFFFUL << AAR_SCRATCHPTR_SCRATCHPTR_Pos) /*!< Bit mask of SCRATCHPTR field. */
 
@@ -935,288 +935,6 @@ POSSIBILITY OF SUCH DAMAGE.
 #define CLOCK_CTIV_CTIV_Msk (0x7FUL << CLOCK_CTIV_CTIV_Pos) /*!< Bit mask of CTIV field. */
 
 
-/* Peripheral: COMP */
-/* Description: Comparator */
-
-/* Register: COMP_TASKS_START */
-/* Description: Start comparator */
-
-/* Bit 0 : Start comparator */
-#define COMP_TASKS_START_TASKS_START_Pos (0UL) /*!< Position of TASKS_START field. */
-#define COMP_TASKS_START_TASKS_START_Msk (0x1UL << COMP_TASKS_START_TASKS_START_Pos) /*!< Bit mask of TASKS_START field. */
-#define COMP_TASKS_START_TASKS_START_Trigger (1UL) /*!< Trigger task */
-
-/* Register: COMP_TASKS_STOP */
-/* Description: Stop comparator */
-
-/* Bit 0 : Stop comparator */
-#define COMP_TASKS_STOP_TASKS_STOP_Pos (0UL) /*!< Position of TASKS_STOP field. */
-#define COMP_TASKS_STOP_TASKS_STOP_Msk (0x1UL << COMP_TASKS_STOP_TASKS_STOP_Pos) /*!< Bit mask of TASKS_STOP field. */
-#define COMP_TASKS_STOP_TASKS_STOP_Trigger (1UL) /*!< Trigger task */
-
-/* Register: COMP_TASKS_SAMPLE */
-/* Description: Sample comparator value */
-
-/* Bit 0 : Sample comparator value */
-#define COMP_TASKS_SAMPLE_TASKS_SAMPLE_Pos (0UL) /*!< Position of TASKS_SAMPLE field. */
-#define COMP_TASKS_SAMPLE_TASKS_SAMPLE_Msk (0x1UL << COMP_TASKS_SAMPLE_TASKS_SAMPLE_Pos) /*!< Bit mask of TASKS_SAMPLE field. */
-#define COMP_TASKS_SAMPLE_TASKS_SAMPLE_Trigger (1UL) /*!< Trigger task */
-
-/* Register: COMP_EVENTS_READY */
-/* Description: COMP is ready and output is valid */
-
-/* Bit 0 : COMP is ready and output is valid */
-#define COMP_EVENTS_READY_EVENTS_READY_Pos (0UL) /*!< Position of EVENTS_READY field. */
-#define COMP_EVENTS_READY_EVENTS_READY_Msk (0x1UL << COMP_EVENTS_READY_EVENTS_READY_Pos) /*!< Bit mask of EVENTS_READY field. */
-#define COMP_EVENTS_READY_EVENTS_READY_NotGenerated (0UL) /*!< Event not generated */
-#define COMP_EVENTS_READY_EVENTS_READY_Generated (1UL) /*!< Event generated */
-
-/* Register: COMP_EVENTS_DOWN */
-/* Description: Downward crossing */
-
-/* Bit 0 : Downward crossing */
-#define COMP_EVENTS_DOWN_EVENTS_DOWN_Pos (0UL) /*!< Position of EVENTS_DOWN field. */
-#define COMP_EVENTS_DOWN_EVENTS_DOWN_Msk (0x1UL << COMP_EVENTS_DOWN_EVENTS_DOWN_Pos) /*!< Bit mask of EVENTS_DOWN field. */
-#define COMP_EVENTS_DOWN_EVENTS_DOWN_NotGenerated (0UL) /*!< Event not generated */
-#define COMP_EVENTS_DOWN_EVENTS_DOWN_Generated (1UL) /*!< Event generated */
-
-/* Register: COMP_EVENTS_UP */
-/* Description: Upward crossing */
-
-/* Bit 0 : Upward crossing */
-#define COMP_EVENTS_UP_EVENTS_UP_Pos (0UL) /*!< Position of EVENTS_UP field. */
-#define COMP_EVENTS_UP_EVENTS_UP_Msk (0x1UL << COMP_EVENTS_UP_EVENTS_UP_Pos) /*!< Bit mask of EVENTS_UP field. */
-#define COMP_EVENTS_UP_EVENTS_UP_NotGenerated (0UL) /*!< Event not generated */
-#define COMP_EVENTS_UP_EVENTS_UP_Generated (1UL) /*!< Event generated */
-
-/* Register: COMP_EVENTS_CROSS */
-/* Description: Downward or upward crossing */
-
-/* Bit 0 : Downward or upward crossing */
-#define COMP_EVENTS_CROSS_EVENTS_CROSS_Pos (0UL) /*!< Position of EVENTS_CROSS field. */
-#define COMP_EVENTS_CROSS_EVENTS_CROSS_Msk (0x1UL << COMP_EVENTS_CROSS_EVENTS_CROSS_Pos) /*!< Bit mask of EVENTS_CROSS field. */
-#define COMP_EVENTS_CROSS_EVENTS_CROSS_NotGenerated (0UL) /*!< Event not generated */
-#define COMP_EVENTS_CROSS_EVENTS_CROSS_Generated (1UL) /*!< Event generated */
-
-/* Register: COMP_SHORTS */
-/* Description: Shortcuts between local events and tasks */
-
-/* Bit 4 : Shortcut between event CROSS and task STOP */
-#define COMP_SHORTS_CROSS_STOP_Pos (4UL) /*!< Position of CROSS_STOP field. */
-#define COMP_SHORTS_CROSS_STOP_Msk (0x1UL << COMP_SHORTS_CROSS_STOP_Pos) /*!< Bit mask of CROSS_STOP field. */
-#define COMP_SHORTS_CROSS_STOP_Disabled (0UL) /*!< Disable shortcut */
-#define COMP_SHORTS_CROSS_STOP_Enabled (1UL) /*!< Enable shortcut */
-
-/* Bit 3 : Shortcut between event UP and task STOP */
-#define COMP_SHORTS_UP_STOP_Pos (3UL) /*!< Position of UP_STOP field. */
-#define COMP_SHORTS_UP_STOP_Msk (0x1UL << COMP_SHORTS_UP_STOP_Pos) /*!< Bit mask of UP_STOP field. */
-#define COMP_SHORTS_UP_STOP_Disabled (0UL) /*!< Disable shortcut */
-#define COMP_SHORTS_UP_STOP_Enabled (1UL) /*!< Enable shortcut */
-
-/* Bit 2 : Shortcut between event DOWN and task STOP */
-#define COMP_SHORTS_DOWN_STOP_Pos (2UL) /*!< Position of DOWN_STOP field. */
-#define COMP_SHORTS_DOWN_STOP_Msk (0x1UL << COMP_SHORTS_DOWN_STOP_Pos) /*!< Bit mask of DOWN_STOP field. */
-#define COMP_SHORTS_DOWN_STOP_Disabled (0UL) /*!< Disable shortcut */
-#define COMP_SHORTS_DOWN_STOP_Enabled (1UL) /*!< Enable shortcut */
-
-/* Bit 1 : Shortcut between event READY and task STOP */
-#define COMP_SHORTS_READY_STOP_Pos (1UL) /*!< Position of READY_STOP field. */
-#define COMP_SHORTS_READY_STOP_Msk (0x1UL << COMP_SHORTS_READY_STOP_Pos) /*!< Bit mask of READY_STOP field. */
-#define COMP_SHORTS_READY_STOP_Disabled (0UL) /*!< Disable shortcut */
-#define COMP_SHORTS_READY_STOP_Enabled (1UL) /*!< Enable shortcut */
-
-/* Bit 0 : Shortcut between event READY and task SAMPLE */
-#define COMP_SHORTS_READY_SAMPLE_Pos (0UL) /*!< Position of READY_SAMPLE field. */
-#define COMP_SHORTS_READY_SAMPLE_Msk (0x1UL << COMP_SHORTS_READY_SAMPLE_Pos) /*!< Bit mask of READY_SAMPLE field. */
-#define COMP_SHORTS_READY_SAMPLE_Disabled (0UL) /*!< Disable shortcut */
-#define COMP_SHORTS_READY_SAMPLE_Enabled (1UL) /*!< Enable shortcut */
-
-/* Register: COMP_INTEN */
-/* Description: Enable or disable interrupt */
-
-/* Bit 3 : Enable or disable interrupt for event CROSS */
-#define COMP_INTEN_CROSS_Pos (3UL) /*!< Position of CROSS field. */
-#define COMP_INTEN_CROSS_Msk (0x1UL << COMP_INTEN_CROSS_Pos) /*!< Bit mask of CROSS field. */
-#define COMP_INTEN_CROSS_Disabled (0UL) /*!< Disable */
-#define COMP_INTEN_CROSS_Enabled (1UL) /*!< Enable */
-
-/* Bit 2 : Enable or disable interrupt for event UP */
-#define COMP_INTEN_UP_Pos (2UL) /*!< Position of UP field. */
-#define COMP_INTEN_UP_Msk (0x1UL << COMP_INTEN_UP_Pos) /*!< Bit mask of UP field. */
-#define COMP_INTEN_UP_Disabled (0UL) /*!< Disable */
-#define COMP_INTEN_UP_Enabled (1UL) /*!< Enable */
-
-/* Bit 1 : Enable or disable interrupt for event DOWN */
-#define COMP_INTEN_DOWN_Pos (1UL) /*!< Position of DOWN field. */
-#define COMP_INTEN_DOWN_Msk (0x1UL << COMP_INTEN_DOWN_Pos) /*!< Bit mask of DOWN field. */
-#define COMP_INTEN_DOWN_Disabled (0UL) /*!< Disable */
-#define COMP_INTEN_DOWN_Enabled (1UL) /*!< Enable */
-
-/* Bit 0 : Enable or disable interrupt for event READY */
-#define COMP_INTEN_READY_Pos (0UL) /*!< Position of READY field. */
-#define COMP_INTEN_READY_Msk (0x1UL << COMP_INTEN_READY_Pos) /*!< Bit mask of READY field. */
-#define COMP_INTEN_READY_Disabled (0UL) /*!< Disable */
-#define COMP_INTEN_READY_Enabled (1UL) /*!< Enable */
-
-/* Register: COMP_INTENSET */
-/* Description: Enable interrupt */
-
-/* Bit 3 : Write '1' to enable interrupt for event CROSS */
-#define COMP_INTENSET_CROSS_Pos (3UL) /*!< Position of CROSS field. */
-#define COMP_INTENSET_CROSS_Msk (0x1UL << COMP_INTENSET_CROSS_Pos) /*!< Bit mask of CROSS field. */
-#define COMP_INTENSET_CROSS_Disabled (0UL) /*!< Read: Disabled */
-#define COMP_INTENSET_CROSS_Enabled (1UL) /*!< Read: Enabled */
-#define COMP_INTENSET_CROSS_Set (1UL) /*!< Enable */
-
-/* Bit 2 : Write '1' to enable interrupt for event UP */
-#define COMP_INTENSET_UP_Pos (2UL) /*!< Position of UP field. */
-#define COMP_INTENSET_UP_Msk (0x1UL << COMP_INTENSET_UP_Pos) /*!< Bit mask of UP field. */
-#define COMP_INTENSET_UP_Disabled (0UL) /*!< Read: Disabled */
-#define COMP_INTENSET_UP_Enabled (1UL) /*!< Read: Enabled */
-#define COMP_INTENSET_UP_Set (1UL) /*!< Enable */
-
-/* Bit 1 : Write '1' to enable interrupt for event DOWN */
-#define COMP_INTENSET_DOWN_Pos (1UL) /*!< Position of DOWN field. */
-#define COMP_INTENSET_DOWN_Msk (0x1UL << COMP_INTENSET_DOWN_Pos) /*!< Bit mask of DOWN field. */
-#define COMP_INTENSET_DOWN_Disabled (0UL) /*!< Read: Disabled */
-#define COMP_INTENSET_DOWN_Enabled (1UL) /*!< Read: Enabled */
-#define COMP_INTENSET_DOWN_Set (1UL) /*!< Enable */
-
-/* Bit 0 : Write '1' to enable interrupt for event READY */
-#define COMP_INTENSET_READY_Pos (0UL) /*!< Position of READY field. */
-#define COMP_INTENSET_READY_Msk (0x1UL << COMP_INTENSET_READY_Pos) /*!< Bit mask of READY field. */
-#define COMP_INTENSET_READY_Disabled (0UL) /*!< Read: Disabled */
-#define COMP_INTENSET_READY_Enabled (1UL) /*!< Read: Enabled */
-#define COMP_INTENSET_READY_Set (1UL) /*!< Enable */
-
-/* Register: COMP_INTENCLR */
-/* Description: Disable interrupt */
-
-/* Bit 3 : Write '1' to disable interrupt for event CROSS */
-#define COMP_INTENCLR_CROSS_Pos (3UL) /*!< Position of CROSS field. */
-#define COMP_INTENCLR_CROSS_Msk (0x1UL << COMP_INTENCLR_CROSS_Pos) /*!< Bit mask of CROSS field. */
-#define COMP_INTENCLR_CROSS_Disabled (0UL) /*!< Read: Disabled */
-#define COMP_INTENCLR_CROSS_Enabled (1UL) /*!< Read: Enabled */
-#define COMP_INTENCLR_CROSS_Clear (1UL) /*!< Disable */
-
-/* Bit 2 : Write '1' to disable interrupt for event UP */
-#define COMP_INTENCLR_UP_Pos (2UL) /*!< Position of UP field. */
-#define COMP_INTENCLR_UP_Msk (0x1UL << COMP_INTENCLR_UP_Pos) /*!< Bit mask of UP field. */
-#define COMP_INTENCLR_UP_Disabled (0UL) /*!< Read: Disabled */
-#define COMP_INTENCLR_UP_Enabled (1UL) /*!< Read: Enabled */
-#define COMP_INTENCLR_UP_Clear (1UL) /*!< Disable */
-
-/* Bit 1 : Write '1' to disable interrupt for event DOWN */
-#define COMP_INTENCLR_DOWN_Pos (1UL) /*!< Position of DOWN field. */
-#define COMP_INTENCLR_DOWN_Msk (0x1UL << COMP_INTENCLR_DOWN_Pos) /*!< Bit mask of DOWN field. */
-#define COMP_INTENCLR_DOWN_Disabled (0UL) /*!< Read: Disabled */
-#define COMP_INTENCLR_DOWN_Enabled (1UL) /*!< Read: Enabled */
-#define COMP_INTENCLR_DOWN_Clear (1UL) /*!< Disable */
-
-/* Bit 0 : Write '1' to disable interrupt for event READY */
-#define COMP_INTENCLR_READY_Pos (0UL) /*!< Position of READY field. */
-#define COMP_INTENCLR_READY_Msk (0x1UL << COMP_INTENCLR_READY_Pos) /*!< Bit mask of READY field. */
-#define COMP_INTENCLR_READY_Disabled (0UL) /*!< Read: Disabled */
-#define COMP_INTENCLR_READY_Enabled (1UL) /*!< Read: Enabled */
-#define COMP_INTENCLR_READY_Clear (1UL) /*!< Disable */
-
-/* Register: COMP_RESULT */
-/* Description: Compare result */
-
-/* Bit 0 : Result of last compare. Decision point SAMPLE task. */
-#define COMP_RESULT_RESULT_Pos (0UL) /*!< Position of RESULT field. */
-#define COMP_RESULT_RESULT_Msk (0x1UL << COMP_RESULT_RESULT_Pos) /*!< Bit mask of RESULT field. */
-#define COMP_RESULT_RESULT_Below (0UL) /*!< Input voltage is below the threshold (VIN+ &lt; VIN-) */
-#define COMP_RESULT_RESULT_Above (1UL) /*!< Input voltage is above the threshold (VIN+ &gt; VIN-) */
-
-/* Register: COMP_ENABLE */
-/* Description: COMP enable */
-
-/* Bits 1..0 : Enable or disable COMP */
-#define COMP_ENABLE_ENABLE_Pos (0UL) /*!< Position of ENABLE field. */
-#define COMP_ENABLE_ENABLE_Msk (0x3UL << COMP_ENABLE_ENABLE_Pos) /*!< Bit mask of ENABLE field. */
-#define COMP_ENABLE_ENABLE_Disabled (0UL) /*!< Disable */
-#define COMP_ENABLE_ENABLE_Enabled (2UL) /*!< Enable */
-
-/* Register: COMP_PSEL */
-/* Description: Pin select */
-
-/* Bits 2..0 : Analog pin select */
-#define COMP_PSEL_PSEL_Pos (0UL) /*!< Position of PSEL field. */
-#define COMP_PSEL_PSEL_Msk (0x7UL << COMP_PSEL_PSEL_Pos) /*!< Bit mask of PSEL field. */
-#define COMP_PSEL_PSEL_AnalogInput0 (0UL) /*!< AIN0 selected as analog input */
-#define COMP_PSEL_PSEL_AnalogInput1 (1UL) /*!< AIN1 selected as analog input */
-#define COMP_PSEL_PSEL_AnalogInput2 (2UL) /*!< AIN2 selected as analog input */
-#define COMP_PSEL_PSEL_AnalogInput3 (3UL) /*!< AIN3 selected as analog input */
-#define COMP_PSEL_PSEL_AnalogInput4 (4UL) /*!< AIN4 selected as analog input */
-#define COMP_PSEL_PSEL_AnalogInput5 (5UL) /*!< AIN5 selected as analog input */
-#define COMP_PSEL_PSEL_AnalogInput6 (6UL) /*!< AIN6 selected as analog input */
-#define COMP_PSEL_PSEL_VddDiv2 (7UL) /*!< VDD/2 selected as analog input */
-
-/* Register: COMP_REFSEL */
-/* Description: Reference source select for single-ended mode */
-
-/* Bits 2..0 : Reference select */
-#define COMP_REFSEL_REFSEL_Pos (0UL) /*!< Position of REFSEL field. */
-#define COMP_REFSEL_REFSEL_Msk (0x7UL << COMP_REFSEL_REFSEL_Pos) /*!< Bit mask of REFSEL field. */
-#define COMP_REFSEL_REFSEL_Int1V2 (0UL) /*!< VREF = internal 1.2 V reference (VDD &gt;= 1.7 V) */
-#define COMP_REFSEL_REFSEL_Int1V8 (1UL) /*!< VREF = internal 1.8 V reference (VDD &gt;= VREF + 0.2 V) */
-#define COMP_REFSEL_REFSEL_Int2V4 (2UL) /*!< VREF = internal 2.4 V reference (VDD &gt;= VREF + 0.2 V) */
-#define COMP_REFSEL_REFSEL_VDD (4UL) /*!< VREF = VDD */
-#define COMP_REFSEL_REFSEL_ARef (5UL) /*!< VREF = AREF (VDD &gt;= VREF &gt;= AREFMIN) */
-
-/* Register: COMP_EXTREFSEL */
-/* Description: External reference select */
-
-/* Bits 2..0 : External analog reference select */
-#define COMP_EXTREFSEL_EXTREFSEL_Pos (0UL) /*!< Position of EXTREFSEL field. */
-#define COMP_EXTREFSEL_EXTREFSEL_Msk (0x7UL << COMP_EXTREFSEL_EXTREFSEL_Pos) /*!< Bit mask of EXTREFSEL field. */
-#define COMP_EXTREFSEL_EXTREFSEL_AnalogReference0 (0UL) /*!< Use AIN0 as external analog reference */
-#define COMP_EXTREFSEL_EXTREFSEL_AnalogReference1 (1UL) /*!< Use AIN1 as external analog reference */
-#define COMP_EXTREFSEL_EXTREFSEL_AnalogReference2 (2UL) /*!< Use AIN2 as external analog reference */
-#define COMP_EXTREFSEL_EXTREFSEL_AnalogReference3 (3UL) /*!< Use AIN3 as external analog reference */
-#define COMP_EXTREFSEL_EXTREFSEL_AnalogReference4 (4UL) /*!< Use AIN4 as external analog reference */
-#define COMP_EXTREFSEL_EXTREFSEL_AnalogReference5 (5UL) /*!< Use AIN5 as external analog reference */
-#define COMP_EXTREFSEL_EXTREFSEL_AnalogReference6 (6UL) /*!< Use AIN6 as external analog reference */
-#define COMP_EXTREFSEL_EXTREFSEL_AnalogReference7 (7UL) /*!< Use AIN7 as external analog reference */
-
-/* Register: COMP_TH */
-/* Description: Threshold configuration for hysteresis unit */
-
-/* Bits 13..8 : VUP = (THUP+1)/64*VREF */
-#define COMP_TH_THUP_Pos (8UL) /*!< Position of THUP field. */
-#define COMP_TH_THUP_Msk (0x3FUL << COMP_TH_THUP_Pos) /*!< Bit mask of THUP field. */
-
-/* Bits 5..0 : VDOWN = (THDOWN+1)/64*VREF */
-#define COMP_TH_THDOWN_Pos (0UL) /*!< Position of THDOWN field. */
-#define COMP_TH_THDOWN_Msk (0x3FUL << COMP_TH_THDOWN_Pos) /*!< Bit mask of THDOWN field. */
-
-/* Register: COMP_MODE */
-/* Description: Mode configuration */
-
-/* Bit 8 : Main operation modes */
-#define COMP_MODE_MAIN_Pos (8UL) /*!< Position of MAIN field. */
-#define COMP_MODE_MAIN_Msk (0x1UL << COMP_MODE_MAIN_Pos) /*!< Bit mask of MAIN field. */
-#define COMP_MODE_MAIN_SE (0UL) /*!< Single-ended mode */
-#define COMP_MODE_MAIN_Diff (1UL) /*!< Differential mode */
-
-/* Bits 1..0 : Speed and power modes */
-#define COMP_MODE_SP_Pos (0UL) /*!< Position of SP field. */
-#define COMP_MODE_SP_Msk (0x3UL << COMP_MODE_SP_Pos) /*!< Bit mask of SP field. */
-#define COMP_MODE_SP_Low (0UL) /*!< Low-power mode */
-#define COMP_MODE_SP_Normal (1UL) /*!< Normal mode */
-#define COMP_MODE_SP_High (2UL) /*!< High-speed mode */
-
-/* Register: COMP_HYST */
-/* Description: Comparator hysteresis enable */
-
-/* Bit 0 : Comparator hysteresis */
-#define COMP_HYST_HYST_Pos (0UL) /*!< Position of HYST field. */
-#define COMP_HYST_HYST_Msk (0x1UL << COMP_HYST_HYST_Pos) /*!< Bit mask of HYST field. */
-#define COMP_HYST_HYST_NoHyst (0UL) /*!< Comparator hysteresis disabled */
-#define COMP_HYST_HYST_Hyst50mV (1UL) /*!< Comparator hysteresis enabled */
-
-
 /* Peripheral: ECB */
 /* Description: AES ECB Mode Encryption */
 
@@ -1706,6 +1424,7 @@ POSSIBILITY OF SUCH DAMAGE.
 /* Bits 31..0 : Part code */
 #define FICR_INFO_PART_PART_Pos (0UL) /*!< Position of PART field. */
 #define FICR_INFO_PART_PART_Msk (0xFFFFFFFFUL << FICR_INFO_PART_PART_Pos) /*!< Bit mask of PART field. */
+#define FICR_INFO_PART_PART_N52805 (0x52805UL) /*!< nRF52805 */
 #define FICR_INFO_PART_PART_N52810 (0x52810UL) /*!< nRF52810 */
 #define FICR_INFO_PART_PART_N52811 (0x52811UL) /*!< nRF52811 */
 #define FICR_INFO_PART_PART_N52832 (0x52832UL) /*!< nRF52832 */
@@ -1733,8 +1452,6 @@ POSSIBILITY OF SUCH DAMAGE.
 /* Bits 31..0 : Package option */
 #define FICR_INFO_PACKAGE_PACKAGE_Pos (0UL) /*!< Position of PACKAGE field. */
 #define FICR_INFO_PACKAGE_PACKAGE_Msk (0xFFFFFFFFUL << FICR_INFO_PACKAGE_PACKAGE_Pos) /*!< Bit mask of PACKAGE field. */
-#define FICR_INFO_PACKAGE_PACKAGE_QF (0x2000UL) /*!< QFxx - 48-pin QFN */
-#define FICR_INFO_PACKAGE_PACKAGE_QC (0x2003UL) /*!< QCxx - 32-pin QFN */
 #define FICR_INFO_PACKAGE_PACKAGE_CA (0x2004UL) /*!< CAxx - WLCSP */
 #define FICR_INFO_PACKAGE_PACKAGE_Unspecified (0xFFFFFFFFUL) /*!< Unspecified */
 
@@ -3900,216 +3617,6 @@ POSSIBILITY OF SUCH DAMAGE.
 #define GPIO_PIN_CNF_DIR_Output (1UL) /*!< Configure pin as an output pin */
 
 
-/* Peripheral: PDM */
-/* Description: Pulse Density Modulation (Digital Microphone) Interface */
-
-/* Register: PDM_TASKS_START */
-/* Description: Starts continuous PDM transfer */
-
-/* Bit 0 : Starts continuous PDM transfer */
-#define PDM_TASKS_START_TASKS_START_Pos (0UL) /*!< Position of TASKS_START field. */
-#define PDM_TASKS_START_TASKS_START_Msk (0x1UL << PDM_TASKS_START_TASKS_START_Pos) /*!< Bit mask of TASKS_START field. */
-#define PDM_TASKS_START_TASKS_START_Trigger (1UL) /*!< Trigger task */
-
-/* Register: PDM_TASKS_STOP */
-/* Description: Stops PDM transfer */
-
-/* Bit 0 : Stops PDM transfer */
-#define PDM_TASKS_STOP_TASKS_STOP_Pos (0UL) /*!< Position of TASKS_STOP field. */
-#define PDM_TASKS_STOP_TASKS_STOP_Msk (0x1UL << PDM_TASKS_STOP_TASKS_STOP_Pos) /*!< Bit mask of TASKS_STOP field. */
-#define PDM_TASKS_STOP_TASKS_STOP_Trigger (1UL) /*!< Trigger task */
-
-/* Register: PDM_EVENTS_STARTED */
-/* Description: PDM transfer has started */
-
-/* Bit 0 : PDM transfer has started */
-#define PDM_EVENTS_STARTED_EVENTS_STARTED_Pos (0UL) /*!< Position of EVENTS_STARTED field. */
-#define PDM_EVENTS_STARTED_EVENTS_STARTED_Msk (0x1UL << PDM_EVENTS_STARTED_EVENTS_STARTED_Pos) /*!< Bit mask of EVENTS_STARTED field. */
-#define PDM_EVENTS_STARTED_EVENTS_STARTED_NotGenerated (0UL) /*!< Event not generated */
-#define PDM_EVENTS_STARTED_EVENTS_STARTED_Generated (1UL) /*!< Event generated */
-
-/* Register: PDM_EVENTS_STOPPED */
-/* Description: PDM transfer has finished */
-
-/* Bit 0 : PDM transfer has finished */
-#define PDM_EVENTS_STOPPED_EVENTS_STOPPED_Pos (0UL) /*!< Position of EVENTS_STOPPED field. */
-#define PDM_EVENTS_STOPPED_EVENTS_STOPPED_Msk (0x1UL << PDM_EVENTS_STOPPED_EVENTS_STOPPED_Pos) /*!< Bit mask of EVENTS_STOPPED field. */
-#define PDM_EVENTS_STOPPED_EVENTS_STOPPED_NotGenerated (0UL) /*!< Event not generated */
-#define PDM_EVENTS_STOPPED_EVENTS_STOPPED_Generated (1UL) /*!< Event generated */
-
-/* Register: PDM_EVENTS_END */
-/* Description: The PDM has written the last sample specified by SAMPLE.MAXCNT (or the last sample after a STOP task has been received) to Data RAM */
-
-/* Bit 0 : The PDM has written the last sample specified by SAMPLE.MAXCNT (or the last sample after a STOP task has been received) to Data RAM */
-#define PDM_EVENTS_END_EVENTS_END_Pos (0UL) /*!< Position of EVENTS_END field. */
-#define PDM_EVENTS_END_EVENTS_END_Msk (0x1UL << PDM_EVENTS_END_EVENTS_END_Pos) /*!< Bit mask of EVENTS_END field. */
-#define PDM_EVENTS_END_EVENTS_END_NotGenerated (0UL) /*!< Event not generated */
-#define PDM_EVENTS_END_EVENTS_END_Generated (1UL) /*!< Event generated */
-
-/* Register: PDM_INTEN */
-/* Description: Enable or disable interrupt */
-
-/* Bit 2 : Enable or disable interrupt for event END */
-#define PDM_INTEN_END_Pos (2UL) /*!< Position of END field. */
-#define PDM_INTEN_END_Msk (0x1UL << PDM_INTEN_END_Pos) /*!< Bit mask of END field. */
-#define PDM_INTEN_END_Disabled (0UL) /*!< Disable */
-#define PDM_INTEN_END_Enabled (1UL) /*!< Enable */
-
-/* Bit 1 : Enable or disable interrupt for event STOPPED */
-#define PDM_INTEN_STOPPED_Pos (1UL) /*!< Position of STOPPED field. */
-#define PDM_INTEN_STOPPED_Msk (0x1UL << PDM_INTEN_STOPPED_Pos) /*!< Bit mask of STOPPED field. */
-#define PDM_INTEN_STOPPED_Disabled (0UL) /*!< Disable */
-#define PDM_INTEN_STOPPED_Enabled (1UL) /*!< Enable */
-
-/* Bit 0 : Enable or disable interrupt for event STARTED */
-#define PDM_INTEN_STARTED_Pos (0UL) /*!< Position of STARTED field. */
-#define PDM_INTEN_STARTED_Msk (0x1UL << PDM_INTEN_STARTED_Pos) /*!< Bit mask of STARTED field. */
-#define PDM_INTEN_STARTED_Disabled (0UL) /*!< Disable */
-#define PDM_INTEN_STARTED_Enabled (1UL) /*!< Enable */
-
-/* Register: PDM_INTENSET */
-/* Description: Enable interrupt */
-
-/* Bit 2 : Write '1' to enable interrupt for event END */
-#define PDM_INTENSET_END_Pos (2UL) /*!< Position of END field. */
-#define PDM_INTENSET_END_Msk (0x1UL << PDM_INTENSET_END_Pos) /*!< Bit mask of END field. */
-#define PDM_INTENSET_END_Disabled (0UL) /*!< Read: Disabled */
-#define PDM_INTENSET_END_Enabled (1UL) /*!< Read: Enabled */
-#define PDM_INTENSET_END_Set (1UL) /*!< Enable */
-
-/* Bit 1 : Write '1' to enable interrupt for event STOPPED */
-#define PDM_INTENSET_STOPPED_Pos (1UL) /*!< Position of STOPPED field. */
-#define PDM_INTENSET_STOPPED_Msk (0x1UL << PDM_INTENSET_STOPPED_Pos) /*!< Bit mask of STOPPED field. */
-#define PDM_INTENSET_STOPPED_Disabled (0UL) /*!< Read: Disabled */
-#define PDM_INTENSET_STOPPED_Enabled (1UL) /*!< Read: Enabled */
-#define PDM_INTENSET_STOPPED_Set (1UL) /*!< Enable */
-
-/* Bit 0 : Write '1' to enable interrupt for event STARTED */
-#define PDM_INTENSET_STARTED_Pos (0UL) /*!< Position of STARTED field. */
-#define PDM_INTENSET_STARTED_Msk (0x1UL << PDM_INTENSET_STARTED_Pos) /*!< Bit mask of STARTED field. */
-#define PDM_INTENSET_STARTED_Disabled (0UL) /*!< Read: Disabled */
-#define PDM_INTENSET_STARTED_Enabled (1UL) /*!< Read: Enabled */
-#define PDM_INTENSET_STARTED_Set (1UL) /*!< Enable */
-
-/* Register: PDM_INTENCLR */
-/* Description: Disable interrupt */
-
-/* Bit 2 : Write '1' to disable interrupt for event END */
-#define PDM_INTENCLR_END_Pos (2UL) /*!< Position of END field. */
-#define PDM_INTENCLR_END_Msk (0x1UL << PDM_INTENCLR_END_Pos) /*!< Bit mask of END field. */
-#define PDM_INTENCLR_END_Disabled (0UL) /*!< Read: Disabled */
-#define PDM_INTENCLR_END_Enabled (1UL) /*!< Read: Enabled */
-#define PDM_INTENCLR_END_Clear (1UL) /*!< Disable */
-
-/* Bit 1 : Write '1' to disable interrupt for event STOPPED */
-#define PDM_INTENCLR_STOPPED_Pos (1UL) /*!< Position of STOPPED field. */
-#define PDM_INTENCLR_STOPPED_Msk (0x1UL << PDM_INTENCLR_STOPPED_Pos) /*!< Bit mask of STOPPED field. */
-#define PDM_INTENCLR_STOPPED_Disabled (0UL) /*!< Read: Disabled */
-#define PDM_INTENCLR_STOPPED_Enabled (1UL) /*!< Read: Enabled */
-#define PDM_INTENCLR_STOPPED_Clear (1UL) /*!< Disable */
-
-/* Bit 0 : Write '1' to disable interrupt for event STARTED */
-#define PDM_INTENCLR_STARTED_Pos (0UL) /*!< Position of STARTED field. */
-#define PDM_INTENCLR_STARTED_Msk (0x1UL << PDM_INTENCLR_STARTED_Pos) /*!< Bit mask of STARTED field. */
-#define PDM_INTENCLR_STARTED_Disabled (0UL) /*!< Read: Disabled */
-#define PDM_INTENCLR_STARTED_Enabled (1UL) /*!< Read: Enabled */
-#define PDM_INTENCLR_STARTED_Clear (1UL) /*!< Disable */
-
-/* Register: PDM_ENABLE */
-/* Description: PDM module enable register */
-
-/* Bit 0 : Enable or disable PDM module */
-#define PDM_ENABLE_ENABLE_Pos (0UL) /*!< Position of ENABLE field. */
-#define PDM_ENABLE_ENABLE_Msk (0x1UL << PDM_ENABLE_ENABLE_Pos) /*!< Bit mask of ENABLE field. */
-#define PDM_ENABLE_ENABLE_Disabled (0UL) /*!< Disable */
-#define PDM_ENABLE_ENABLE_Enabled (1UL) /*!< Enable */
-
-/* Register: PDM_PDMCLKCTRL */
-/* Description: PDM clock generator control */
-
-/* Bits 31..0 : PDM_CLK frequency */
-#define PDM_PDMCLKCTRL_FREQ_Pos (0UL) /*!< Position of FREQ field. */
-#define PDM_PDMCLKCTRL_FREQ_Msk (0xFFFFFFFFUL << PDM_PDMCLKCTRL_FREQ_Pos) /*!< Bit mask of FREQ field. */
-#define PDM_PDMCLKCTRL_FREQ_1000K (0x08000000UL) /*!< PDM_CLK = 32 MHz / 32 = 1.000 MHz */
-#define PDM_PDMCLKCTRL_FREQ_Default (0x08400000UL) /*!< PDM_CLK = 32 MHz / 31 = 1.032 MHz */
-#define PDM_PDMCLKCTRL_FREQ_1067K (0x08800000UL) /*!< PDM_CLK = 32 MHz / 30 = 1.067 MHz */
-
-/* Register: PDM_MODE */
-/* Description: Defines the routing of the connected PDM microphones' signals */
-
-/* Bit 1 : Defines on which PDM_CLK edge Left (or mono) is sampled */
-#define PDM_MODE_EDGE_Pos (1UL) /*!< Position of EDGE field. */
-#define PDM_MODE_EDGE_Msk (0x1UL << PDM_MODE_EDGE_Pos) /*!< Bit mask of EDGE field. */
-#define PDM_MODE_EDGE_LeftFalling (0UL) /*!< Left (or mono) is sampled on falling edge of PDM_CLK */
-#define PDM_MODE_EDGE_LeftRising (1UL) /*!< Left (or mono) is sampled on rising edge of PDM_CLK */
-
-/* Bit 0 : Mono or stereo operation */
-#define PDM_MODE_OPERATION_Pos (0UL) /*!< Position of OPERATION field. */
-#define PDM_MODE_OPERATION_Msk (0x1UL << PDM_MODE_OPERATION_Pos) /*!< Bit mask of OPERATION field. */
-#define PDM_MODE_OPERATION_Stereo (0UL) /*!< Sample and store one pair (Left + Right) of 16bit samples per RAM word R=[31:16]; L=[15:0] */
-#define PDM_MODE_OPERATION_Mono (1UL) /*!< Sample and store two successive Left samples (16 bit each) per RAM word L1=[31:16]; L0=[15:0] */
-
-/* Register: PDM_GAINL */
-/* Description: Left output gain adjustment */
-
-/* Bits 6..0 : Left output gain adjustment, in 0.5 dB steps, around the default module gain (see electrical parameters) 0x00    -20 dB gain adjust 0x01  -19.5 dB gain adjust (...) 0x27   -0.5 dB gain adjust 0x28      0 dB gain adjust 0x29   +0.5 dB gain adjust (...) 0x4F  +19.5 dB gain adjust 0x50    +20 dB gain adjust */
-#define PDM_GAINL_GAINL_Pos (0UL) /*!< Position of GAINL field. */
-#define PDM_GAINL_GAINL_Msk (0x7FUL << PDM_GAINL_GAINL_Pos) /*!< Bit mask of GAINL field. */
-#define PDM_GAINL_GAINL_MinGain (0x00UL) /*!< -20dB gain adjustment (minimum) */
-#define PDM_GAINL_GAINL_DefaultGain (0x28UL) /*!< 0dB gain adjustment ('2500 RMS' requirement) */
-#define PDM_GAINL_GAINL_MaxGain (0x50UL) /*!< +20dB gain adjustment (maximum) */
-
-/* Register: PDM_GAINR */
-/* Description: Right output gain adjustment */
-
-/* Bits 7..0 : Right output gain adjustment, in 0.5 dB steps, around the default module gain (see electrical parameters) */
-#define PDM_GAINR_GAINR_Pos (0UL) /*!< Position of GAINR field. */
-#define PDM_GAINR_GAINR_Msk (0xFFUL << PDM_GAINR_GAINR_Pos) /*!< Bit mask of GAINR field. */
-#define PDM_GAINR_GAINR_MinGain (0x00UL) /*!< -20dB gain adjustment (minimum) */
-#define PDM_GAINR_GAINR_DefaultGain (0x28UL) /*!< 0dB gain adjustment ('2500 RMS' requirement) */
-#define PDM_GAINR_GAINR_MaxGain (0x50UL) /*!< +20dB gain adjustment (maximum) */
-
-/* Register: PDM_PSEL_CLK */
-/* Description: Pin number configuration for PDM CLK signal */
-
-/* Bit 31 : Connection */
-#define PDM_PSEL_CLK_CONNECT_Pos (31UL) /*!< Position of CONNECT field. */
-#define PDM_PSEL_CLK_CONNECT_Msk (0x1UL << PDM_PSEL_CLK_CONNECT_Pos) /*!< Bit mask of CONNECT field. */
-#define PDM_PSEL_CLK_CONNECT_Connected (0UL) /*!< Connect */
-#define PDM_PSEL_CLK_CONNECT_Disconnected (1UL) /*!< Disconnect */
-
-/* Bits 4..0 : Pin number */
-#define PDM_PSEL_CLK_PIN_Pos (0UL) /*!< Position of PIN field. */
-#define PDM_PSEL_CLK_PIN_Msk (0x1FUL << PDM_PSEL_CLK_PIN_Pos) /*!< Bit mask of PIN field. */
-
-/* Register: PDM_PSEL_DIN */
-/* Description: Pin number configuration for PDM DIN signal */
-
-/* Bit 31 : Connection */
-#define PDM_PSEL_DIN_CONNECT_Pos (31UL) /*!< Position of CONNECT field. */
-#define PDM_PSEL_DIN_CONNECT_Msk (0x1UL << PDM_PSEL_DIN_CONNECT_Pos) /*!< Bit mask of CONNECT field. */
-#define PDM_PSEL_DIN_CONNECT_Connected (0UL) /*!< Connect */
-#define PDM_PSEL_DIN_CONNECT_Disconnected (1UL) /*!< Disconnect */
-
-/* Bits 4..0 : Pin number */
-#define PDM_PSEL_DIN_PIN_Pos (0UL) /*!< Position of PIN field. */
-#define PDM_PSEL_DIN_PIN_Msk (0x1FUL << PDM_PSEL_DIN_PIN_Pos) /*!< Bit mask of PIN field. */
-
-/* Register: PDM_SAMPLE_PTR */
-/* Description: RAM address pointer to write samples to with EasyDMA */
-
-/* Bits 31..0 : Address to write PDM samples to over DMA */
-#define PDM_SAMPLE_PTR_SAMPLEPTR_Pos (0UL) /*!< Position of SAMPLEPTR field. */
-#define PDM_SAMPLE_PTR_SAMPLEPTR_Msk (0xFFFFFFFFUL << PDM_SAMPLE_PTR_SAMPLEPTR_Pos) /*!< Bit mask of SAMPLEPTR field. */
-
-/* Register: PDM_SAMPLE_MAXCNT */
-/* Description: Number of samples to allocate memory for in EasyDMA mode */
-
-/* Bits 14..0 : Length of DMA RAM allocation in number of samples */
-#define PDM_SAMPLE_MAXCNT_BUFFSIZE_Pos (0UL) /*!< Position of BUFFSIZE field. */
-#define PDM_SAMPLE_MAXCNT_BUFFSIZE_Msk (0x7FFFUL << PDM_SAMPLE_MAXCNT_BUFFSIZE_Pos) /*!< Bit mask of BUFFSIZE field. */
-
-
 /* Peripheral: POWER */
 /* Description: Power control */
 
@@ -5258,723 +4765,8 @@ POSSIBILITY OF SUCH DAMAGE.
 #define PPI_FORK_TEP_TEP_Msk (0xFFFFFFFFUL << PPI_FORK_TEP_TEP_Pos) /*!< Bit mask of TEP field. */
 
 
-/* Peripheral: PWM */
-/* Description: Pulse width modulation unit */
-
-/* Register: PWM_TASKS_STOP */
-/* Description: Stops PWM pulse generation on all channels at the end of current PWM period, and stops sequence playback */
-
-/* Bit 0 : Stops PWM pulse generation on all channels at the end of current PWM period, and stops sequence playback */
-#define PWM_TASKS_STOP_TASKS_STOP_Pos (0UL) /*!< Position of TASKS_STOP field. */
-#define PWM_TASKS_STOP_TASKS_STOP_Msk (0x1UL << PWM_TASKS_STOP_TASKS_STOP_Pos) /*!< Bit mask of TASKS_STOP field. */
-#define PWM_TASKS_STOP_TASKS_STOP_Trigger (1UL) /*!< Trigger task */
-
-/* Register: PWM_TASKS_SEQSTART */
-/* Description: Description collection: Loads the first PWM value on all enabled channels from sequence n, and starts playing that sequence at the rate defined in SEQ[n]REFRESH and/or DECODER.MODE. Causes PWM generation to start if not running. */
-
-/* Bit 0 : Loads the first PWM value on all enabled channels from sequence n, and starts playing that sequence at the rate defined in SEQ[n]REFRESH and/or DECODER.MODE. Causes PWM generation to start if not running. */
-#define PWM_TASKS_SEQSTART_TASKS_SEQSTART_Pos (0UL) /*!< Position of TASKS_SEQSTART field. */
-#define PWM_TASKS_SEQSTART_TASKS_SEQSTART_Msk (0x1UL << PWM_TASKS_SEQSTART_TASKS_SEQSTART_Pos) /*!< Bit mask of TASKS_SEQSTART field. */
-#define PWM_TASKS_SEQSTART_TASKS_SEQSTART_Trigger (1UL) /*!< Trigger task */
-
-/* Register: PWM_TASKS_NEXTSTEP */
-/* Description: Steps by one value in the current sequence on all enabled channels if DECODER.MODE=NextStep. Does not cause PWM generation to start if not running. */
-
-/* Bit 0 : Steps by one value in the current sequence on all enabled channels if DECODER.MODE=NextStep. Does not cause PWM generation to start if not running. */
-#define PWM_TASKS_NEXTSTEP_TASKS_NEXTSTEP_Pos (0UL) /*!< Position of TASKS_NEXTSTEP field. */
-#define PWM_TASKS_NEXTSTEP_TASKS_NEXTSTEP_Msk (0x1UL << PWM_TASKS_NEXTSTEP_TASKS_NEXTSTEP_Pos) /*!< Bit mask of TASKS_NEXTSTEP field. */
-#define PWM_TASKS_NEXTSTEP_TASKS_NEXTSTEP_Trigger (1UL) /*!< Trigger task */
-
-/* Register: PWM_EVENTS_STOPPED */
-/* Description: Response to STOP task, emitted when PWM pulses are no longer generated */
-
-/* Bit 0 : Response to STOP task, emitted when PWM pulses are no longer generated */
-#define PWM_EVENTS_STOPPED_EVENTS_STOPPED_Pos (0UL) /*!< Position of EVENTS_STOPPED field. */
-#define PWM_EVENTS_STOPPED_EVENTS_STOPPED_Msk (0x1UL << PWM_EVENTS_STOPPED_EVENTS_STOPPED_Pos) /*!< Bit mask of EVENTS_STOPPED field. */
-#define PWM_EVENTS_STOPPED_EVENTS_STOPPED_NotGenerated (0UL) /*!< Event not generated */
-#define PWM_EVENTS_STOPPED_EVENTS_STOPPED_Generated (1UL) /*!< Event generated */
-
-/* Register: PWM_EVENTS_SEQSTARTED */
-/* Description: Description collection: First PWM period started on sequence n */
-
-/* Bit 0 : First PWM period started on sequence n */
-#define PWM_EVENTS_SEQSTARTED_EVENTS_SEQSTARTED_Pos (0UL) /*!< Position of EVENTS_SEQSTARTED field. */
-#define PWM_EVENTS_SEQSTARTED_EVENTS_SEQSTARTED_Msk (0x1UL << PWM_EVENTS_SEQSTARTED_EVENTS_SEQSTARTED_Pos) /*!< Bit mask of EVENTS_SEQSTARTED field. */
-#define PWM_EVENTS_SEQSTARTED_EVENTS_SEQSTARTED_NotGenerated (0UL) /*!< Event not generated */
-#define PWM_EVENTS_SEQSTARTED_EVENTS_SEQSTARTED_Generated (1UL) /*!< Event generated */
-
-/* Register: PWM_EVENTS_SEQEND */
-/* Description: Description collection: Emitted at end of every sequence n, when last value from RAM has been applied to wave counter */
-
-/* Bit 0 : Emitted at end of every sequence n, when last value from RAM has been applied to wave counter */
-#define PWM_EVENTS_SEQEND_EVENTS_SEQEND_Pos (0UL) /*!< Position of EVENTS_SEQEND field. */
-#define PWM_EVENTS_SEQEND_EVENTS_SEQEND_Msk (0x1UL << PWM_EVENTS_SEQEND_EVENTS_SEQEND_Pos) /*!< Bit mask of EVENTS_SEQEND field. */
-#define PWM_EVENTS_SEQEND_EVENTS_SEQEND_NotGenerated (0UL) /*!< Event not generated */
-#define PWM_EVENTS_SEQEND_EVENTS_SEQEND_Generated (1UL) /*!< Event generated */
-
-/* Register: PWM_EVENTS_PWMPERIODEND */
-/* Description: Emitted at the end of each PWM period */
-
-/* Bit 0 : Emitted at the end of each PWM period */
-#define PWM_EVENTS_PWMPERIODEND_EVENTS_PWMPERIODEND_Pos (0UL) /*!< Position of EVENTS_PWMPERIODEND field. */
-#define PWM_EVENTS_PWMPERIODEND_EVENTS_PWMPERIODEND_Msk (0x1UL << PWM_EVENTS_PWMPERIODEND_EVENTS_PWMPERIODEND_Pos) /*!< Bit mask of EVENTS_PWMPERIODEND field. */
-#define PWM_EVENTS_PWMPERIODEND_EVENTS_PWMPERIODEND_NotGenerated (0UL) /*!< Event not generated */
-#define PWM_EVENTS_PWMPERIODEND_EVENTS_PWMPERIODEND_Generated (1UL) /*!< Event generated */
-
-/* Register: PWM_EVENTS_LOOPSDONE */
-/* Description: Concatenated sequences have been played the amount of times defined in LOOP.CNT */
-
-/* Bit 0 : Concatenated sequences have been played the amount of times defined in LOOP.CNT */
-#define PWM_EVENTS_LOOPSDONE_EVENTS_LOOPSDONE_Pos (0UL) /*!< Position of EVENTS_LOOPSDONE field. */
-#define PWM_EVENTS_LOOPSDONE_EVENTS_LOOPSDONE_Msk (0x1UL << PWM_EVENTS_LOOPSDONE_EVENTS_LOOPSDONE_Pos) /*!< Bit mask of EVENTS_LOOPSDONE field. */
-#define PWM_EVENTS_LOOPSDONE_EVENTS_LOOPSDONE_NotGenerated (0UL) /*!< Event not generated */
-#define PWM_EVENTS_LOOPSDONE_EVENTS_LOOPSDONE_Generated (1UL) /*!< Event generated */
-
-/* Register: PWM_SHORTS */
-/* Description: Shortcuts between local events and tasks */
-
-/* Bit 4 : Shortcut between event LOOPSDONE and task STOP */
-#define PWM_SHORTS_LOOPSDONE_STOP_Pos (4UL) /*!< Position of LOOPSDONE_STOP field. */
-#define PWM_SHORTS_LOOPSDONE_STOP_Msk (0x1UL << PWM_SHORTS_LOOPSDONE_STOP_Pos) /*!< Bit mask of LOOPSDONE_STOP field. */
-#define PWM_SHORTS_LOOPSDONE_STOP_Disabled (0UL) /*!< Disable shortcut */
-#define PWM_SHORTS_LOOPSDONE_STOP_Enabled (1UL) /*!< Enable shortcut */
-
-/* Bit 3 : Shortcut between event LOOPSDONE and task SEQSTART[1] */
-#define PWM_SHORTS_LOOPSDONE_SEQSTART1_Pos (3UL) /*!< Position of LOOPSDONE_SEQSTART1 field. */
-#define PWM_SHORTS_LOOPSDONE_SEQSTART1_Msk (0x1UL << PWM_SHORTS_LOOPSDONE_SEQSTART1_Pos) /*!< Bit mask of LOOPSDONE_SEQSTART1 field. */
-#define PWM_SHORTS_LOOPSDONE_SEQSTART1_Disabled (0UL) /*!< Disable shortcut */
-#define PWM_SHORTS_LOOPSDONE_SEQSTART1_Enabled (1UL) /*!< Enable shortcut */
-
-/* Bit 2 : Shortcut between event LOOPSDONE and task SEQSTART[0] */
-#define PWM_SHORTS_LOOPSDONE_SEQSTART0_Pos (2UL) /*!< Position of LOOPSDONE_SEQSTART0 field. */
-#define PWM_SHORTS_LOOPSDONE_SEQSTART0_Msk (0x1UL << PWM_SHORTS_LOOPSDONE_SEQSTART0_Pos) /*!< Bit mask of LOOPSDONE_SEQSTART0 field. */
-#define PWM_SHORTS_LOOPSDONE_SEQSTART0_Disabled (0UL) /*!< Disable shortcut */
-#define PWM_SHORTS_LOOPSDONE_SEQSTART0_Enabled (1UL) /*!< Enable shortcut */
-
-/* Bit 1 : Shortcut between event SEQEND[1] and task STOP */
-#define PWM_SHORTS_SEQEND1_STOP_Pos (1UL) /*!< Position of SEQEND1_STOP field. */
-#define PWM_SHORTS_SEQEND1_STOP_Msk (0x1UL << PWM_SHORTS_SEQEND1_STOP_Pos) /*!< Bit mask of SEQEND1_STOP field. */
-#define PWM_SHORTS_SEQEND1_STOP_Disabled (0UL) /*!< Disable shortcut */
-#define PWM_SHORTS_SEQEND1_STOP_Enabled (1UL) /*!< Enable shortcut */
-
-/* Bit 0 : Shortcut between event SEQEND[0] and task STOP */
-#define PWM_SHORTS_SEQEND0_STOP_Pos (0UL) /*!< Position of SEQEND0_STOP field. */
-#define PWM_SHORTS_SEQEND0_STOP_Msk (0x1UL << PWM_SHORTS_SEQEND0_STOP_Pos) /*!< Bit mask of SEQEND0_STOP field. */
-#define PWM_SHORTS_SEQEND0_STOP_Disabled (0UL) /*!< Disable shortcut */
-#define PWM_SHORTS_SEQEND0_STOP_Enabled (1UL) /*!< Enable shortcut */
-
-/* Register: PWM_INTEN */
-/* Description: Enable or disable interrupt */
-
-/* Bit 7 : Enable or disable interrupt for event LOOPSDONE */
-#define PWM_INTEN_LOOPSDONE_Pos (7UL) /*!< Position of LOOPSDONE field. */
-#define PWM_INTEN_LOOPSDONE_Msk (0x1UL << PWM_INTEN_LOOPSDONE_Pos) /*!< Bit mask of LOOPSDONE field. */
-#define PWM_INTEN_LOOPSDONE_Disabled (0UL) /*!< Disable */
-#define PWM_INTEN_LOOPSDONE_Enabled (1UL) /*!< Enable */
-
-/* Bit 6 : Enable or disable interrupt for event PWMPERIODEND */
-#define PWM_INTEN_PWMPERIODEND_Pos (6UL) /*!< Position of PWMPERIODEND field. */
-#define PWM_INTEN_PWMPERIODEND_Msk (0x1UL << PWM_INTEN_PWMPERIODEND_Pos) /*!< Bit mask of PWMPERIODEND field. */
-#define PWM_INTEN_PWMPERIODEND_Disabled (0UL) /*!< Disable */
-#define PWM_INTEN_PWMPERIODEND_Enabled (1UL) /*!< Enable */
-
-/* Bit 5 : Enable or disable interrupt for event SEQEND[1] */
-#define PWM_INTEN_SEQEND1_Pos (5UL) /*!< Position of SEQEND1 field. */
-#define PWM_INTEN_SEQEND1_Msk (0x1UL << PWM_INTEN_SEQEND1_Pos) /*!< Bit mask of SEQEND1 field. */
-#define PWM_INTEN_SEQEND1_Disabled (0UL) /*!< Disable */
-#define PWM_INTEN_SEQEND1_Enabled (1UL) /*!< Enable */
-
-/* Bit 4 : Enable or disable interrupt for event SEQEND[0] */
-#define PWM_INTEN_SEQEND0_Pos (4UL) /*!< Position of SEQEND0 field. */
-#define PWM_INTEN_SEQEND0_Msk (0x1UL << PWM_INTEN_SEQEND0_Pos) /*!< Bit mask of SEQEND0 field. */
-#define PWM_INTEN_SEQEND0_Disabled (0UL) /*!< Disable */
-#define PWM_INTEN_SEQEND0_Enabled (1UL) /*!< Enable */
-
-/* Bit 3 : Enable or disable interrupt for event SEQSTARTED[1] */
-#define PWM_INTEN_SEQSTARTED1_Pos (3UL) /*!< Position of SEQSTARTED1 field. */
-#define PWM_INTEN_SEQSTARTED1_Msk (0x1UL << PWM_INTEN_SEQSTARTED1_Pos) /*!< Bit mask of SEQSTARTED1 field. */
-#define PWM_INTEN_SEQSTARTED1_Disabled (0UL) /*!< Disable */
-#define PWM_INTEN_SEQSTARTED1_Enabled (1UL) /*!< Enable */
-
-/* Bit 2 : Enable or disable interrupt for event SEQSTARTED[0] */
-#define PWM_INTEN_SEQSTARTED0_Pos (2UL) /*!< Position of SEQSTARTED0 field. */
-#define PWM_INTEN_SEQSTARTED0_Msk (0x1UL << PWM_INTEN_SEQSTARTED0_Pos) /*!< Bit mask of SEQSTARTED0 field. */
-#define PWM_INTEN_SEQSTARTED0_Disabled (0UL) /*!< Disable */
-#define PWM_INTEN_SEQSTARTED0_Enabled (1UL) /*!< Enable */
-
-/* Bit 1 : Enable or disable interrupt for event STOPPED */
-#define PWM_INTEN_STOPPED_Pos (1UL) /*!< Position of STOPPED field. */
-#define PWM_INTEN_STOPPED_Msk (0x1UL << PWM_INTEN_STOPPED_Pos) /*!< Bit mask of STOPPED field. */
-#define PWM_INTEN_STOPPED_Disabled (0UL) /*!< Disable */
-#define PWM_INTEN_STOPPED_Enabled (1UL) /*!< Enable */
-
-/* Register: PWM_INTENSET */
-/* Description: Enable interrupt */
-
-/* Bit 7 : Write '1' to enable interrupt for event LOOPSDONE */
-#define PWM_INTENSET_LOOPSDONE_Pos (7UL) /*!< Position of LOOPSDONE field. */
-#define PWM_INTENSET_LOOPSDONE_Msk (0x1UL << PWM_INTENSET_LOOPSDONE_Pos) /*!< Bit mask of LOOPSDONE field. */
-#define PWM_INTENSET_LOOPSDONE_Disabled (0UL) /*!< Read: Disabled */
-#define PWM_INTENSET_LOOPSDONE_Enabled (1UL) /*!< Read: Enabled */
-#define PWM_INTENSET_LOOPSDONE_Set (1UL) /*!< Enable */
-
-/* Bit 6 : Write '1' to enable interrupt for event PWMPERIODEND */
-#define PWM_INTENSET_PWMPERIODEND_Pos (6UL) /*!< Position of PWMPERIODEND field. */
-#define PWM_INTENSET_PWMPERIODEND_Msk (0x1UL << PWM_INTENSET_PWMPERIODEND_Pos) /*!< Bit mask of PWMPERIODEND field. */
-#define PWM_INTENSET_PWMPERIODEND_Disabled (0UL) /*!< Read: Disabled */
-#define PWM_INTENSET_PWMPERIODEND_Enabled (1UL) /*!< Read: Enabled */
-#define PWM_INTENSET_PWMPERIODEND_Set (1UL) /*!< Enable */
-
-/* Bit 5 : Write '1' to enable interrupt for event SEQEND[1] */
-#define PWM_INTENSET_SEQEND1_Pos (5UL) /*!< Position of SEQEND1 field. */
-#define PWM_INTENSET_SEQEND1_Msk (0x1UL << PWM_INTENSET_SEQEND1_Pos) /*!< Bit mask of SEQEND1 field. */
-#define PWM_INTENSET_SEQEND1_Disabled (0UL) /*!< Read: Disabled */
-#define PWM_INTENSET_SEQEND1_Enabled (1UL) /*!< Read: Enabled */
-#define PWM_INTENSET_SEQEND1_Set (1UL) /*!< Enable */
-
-/* Bit 4 : Write '1' to enable interrupt for event SEQEND[0] */
-#define PWM_INTENSET_SEQEND0_Pos (4UL) /*!< Position of SEQEND0 field. */
-#define PWM_INTENSET_SEQEND0_Msk (0x1UL << PWM_INTENSET_SEQEND0_Pos) /*!< Bit mask of SEQEND0 field. */
-#define PWM_INTENSET_SEQEND0_Disabled (0UL) /*!< Read: Disabled */
-#define PWM_INTENSET_SEQEND0_Enabled (1UL) /*!< Read: Enabled */
-#define PWM_INTENSET_SEQEND0_Set (1UL) /*!< Enable */
-
-/* Bit 3 : Write '1' to enable interrupt for event SEQSTARTED[1] */
-#define PWM_INTENSET_SEQSTARTED1_Pos (3UL) /*!< Position of SEQSTARTED1 field. */
-#define PWM_INTENSET_SEQSTARTED1_Msk (0x1UL << PWM_INTENSET_SEQSTARTED1_Pos) /*!< Bit mask of SEQSTARTED1 field. */
-#define PWM_INTENSET_SEQSTARTED1_Disabled (0UL) /*!< Read: Disabled */
-#define PWM_INTENSET_SEQSTARTED1_Enabled (1UL) /*!< Read: Enabled */
-#define PWM_INTENSET_SEQSTARTED1_Set (1UL) /*!< Enable */
-
-/* Bit 2 : Write '1' to enable interrupt for event SEQSTARTED[0] */
-#define PWM_INTENSET_SEQSTARTED0_Pos (2UL) /*!< Position of SEQSTARTED0 field. */
-#define PWM_INTENSET_SEQSTARTED0_Msk (0x1UL << PWM_INTENSET_SEQSTARTED0_Pos) /*!< Bit mask of SEQSTARTED0 field. */
-#define PWM_INTENSET_SEQSTARTED0_Disabled (0UL) /*!< Read: Disabled */
-#define PWM_INTENSET_SEQSTARTED0_Enabled (1UL) /*!< Read: Enabled */
-#define PWM_INTENSET_SEQSTARTED0_Set (1UL) /*!< Enable */
-
-/* Bit 1 : Write '1' to enable interrupt for event STOPPED */
-#define PWM_INTENSET_STOPPED_Pos (1UL) /*!< Position of STOPPED field. */
-#define PWM_INTENSET_STOPPED_Msk (0x1UL << PWM_INTENSET_STOPPED_Pos) /*!< Bit mask of STOPPED field. */
-#define PWM_INTENSET_STOPPED_Disabled (0UL) /*!< Read: Disabled */
-#define PWM_INTENSET_STOPPED_Enabled (1UL) /*!< Read: Enabled */
-#define PWM_INTENSET_STOPPED_Set (1UL) /*!< Enable */
-
-/* Register: PWM_INTENCLR */
-/* Description: Disable interrupt */
-
-/* Bit 7 : Write '1' to disable interrupt for event LOOPSDONE */
-#define PWM_INTENCLR_LOOPSDONE_Pos (7UL) /*!< Position of LOOPSDONE field. */
-#define PWM_INTENCLR_LOOPSDONE_Msk (0x1UL << PWM_INTENCLR_LOOPSDONE_Pos) /*!< Bit mask of LOOPSDONE field. */
-#define PWM_INTENCLR_LOOPSDONE_Disabled (0UL) /*!< Read: Disabled */
-#define PWM_INTENCLR_LOOPSDONE_Enabled (1UL) /*!< Read: Enabled */
-#define PWM_INTENCLR_LOOPSDONE_Clear (1UL) /*!< Disable */
-
-/* Bit 6 : Write '1' to disable interrupt for event PWMPERIODEND */
-#define PWM_INTENCLR_PWMPERIODEND_Pos (6UL) /*!< Position of PWMPERIODEND field. */
-#define PWM_INTENCLR_PWMPERIODEND_Msk (0x1UL << PWM_INTENCLR_PWMPERIODEND_Pos) /*!< Bit mask of PWMPERIODEND field. */
-#define PWM_INTENCLR_PWMPERIODEND_Disabled (0UL) /*!< Read: Disabled */
-#define PWM_INTENCLR_PWMPERIODEND_Enabled (1UL) /*!< Read: Enabled */
-#define PWM_INTENCLR_PWMPERIODEND_Clear (1UL) /*!< Disable */
-
-/* Bit 5 : Write '1' to disable interrupt for event SEQEND[1] */
-#define PWM_INTENCLR_SEQEND1_Pos (5UL) /*!< Position of SEQEND1 field. */
-#define PWM_INTENCLR_SEQEND1_Msk (0x1UL << PWM_INTENCLR_SEQEND1_Pos) /*!< Bit mask of SEQEND1 field. */
-#define PWM_INTENCLR_SEQEND1_Disabled (0UL) /*!< Read: Disabled */
-#define PWM_INTENCLR_SEQEND1_Enabled (1UL) /*!< Read: Enabled */
-#define PWM_INTENCLR_SEQEND1_Clear (1UL) /*!< Disable */
-
-/* Bit 4 : Write '1' to disable interrupt for event SEQEND[0] */
-#define PWM_INTENCLR_SEQEND0_Pos (4UL) /*!< Position of SEQEND0 field. */
-#define PWM_INTENCLR_SEQEND0_Msk (0x1UL << PWM_INTENCLR_SEQEND0_Pos) /*!< Bit mask of SEQEND0 field. */
-#define PWM_INTENCLR_SEQEND0_Disabled (0UL) /*!< Read: Disabled */
-#define PWM_INTENCLR_SEQEND0_Enabled (1UL) /*!< Read: Enabled */
-#define PWM_INTENCLR_SEQEND0_Clear (1UL) /*!< Disable */
-
-/* Bit 3 : Write '1' to disable interrupt for event SEQSTARTED[1] */
-#define PWM_INTENCLR_SEQSTARTED1_Pos (3UL) /*!< Position of SEQSTARTED1 field. */
-#define PWM_INTENCLR_SEQSTARTED1_Msk (0x1UL << PWM_INTENCLR_SEQSTARTED1_Pos) /*!< Bit mask of SEQSTARTED1 field. */
-#define PWM_INTENCLR_SEQSTARTED1_Disabled (0UL) /*!< Read: Disabled */
-#define PWM_INTENCLR_SEQSTARTED1_Enabled (1UL) /*!< Read: Enabled */
-#define PWM_INTENCLR_SEQSTARTED1_Clear (1UL) /*!< Disable */
-
-/* Bit 2 : Write '1' to disable interrupt for event SEQSTARTED[0] */
-#define PWM_INTENCLR_SEQSTARTED0_Pos (2UL) /*!< Position of SEQSTARTED0 field. */
-#define PWM_INTENCLR_SEQSTARTED0_Msk (0x1UL << PWM_INTENCLR_SEQSTARTED0_Pos) /*!< Bit mask of SEQSTARTED0 field. */
-#define PWM_INTENCLR_SEQSTARTED0_Disabled (0UL) /*!< Read: Disabled */
-#define PWM_INTENCLR_SEQSTARTED0_Enabled (1UL) /*!< Read: Enabled */
-#define PWM_INTENCLR_SEQSTARTED0_Clear (1UL) /*!< Disable */
-
-/* Bit 1 : Write '1' to disable interrupt for event STOPPED */
-#define PWM_INTENCLR_STOPPED_Pos (1UL) /*!< Position of STOPPED field. */
-#define PWM_INTENCLR_STOPPED_Msk (0x1UL << PWM_INTENCLR_STOPPED_Pos) /*!< Bit mask of STOPPED field. */
-#define PWM_INTENCLR_STOPPED_Disabled (0UL) /*!< Read: Disabled */
-#define PWM_INTENCLR_STOPPED_Enabled (1UL) /*!< Read: Enabled */
-#define PWM_INTENCLR_STOPPED_Clear (1UL) /*!< Disable */
-
-/* Register: PWM_ENABLE */
-/* Description: PWM module enable register */
-
-/* Bit 0 : Enable or disable PWM module */
-#define PWM_ENABLE_ENABLE_Pos (0UL) /*!< Position of ENABLE field. */
-#define PWM_ENABLE_ENABLE_Msk (0x1UL << PWM_ENABLE_ENABLE_Pos) /*!< Bit mask of ENABLE field. */
-#define PWM_ENABLE_ENABLE_Disabled (0UL) /*!< Disabled */
-#define PWM_ENABLE_ENABLE_Enabled (1UL) /*!< Enable */
-
-/* Register: PWM_MODE */
-/* Description: Selects operating mode of the wave counter */
-
-/* Bit 0 : Selects up mode or up-and-down mode for the counter */
-#define PWM_MODE_UPDOWN_Pos (0UL) /*!< Position of UPDOWN field. */
-#define PWM_MODE_UPDOWN_Msk (0x1UL << PWM_MODE_UPDOWN_Pos) /*!< Bit mask of UPDOWN field. */
-#define PWM_MODE_UPDOWN_Up (0UL) /*!< Up counter, edge-aligned PWM duty cycle */
-#define PWM_MODE_UPDOWN_UpAndDown (1UL) /*!< Up and down counter, center-aligned PWM duty cycle */
-
-/* Register: PWM_COUNTERTOP */
-/* Description: Value up to which the pulse generator counter counts */
-
-/* Bits 14..0 : Value up to which the pulse generator counter counts. This register is ignored when DECODER.MODE=WaveForm and only values from RAM are used. */
-#define PWM_COUNTERTOP_COUNTERTOP_Pos (0UL) /*!< Position of COUNTERTOP field. */
-#define PWM_COUNTERTOP_COUNTERTOP_Msk (0x7FFFUL << PWM_COUNTERTOP_COUNTERTOP_Pos) /*!< Bit mask of COUNTERTOP field. */
-
-/* Register: PWM_PRESCALER */
-/* Description: Configuration for PWM_CLK */
-
-/* Bits 2..0 : Prescaler of PWM_CLK */
-#define PWM_PRESCALER_PRESCALER_Pos (0UL) /*!< Position of PRESCALER field. */
-#define PWM_PRESCALER_PRESCALER_Msk (0x7UL << PWM_PRESCALER_PRESCALER_Pos) /*!< Bit mask of PRESCALER field. */
-#define PWM_PRESCALER_PRESCALER_DIV_1 (0UL) /*!< Divide by 1 (16 MHz) */
-#define PWM_PRESCALER_PRESCALER_DIV_2 (1UL) /*!< Divide by 2 (8 MHz) */
-#define PWM_PRESCALER_PRESCALER_DIV_4 (2UL) /*!< Divide by 4 (4 MHz) */
-#define PWM_PRESCALER_PRESCALER_DIV_8 (3UL) /*!< Divide by 8 (2 MHz) */
-#define PWM_PRESCALER_PRESCALER_DIV_16 (4UL) /*!< Divide by 16 (1 MHz) */
-#define PWM_PRESCALER_PRESCALER_DIV_32 (5UL) /*!< Divide by 32 (500 kHz) */
-#define PWM_PRESCALER_PRESCALER_DIV_64 (6UL) /*!< Divide by 64 (250 kHz) */
-#define PWM_PRESCALER_PRESCALER_DIV_128 (7UL) /*!< Divide by 128 (125 kHz) */
-
-/* Register: PWM_DECODER */
-/* Description: Configuration of the decoder */
-
-/* Bit 8 : Selects source for advancing the active sequence */
-#define PWM_DECODER_MODE_Pos (8UL) /*!< Position of MODE field. */
-#define PWM_DECODER_MODE_Msk (0x1UL << PWM_DECODER_MODE_Pos) /*!< Bit mask of MODE field. */
-#define PWM_DECODER_MODE_RefreshCount (0UL) /*!< SEQ[n].REFRESH is used to determine loading internal compare registers */
-#define PWM_DECODER_MODE_NextStep (1UL) /*!< NEXTSTEP task causes a new value to be loaded to internal compare registers */
-
-/* Bits 1..0 : How a sequence is read from RAM and spread to the compare register */
-#define PWM_DECODER_LOAD_Pos (0UL) /*!< Position of LOAD field. */
-#define PWM_DECODER_LOAD_Msk (0x3UL << PWM_DECODER_LOAD_Pos) /*!< Bit mask of LOAD field. */
-#define PWM_DECODER_LOAD_Common (0UL) /*!< 1st half word (16-bit) used in all PWM channels 0..3 */
-#define PWM_DECODER_LOAD_Grouped (1UL) /*!< 1st half word (16-bit) used in channel 0..1; 2nd word in channel 2..3 */
-#define PWM_DECODER_LOAD_Individual (2UL) /*!< 1st half word (16-bit) in ch.0; 2nd in ch.1; ...; 4th in ch.3 */
-#define PWM_DECODER_LOAD_WaveForm (3UL) /*!< 1st half word (16-bit) in ch.0; 2nd in ch.1; ...; 4th in COUNTERTOP */
-
-/* Register: PWM_LOOP */
-/* Description: Number of playbacks of a loop */
-
-/* Bits 15..0 : Number of playbacks of pattern cycles */
-#define PWM_LOOP_CNT_Pos (0UL) /*!< Position of CNT field. */
-#define PWM_LOOP_CNT_Msk (0xFFFFUL << PWM_LOOP_CNT_Pos) /*!< Bit mask of CNT field. */
-#define PWM_LOOP_CNT_Disabled (0UL) /*!< Looping disabled (stop at the end of the sequence) */
-
-/* Register: PWM_SEQ_PTR */
-/* Description: Description cluster: Beginning address in RAM of this sequence */
-
-/* Bits 31..0 : Beginning address in RAM of this sequence */
-#define PWM_SEQ_PTR_PTR_Pos (0UL) /*!< Position of PTR field. */
-#define PWM_SEQ_PTR_PTR_Msk (0xFFFFFFFFUL << PWM_SEQ_PTR_PTR_Pos) /*!< Bit mask of PTR field. */
-
-/* Register: PWM_SEQ_CNT */
-/* Description: Description cluster: Number of values (duty cycles) in this sequence */
-
-/* Bits 14..0 : Number of values (duty cycles) in this sequence */
-#define PWM_SEQ_CNT_CNT_Pos (0UL) /*!< Position of CNT field. */
-#define PWM_SEQ_CNT_CNT_Msk (0x7FFFUL << PWM_SEQ_CNT_CNT_Pos) /*!< Bit mask of CNT field. */
-#define PWM_SEQ_CNT_CNT_Disabled (0UL) /*!< Sequence is disabled, and shall not be started as it is empty */
-
-/* Register: PWM_SEQ_REFRESH */
-/* Description: Description cluster: Number of additional PWM periods between samples loaded into compare register */
-
-/* Bits 23..0 : Number of additional PWM periods between samples loaded into compare register (load every REFRESH.CNT+1 PWM periods) */
-#define PWM_SEQ_REFRESH_CNT_Pos (0UL) /*!< Position of CNT field. */
-#define PWM_SEQ_REFRESH_CNT_Msk (0xFFFFFFUL << PWM_SEQ_REFRESH_CNT_Pos) /*!< Bit mask of CNT field. */
-#define PWM_SEQ_REFRESH_CNT_Continuous (0UL) /*!< Update every PWM period */
-
-/* Register: PWM_SEQ_ENDDELAY */
-/* Description: Description cluster: Time added after the sequence */
-
-/* Bits 23..0 : Time added after the sequence in PWM periods */
-#define PWM_SEQ_ENDDELAY_CNT_Pos (0UL) /*!< Position of CNT field. */
-#define PWM_SEQ_ENDDELAY_CNT_Msk (0xFFFFFFUL << PWM_SEQ_ENDDELAY_CNT_Pos) /*!< Bit mask of CNT field. */
-
-/* Register: PWM_PSEL_OUT */
-/* Description: Description collection: Output pin select for PWM channel n */
-
-/* Bit 31 : Connection */
-#define PWM_PSEL_OUT_CONNECT_Pos (31UL) /*!< Position of CONNECT field. */
-#define PWM_PSEL_OUT_CONNECT_Msk (0x1UL << PWM_PSEL_OUT_CONNECT_Pos) /*!< Bit mask of CONNECT field. */
-#define PWM_PSEL_OUT_CONNECT_Connected (0UL) /*!< Connect */
-#define PWM_PSEL_OUT_CONNECT_Disconnected (1UL) /*!< Disconnect */
-
-/* Bits 4..0 : Pin number */
-#define PWM_PSEL_OUT_PIN_Pos (0UL) /*!< Position of PIN field. */
-#define PWM_PSEL_OUT_PIN_Msk (0x1FUL << PWM_PSEL_OUT_PIN_Pos) /*!< Bit mask of PIN field. */
-
-
-/* Peripheral: QDEC */
-/* Description: Quadrature Decoder */
-
-/* Register: QDEC_TASKS_START */
-/* Description: Task starting the quadrature decoder */
-
-/* Bit 0 : Task starting the quadrature decoder */
-#define QDEC_TASKS_START_TASKS_START_Pos (0UL) /*!< Position of TASKS_START field. */
-#define QDEC_TASKS_START_TASKS_START_Msk (0x1UL << QDEC_TASKS_START_TASKS_START_Pos) /*!< Bit mask of TASKS_START field. */
-#define QDEC_TASKS_START_TASKS_START_Trigger (1UL) /*!< Trigger task */
-
-/* Register: QDEC_TASKS_STOP */
-/* Description: Task stopping the quadrature decoder */
-
-/* Bit 0 : Task stopping the quadrature decoder */
-#define QDEC_TASKS_STOP_TASKS_STOP_Pos (0UL) /*!< Position of TASKS_STOP field. */
-#define QDEC_TASKS_STOP_TASKS_STOP_Msk (0x1UL << QDEC_TASKS_STOP_TASKS_STOP_Pos) /*!< Bit mask of TASKS_STOP field. */
-#define QDEC_TASKS_STOP_TASKS_STOP_Trigger (1UL) /*!< Trigger task */
-
-/* Register: QDEC_TASKS_READCLRACC */
-/* Description: Read and clear ACC and ACCDBL */
-
-/* Bit 0 : Read and clear ACC and ACCDBL */
-#define QDEC_TASKS_READCLRACC_TASKS_READCLRACC_Pos (0UL) /*!< Position of TASKS_READCLRACC field. */
-#define QDEC_TASKS_READCLRACC_TASKS_READCLRACC_Msk (0x1UL << QDEC_TASKS_READCLRACC_TASKS_READCLRACC_Pos) /*!< Bit mask of TASKS_READCLRACC field. */
-#define QDEC_TASKS_READCLRACC_TASKS_READCLRACC_Trigger (1UL) /*!< Trigger task */
-
-/* Register: QDEC_TASKS_RDCLRACC */
-/* Description: Read and clear ACC */
-
-/* Bit 0 : Read and clear ACC */
-#define QDEC_TASKS_RDCLRACC_TASKS_RDCLRACC_Pos (0UL) /*!< Position of TASKS_RDCLRACC field. */
-#define QDEC_TASKS_RDCLRACC_TASKS_RDCLRACC_Msk (0x1UL << QDEC_TASKS_RDCLRACC_TASKS_RDCLRACC_Pos) /*!< Bit mask of TASKS_RDCLRACC field. */
-#define QDEC_TASKS_RDCLRACC_TASKS_RDCLRACC_Trigger (1UL) /*!< Trigger task */
-
-/* Register: QDEC_TASKS_RDCLRDBL */
-/* Description: Read and clear ACCDBL */
-
-/* Bit 0 : Read and clear ACCDBL */
-#define QDEC_TASKS_RDCLRDBL_TASKS_RDCLRDBL_Pos (0UL) /*!< Position of TASKS_RDCLRDBL field. */
-#define QDEC_TASKS_RDCLRDBL_TASKS_RDCLRDBL_Msk (0x1UL << QDEC_TASKS_RDCLRDBL_TASKS_RDCLRDBL_Pos) /*!< Bit mask of TASKS_RDCLRDBL field. */
-#define QDEC_TASKS_RDCLRDBL_TASKS_RDCLRDBL_Trigger (1UL) /*!< Trigger task */
-
-/* Register: QDEC_EVENTS_SAMPLERDY */
-/* Description: Event being generated for every new sample value written to the SAMPLE register */
-
-/* Bit 0 : Event being generated for every new sample value written to the SAMPLE register */
-#define QDEC_EVENTS_SAMPLERDY_EVENTS_SAMPLERDY_Pos (0UL) /*!< Position of EVENTS_SAMPLERDY field. */
-#define QDEC_EVENTS_SAMPLERDY_EVENTS_SAMPLERDY_Msk (0x1UL << QDEC_EVENTS_SAMPLERDY_EVENTS_SAMPLERDY_Pos) /*!< Bit mask of EVENTS_SAMPLERDY field. */
-#define QDEC_EVENTS_SAMPLERDY_EVENTS_SAMPLERDY_NotGenerated (0UL) /*!< Event not generated */
-#define QDEC_EVENTS_SAMPLERDY_EVENTS_SAMPLERDY_Generated (1UL) /*!< Event generated */
-
-/* Register: QDEC_EVENTS_REPORTRDY */
-/* Description: Non-null report ready */
-
-/* Bit 0 : Non-null report ready */
-#define QDEC_EVENTS_REPORTRDY_EVENTS_REPORTRDY_Pos (0UL) /*!< Position of EVENTS_REPORTRDY field. */
-#define QDEC_EVENTS_REPORTRDY_EVENTS_REPORTRDY_Msk (0x1UL << QDEC_EVENTS_REPORTRDY_EVENTS_REPORTRDY_Pos) /*!< Bit mask of EVENTS_REPORTRDY field. */
-#define QDEC_EVENTS_REPORTRDY_EVENTS_REPORTRDY_NotGenerated (0UL) /*!< Event not generated */
-#define QDEC_EVENTS_REPORTRDY_EVENTS_REPORTRDY_Generated (1UL) /*!< Event generated */
-
-/* Register: QDEC_EVENTS_ACCOF */
-/* Description: ACC or ACCDBL register overflow */
-
-/* Bit 0 : ACC or ACCDBL register overflow */
-#define QDEC_EVENTS_ACCOF_EVENTS_ACCOF_Pos (0UL) /*!< Position of EVENTS_ACCOF field. */
-#define QDEC_EVENTS_ACCOF_EVENTS_ACCOF_Msk (0x1UL << QDEC_EVENTS_ACCOF_EVENTS_ACCOF_Pos) /*!< Bit mask of EVENTS_ACCOF field. */
-#define QDEC_EVENTS_ACCOF_EVENTS_ACCOF_NotGenerated (0UL) /*!< Event not generated */
-#define QDEC_EVENTS_ACCOF_EVENTS_ACCOF_Generated (1UL) /*!< Event generated */
-
-/* Register: QDEC_EVENTS_DBLRDY */
-/* Description: Double displacement(s) detected */
-
-/* Bit 0 : Double displacement(s) detected */
-#define QDEC_EVENTS_DBLRDY_EVENTS_DBLRDY_Pos (0UL) /*!< Position of EVENTS_DBLRDY field. */
-#define QDEC_EVENTS_DBLRDY_EVENTS_DBLRDY_Msk (0x1UL << QDEC_EVENTS_DBLRDY_EVENTS_DBLRDY_Pos) /*!< Bit mask of EVENTS_DBLRDY field. */
-#define QDEC_EVENTS_DBLRDY_EVENTS_DBLRDY_NotGenerated (0UL) /*!< Event not generated */
-#define QDEC_EVENTS_DBLRDY_EVENTS_DBLRDY_Generated (1UL) /*!< Event generated */
-
-/* Register: QDEC_EVENTS_STOPPED */
-/* Description: QDEC has been stopped */
-
-/* Bit 0 : QDEC has been stopped */
-#define QDEC_EVENTS_STOPPED_EVENTS_STOPPED_Pos (0UL) /*!< Position of EVENTS_STOPPED field. */
-#define QDEC_EVENTS_STOPPED_EVENTS_STOPPED_Msk (0x1UL << QDEC_EVENTS_STOPPED_EVENTS_STOPPED_Pos) /*!< Bit mask of EVENTS_STOPPED field. */
-#define QDEC_EVENTS_STOPPED_EVENTS_STOPPED_NotGenerated (0UL) /*!< Event not generated */
-#define QDEC_EVENTS_STOPPED_EVENTS_STOPPED_Generated (1UL) /*!< Event generated */
-
-/* Register: QDEC_SHORTS */
-/* Description: Shortcuts between local events and tasks */
-
-/* Bit 6 : Shortcut between event SAMPLERDY and task READCLRACC */
-#define QDEC_SHORTS_SAMPLERDY_READCLRACC_Pos (6UL) /*!< Position of SAMPLERDY_READCLRACC field. */
-#define QDEC_SHORTS_SAMPLERDY_READCLRACC_Msk (0x1UL << QDEC_SHORTS_SAMPLERDY_READCLRACC_Pos) /*!< Bit mask of SAMPLERDY_READCLRACC field. */
-#define QDEC_SHORTS_SAMPLERDY_READCLRACC_Disabled (0UL) /*!< Disable shortcut */
-#define QDEC_SHORTS_SAMPLERDY_READCLRACC_Enabled (1UL) /*!< Enable shortcut */
-
-/* Bit 5 : Shortcut between event DBLRDY and task STOP */
-#define QDEC_SHORTS_DBLRDY_STOP_Pos (5UL) /*!< Position of DBLRDY_STOP field. */
-#define QDEC_SHORTS_DBLRDY_STOP_Msk (0x1UL << QDEC_SHORTS_DBLRDY_STOP_Pos) /*!< Bit mask of DBLRDY_STOP field. */
-#define QDEC_SHORTS_DBLRDY_STOP_Disabled (0UL) /*!< Disable shortcut */
-#define QDEC_SHORTS_DBLRDY_STOP_Enabled (1UL) /*!< Enable shortcut */
-
-/* Bit 4 : Shortcut between event DBLRDY and task RDCLRDBL */
-#define QDEC_SHORTS_DBLRDY_RDCLRDBL_Pos (4UL) /*!< Position of DBLRDY_RDCLRDBL field. */
-#define QDEC_SHORTS_DBLRDY_RDCLRDBL_Msk (0x1UL << QDEC_SHORTS_DBLRDY_RDCLRDBL_Pos) /*!< Bit mask of DBLRDY_RDCLRDBL field. */
-#define QDEC_SHORTS_DBLRDY_RDCLRDBL_Disabled (0UL) /*!< Disable shortcut */
-#define QDEC_SHORTS_DBLRDY_RDCLRDBL_Enabled (1UL) /*!< Enable shortcut */
-
-/* Bit 3 : Shortcut between event REPORTRDY and task STOP */
-#define QDEC_SHORTS_REPORTRDY_STOP_Pos (3UL) /*!< Position of REPORTRDY_STOP field. */
-#define QDEC_SHORTS_REPORTRDY_STOP_Msk (0x1UL << QDEC_SHORTS_REPORTRDY_STOP_Pos) /*!< Bit mask of REPORTRDY_STOP field. */
-#define QDEC_SHORTS_REPORTRDY_STOP_Disabled (0UL) /*!< Disable shortcut */
-#define QDEC_SHORTS_REPORTRDY_STOP_Enabled (1UL) /*!< Enable shortcut */
-
-/* Bit 2 : Shortcut between event REPORTRDY and task RDCLRACC */
-#define QDEC_SHORTS_REPORTRDY_RDCLRACC_Pos (2UL) /*!< Position of REPORTRDY_RDCLRACC field. */
-#define QDEC_SHORTS_REPORTRDY_RDCLRACC_Msk (0x1UL << QDEC_SHORTS_REPORTRDY_RDCLRACC_Pos) /*!< Bit mask of REPORTRDY_RDCLRACC field. */
-#define QDEC_SHORTS_REPORTRDY_RDCLRACC_Disabled (0UL) /*!< Disable shortcut */
-#define QDEC_SHORTS_REPORTRDY_RDCLRACC_Enabled (1UL) /*!< Enable shortcut */
-
-/* Bit 1 : Shortcut between event SAMPLERDY and task STOP */
-#define QDEC_SHORTS_SAMPLERDY_STOP_Pos (1UL) /*!< Position of SAMPLERDY_STOP field. */
-#define QDEC_SHORTS_SAMPLERDY_STOP_Msk (0x1UL << QDEC_SHORTS_SAMPLERDY_STOP_Pos) /*!< Bit mask of SAMPLERDY_STOP field. */
-#define QDEC_SHORTS_SAMPLERDY_STOP_Disabled (0UL) /*!< Disable shortcut */
-#define QDEC_SHORTS_SAMPLERDY_STOP_Enabled (1UL) /*!< Enable shortcut */
-
-/* Bit 0 : Shortcut between event REPORTRDY and task READCLRACC */
-#define QDEC_SHORTS_REPORTRDY_READCLRACC_Pos (0UL) /*!< Position of REPORTRDY_READCLRACC field. */
-#define QDEC_SHORTS_REPORTRDY_READCLRACC_Msk (0x1UL << QDEC_SHORTS_REPORTRDY_READCLRACC_Pos) /*!< Bit mask of REPORTRDY_READCLRACC field. */
-#define QDEC_SHORTS_REPORTRDY_READCLRACC_Disabled (0UL) /*!< Disable shortcut */
-#define QDEC_SHORTS_REPORTRDY_READCLRACC_Enabled (1UL) /*!< Enable shortcut */
-
-/* Register: QDEC_INTENSET */
-/* Description: Enable interrupt */
-
-/* Bit 4 : Write '1' to enable interrupt for event STOPPED */
-#define QDEC_INTENSET_STOPPED_Pos (4UL) /*!< Position of STOPPED field. */
-#define QDEC_INTENSET_STOPPED_Msk (0x1UL << QDEC_INTENSET_STOPPED_Pos) /*!< Bit mask of STOPPED field. */
-#define QDEC_INTENSET_STOPPED_Disabled (0UL) /*!< Read: Disabled */
-#define QDEC_INTENSET_STOPPED_Enabled (1UL) /*!< Read: Enabled */
-#define QDEC_INTENSET_STOPPED_Set (1UL) /*!< Enable */
-
-/* Bit 3 : Write '1' to enable interrupt for event DBLRDY */
-#define QDEC_INTENSET_DBLRDY_Pos (3UL) /*!< Position of DBLRDY field. */
-#define QDEC_INTENSET_DBLRDY_Msk (0x1UL << QDEC_INTENSET_DBLRDY_Pos) /*!< Bit mask of DBLRDY field. */
-#define QDEC_INTENSET_DBLRDY_Disabled (0UL) /*!< Read: Disabled */
-#define QDEC_INTENSET_DBLRDY_Enabled (1UL) /*!< Read: Enabled */
-#define QDEC_INTENSET_DBLRDY_Set (1UL) /*!< Enable */
-
-/* Bit 2 : Write '1' to enable interrupt for event ACCOF */
-#define QDEC_INTENSET_ACCOF_Pos (2UL) /*!< Position of ACCOF field. */
-#define QDEC_INTENSET_ACCOF_Msk (0x1UL << QDEC_INTENSET_ACCOF_Pos) /*!< Bit mask of ACCOF field. */
-#define QDEC_INTENSET_ACCOF_Disabled (0UL) /*!< Read: Disabled */
-#define QDEC_INTENSET_ACCOF_Enabled (1UL) /*!< Read: Enabled */
-#define QDEC_INTENSET_ACCOF_Set (1UL) /*!< Enable */
-
-/* Bit 1 : Write '1' to enable interrupt for event REPORTRDY */
-#define QDEC_INTENSET_REPORTRDY_Pos (1UL) /*!< Position of REPORTRDY field. */
-#define QDEC_INTENSET_REPORTRDY_Msk (0x1UL << QDEC_INTENSET_REPORTRDY_Pos) /*!< Bit mask of REPORTRDY field. */
-#define QDEC_INTENSET_REPORTRDY_Disabled (0UL) /*!< Read: Disabled */
-#define QDEC_INTENSET_REPORTRDY_Enabled (1UL) /*!< Read: Enabled */
-#define QDEC_INTENSET_REPORTRDY_Set (1UL) /*!< Enable */
-
-/* Bit 0 : Write '1' to enable interrupt for event SAMPLERDY */
-#define QDEC_INTENSET_SAMPLERDY_Pos (0UL) /*!< Position of SAMPLERDY field. */
-#define QDEC_INTENSET_SAMPLERDY_Msk (0x1UL << QDEC_INTENSET_SAMPLERDY_Pos) /*!< Bit mask of SAMPLERDY field. */
-#define QDEC_INTENSET_SAMPLERDY_Disabled (0UL) /*!< Read: Disabled */
-#define QDEC_INTENSET_SAMPLERDY_Enabled (1UL) /*!< Read: Enabled */
-#define QDEC_INTENSET_SAMPLERDY_Set (1UL) /*!< Enable */
-
-/* Register: QDEC_INTENCLR */
-/* Description: Disable interrupt */
-
-/* Bit 4 : Write '1' to disable interrupt for event STOPPED */
-#define QDEC_INTENCLR_STOPPED_Pos (4UL) /*!< Position of STOPPED field. */
-#define QDEC_INTENCLR_STOPPED_Msk (0x1UL << QDEC_INTENCLR_STOPPED_Pos) /*!< Bit mask of STOPPED field. */
-#define QDEC_INTENCLR_STOPPED_Disabled (0UL) /*!< Read: Disabled */
-#define QDEC_INTENCLR_STOPPED_Enabled (1UL) /*!< Read: Enabled */
-#define QDEC_INTENCLR_STOPPED_Clear (1UL) /*!< Disable */
-
-/* Bit 3 : Write '1' to disable interrupt for event DBLRDY */
-#define QDEC_INTENCLR_DBLRDY_Pos (3UL) /*!< Position of DBLRDY field. */
-#define QDEC_INTENCLR_DBLRDY_Msk (0x1UL << QDEC_INTENCLR_DBLRDY_Pos) /*!< Bit mask of DBLRDY field. */
-#define QDEC_INTENCLR_DBLRDY_Disabled (0UL) /*!< Read: Disabled */
-#define QDEC_INTENCLR_DBLRDY_Enabled (1UL) /*!< Read: Enabled */
-#define QDEC_INTENCLR_DBLRDY_Clear (1UL) /*!< Disable */
-
-/* Bit 2 : Write '1' to disable interrupt for event ACCOF */
-#define QDEC_INTENCLR_ACCOF_Pos (2UL) /*!< Position of ACCOF field. */
-#define QDEC_INTENCLR_ACCOF_Msk (0x1UL << QDEC_INTENCLR_ACCOF_Pos) /*!< Bit mask of ACCOF field. */
-#define QDEC_INTENCLR_ACCOF_Disabled (0UL) /*!< Read: Disabled */
-#define QDEC_INTENCLR_ACCOF_Enabled (1UL) /*!< Read: Enabled */
-#define QDEC_INTENCLR_ACCOF_Clear (1UL) /*!< Disable */
-
-/* Bit 1 : Write '1' to disable interrupt for event REPORTRDY */
-#define QDEC_INTENCLR_REPORTRDY_Pos (1UL) /*!< Position of REPORTRDY field. */
-#define QDEC_INTENCLR_REPORTRDY_Msk (0x1UL << QDEC_INTENCLR_REPORTRDY_Pos) /*!< Bit mask of REPORTRDY field. */
-#define QDEC_INTENCLR_REPORTRDY_Disabled (0UL) /*!< Read: Disabled */
-#define QDEC_INTENCLR_REPORTRDY_Enabled (1UL) /*!< Read: Enabled */
-#define QDEC_INTENCLR_REPORTRDY_Clear (1UL) /*!< Disable */
-
-/* Bit 0 : Write '1' to disable interrupt for event SAMPLERDY */
-#define QDEC_INTENCLR_SAMPLERDY_Pos (0UL) /*!< Position of SAMPLERDY field. */
-#define QDEC_INTENCLR_SAMPLERDY_Msk (0x1UL << QDEC_INTENCLR_SAMPLERDY_Pos) /*!< Bit mask of SAMPLERDY field. */
-#define QDEC_INTENCLR_SAMPLERDY_Disabled (0UL) /*!< Read: Disabled */
-#define QDEC_INTENCLR_SAMPLERDY_Enabled (1UL) /*!< Read: Enabled */
-#define QDEC_INTENCLR_SAMPLERDY_Clear (1UL) /*!< Disable */
-
-/* Register: QDEC_ENABLE */
-/* Description: Enable the quadrature decoder */
-
-/* Bit 0 : Enable or disable the quadrature decoder */
-#define QDEC_ENABLE_ENABLE_Pos (0UL) /*!< Position of ENABLE field. */
-#define QDEC_ENABLE_ENABLE_Msk (0x1UL << QDEC_ENABLE_ENABLE_Pos) /*!< Bit mask of ENABLE field. */
-#define QDEC_ENABLE_ENABLE_Disabled (0UL) /*!< Disable */
-#define QDEC_ENABLE_ENABLE_Enabled (1UL) /*!< Enable */
-
-/* Register: QDEC_LEDPOL */
-/* Description: LED output pin polarity */
-
-/* Bit 0 : LED output pin polarity */
-#define QDEC_LEDPOL_LEDPOL_Pos (0UL) /*!< Position of LEDPOL field. */
-#define QDEC_LEDPOL_LEDPOL_Msk (0x1UL << QDEC_LEDPOL_LEDPOL_Pos) /*!< Bit mask of LEDPOL field. */
-#define QDEC_LEDPOL_LEDPOL_ActiveLow (0UL) /*!< Led active on output pin low */
-#define QDEC_LEDPOL_LEDPOL_ActiveHigh (1UL) /*!< Led active on output pin high */
-
-/* Register: QDEC_SAMPLEPER */
-/* Description: Sample period */
-
-/* Bits 3..0 : Sample period. The SAMPLE register will be updated for every new sample */
-#define QDEC_SAMPLEPER_SAMPLEPER_Pos (0UL) /*!< Position of SAMPLEPER field. */
-#define QDEC_SAMPLEPER_SAMPLEPER_Msk (0xFUL << QDEC_SAMPLEPER_SAMPLEPER_Pos) /*!< Bit mask of SAMPLEPER field. */
-#define QDEC_SAMPLEPER_SAMPLEPER_128us (0UL) /*!< 128 us */
-#define QDEC_SAMPLEPER_SAMPLEPER_256us (1UL) /*!< 256 us */
-#define QDEC_SAMPLEPER_SAMPLEPER_512us (2UL) /*!< 512 us */
-#define QDEC_SAMPLEPER_SAMPLEPER_1024us (3UL) /*!< 1024 us */
-#define QDEC_SAMPLEPER_SAMPLEPER_2048us (4UL) /*!< 2048 us */
-#define QDEC_SAMPLEPER_SAMPLEPER_4096us (5UL) /*!< 4096 us */
-#define QDEC_SAMPLEPER_SAMPLEPER_8192us (6UL) /*!< 8192 us */
-#define QDEC_SAMPLEPER_SAMPLEPER_16384us (7UL) /*!< 16384 us */
-#define QDEC_SAMPLEPER_SAMPLEPER_32ms (8UL) /*!< 32768 us */
-#define QDEC_SAMPLEPER_SAMPLEPER_65ms (9UL) /*!< 65536 us */
-#define QDEC_SAMPLEPER_SAMPLEPER_131ms (10UL) /*!< 131072 us */
-
-/* Register: QDEC_SAMPLE */
-/* Description: Motion sample value */
-
-/* Bits 31..0 : Last motion sample */
-#define QDEC_SAMPLE_SAMPLE_Pos (0UL) /*!< Position of SAMPLE field. */
-#define QDEC_SAMPLE_SAMPLE_Msk (0xFFFFFFFFUL << QDEC_SAMPLE_SAMPLE_Pos) /*!< Bit mask of SAMPLE field. */
-
-/* Register: QDEC_REPORTPER */
-/* Description: Number of samples to be taken before REPORTRDY and DBLRDY events can be generated */
-
-/* Bits 3..0 : Specifies the number of samples to be accumulated in the ACC register before the REPORTRDY and DBLRDY events can be generated */
-#define QDEC_REPORTPER_REPORTPER_Pos (0UL) /*!< Position of REPORTPER field. */
-#define QDEC_REPORTPER_REPORTPER_Msk (0xFUL << QDEC_REPORTPER_REPORTPER_Pos) /*!< Bit mask of REPORTPER field. */
-#define QDEC_REPORTPER_REPORTPER_10Smpl (0UL) /*!< 10 samples / report */
-#define QDEC_REPORTPER_REPORTPER_40Smpl (1UL) /*!< 40 samples / report */
-#define QDEC_REPORTPER_REPORTPER_80Smpl (2UL) /*!< 80 samples / report */
-#define QDEC_REPORTPER_REPORTPER_120Smpl (3UL) /*!< 120 samples / report */
-#define QDEC_REPORTPER_REPORTPER_160Smpl (4UL) /*!< 160 samples / report */
-#define QDEC_REPORTPER_REPORTPER_200Smpl (5UL) /*!< 200 samples / report */
-#define QDEC_REPORTPER_REPORTPER_240Smpl (6UL) /*!< 240 samples / report */
-#define QDEC_REPORTPER_REPORTPER_280Smpl (7UL) /*!< 280 samples / report */
-#define QDEC_REPORTPER_REPORTPER_1Smpl (8UL) /*!< 1 sample / report */
-
-/* Register: QDEC_ACC */
-/* Description: Register accumulating the valid transitions */
-
-/* Bits 31..0 : Register accumulating all valid samples (not double transition) read from the SAMPLE register */
-#define QDEC_ACC_ACC_Pos (0UL) /*!< Position of ACC field. */
-#define QDEC_ACC_ACC_Msk (0xFFFFFFFFUL << QDEC_ACC_ACC_Pos) /*!< Bit mask of ACC field. */
-
-/* Register: QDEC_ACCREAD */
-/* Description: Snapshot of the ACC register, updated by the READCLRACC or RDCLRACC task */
-
-/* Bits 31..0 : Snapshot of the ACC register. */
-#define QDEC_ACCREAD_ACCREAD_Pos (0UL) /*!< Position of ACCREAD field. */
-#define QDEC_ACCREAD_ACCREAD_Msk (0xFFFFFFFFUL << QDEC_ACCREAD_ACCREAD_Pos) /*!< Bit mask of ACCREAD field. */
-
-/* Register: QDEC_PSEL_LED */
-/* Description: Pin select for LED signal */
-
-/* Bit 31 : Connection */
-#define QDEC_PSEL_LED_CONNECT_Pos (31UL) /*!< Position of CONNECT field. */
-#define QDEC_PSEL_LED_CONNECT_Msk (0x1UL << QDEC_PSEL_LED_CONNECT_Pos) /*!< Bit mask of CONNECT field. */
-#define QDEC_PSEL_LED_CONNECT_Connected (0UL) /*!< Connect */
-#define QDEC_PSEL_LED_CONNECT_Disconnected (1UL) /*!< Disconnect */
-
-/* Bits 4..0 : Pin number */
-#define QDEC_PSEL_LED_PIN_Pos (0UL) /*!< Position of PIN field. */
-#define QDEC_PSEL_LED_PIN_Msk (0x1FUL << QDEC_PSEL_LED_PIN_Pos) /*!< Bit mask of PIN field. */
-
-/* Register: QDEC_PSEL_A */
-/* Description: Pin select for A signal */
-
-/* Bit 31 : Connection */
-#define QDEC_PSEL_A_CONNECT_Pos (31UL) /*!< Position of CONNECT field. */
-#define QDEC_PSEL_A_CONNECT_Msk (0x1UL << QDEC_PSEL_A_CONNECT_Pos) /*!< Bit mask of CONNECT field. */
-#define QDEC_PSEL_A_CONNECT_Connected (0UL) /*!< Connect */
-#define QDEC_PSEL_A_CONNECT_Disconnected (1UL) /*!< Disconnect */
-
-/* Bits 4..0 : Pin number */
-#define QDEC_PSEL_A_PIN_Pos (0UL) /*!< Position of PIN field. */
-#define QDEC_PSEL_A_PIN_Msk (0x1FUL << QDEC_PSEL_A_PIN_Pos) /*!< Bit mask of PIN field. */
-
-/* Register: QDEC_PSEL_B */
-/* Description: Pin select for B signal */
-
-/* Bit 31 : Connection */
-#define QDEC_PSEL_B_CONNECT_Pos (31UL) /*!< Position of CONNECT field. */
-#define QDEC_PSEL_B_CONNECT_Msk (0x1UL << QDEC_PSEL_B_CONNECT_Pos) /*!< Bit mask of CONNECT field. */
-#define QDEC_PSEL_B_CONNECT_Connected (0UL) /*!< Connect */
-#define QDEC_PSEL_B_CONNECT_Disconnected (1UL) /*!< Disconnect */
-
-/* Bits 4..0 : Pin number */
-#define QDEC_PSEL_B_PIN_Pos (0UL) /*!< Position of PIN field. */
-#define QDEC_PSEL_B_PIN_Msk (0x1FUL << QDEC_PSEL_B_PIN_Pos) /*!< Bit mask of PIN field. */
-
-/* Register: QDEC_DBFEN */
-/* Description: Enable input debounce filters */
-
-/* Bit 0 : Enable input debounce filters */
-#define QDEC_DBFEN_DBFEN_Pos (0UL) /*!< Position of DBFEN field. */
-#define QDEC_DBFEN_DBFEN_Msk (0x1UL << QDEC_DBFEN_DBFEN_Pos) /*!< Bit mask of DBFEN field. */
-#define QDEC_DBFEN_DBFEN_Disabled (0UL) /*!< Debounce input filters disabled */
-#define QDEC_DBFEN_DBFEN_Enabled (1UL) /*!< Debounce input filters enabled */
-
-/* Register: QDEC_LEDPRE */
-/* Description: Time period the LED is switched ON prior to sampling */
-
-/* Bits 8..0 : Period in us the LED is switched on prior to sampling */
-#define QDEC_LEDPRE_LEDPRE_Pos (0UL) /*!< Position of LEDPRE field. */
-#define QDEC_LEDPRE_LEDPRE_Msk (0x1FFUL << QDEC_LEDPRE_LEDPRE_Pos) /*!< Bit mask of LEDPRE field. */
-
-/* Register: QDEC_ACCDBL */
-/* Description: Register accumulating the number of detected double transitions */
-
-/* Bits 3..0 : Register accumulating the number of detected double or illegal transitions. ( SAMPLE = 2 ). */
-#define QDEC_ACCDBL_ACCDBL_Pos (0UL) /*!< Position of ACCDBL field. */
-#define QDEC_ACCDBL_ACCDBL_Msk (0xFUL << QDEC_ACCDBL_ACCDBL_Pos) /*!< Bit mask of ACCDBL field. */
-
-/* Register: QDEC_ACCDBLREAD */
-/* Description: Snapshot of the ACCDBL, updated by the READCLRACC or RDCLRDBL task */
-
-/* Bits 3..0 : Snapshot of the ACCDBL register. This field is updated when the READCLRACC or RDCLRDBL task is triggered. */
-#define QDEC_ACCDBLREAD_ACCDBLREAD_Pos (0UL) /*!< Position of ACCDBLREAD field. */
-#define QDEC_ACCDBLREAD_ACCDBLREAD_Msk (0xFUL << QDEC_ACCDBLREAD_ACCDBLREAD_Pos) /*!< Bit mask of ACCDBLREAD field. */
-
-
 /* Peripheral: RADIO */
-/* Description: 2.4 GHz Radio */
+/* Description: 2.4 GHz radio */
 
 /* Register: RADIO_TASKS_TXEN */
 /* Description: Enable RADIO in TX mode */
@@ -6017,9 +4809,9 @@ POSSIBILITY OF SUCH DAMAGE.
 #define RADIO_TASKS_DISABLE_TASKS_DISABLE_Trigger (1UL) /*!< Trigger task */
 
 /* Register: RADIO_TASKS_RSSISTART */
-/* Description: Start the RSSI and take one single sample of the receive signal strength. */
+/* Description: Start the RSSI and take one single sample of the receive signal strength */
 
-/* Bit 0 : Start the RSSI and take one single sample of the receive signal strength. */
+/* Bit 0 : Start the RSSI and take one single sample of the receive signal strength */
 #define RADIO_TASKS_RSSISTART_TASKS_RSSISTART_Pos (0UL) /*!< Position of TASKS_RSSISTART field. */
 #define RADIO_TASKS_RSSISTART_TASKS_RSSISTART_Msk (0x1UL << RADIO_TASKS_RSSISTART_TASKS_RSSISTART_Pos) /*!< Bit mask of TASKS_RSSISTART field. */
 #define RADIO_TASKS_RSSISTART_TASKS_RSSISTART_Trigger (1UL) /*!< Trigger task */
@@ -6112,18 +4904,18 @@ POSSIBILITY OF SUCH DAMAGE.
 #define RADIO_EVENTS_DEVMISS_EVENTS_DEVMISS_Generated (1UL) /*!< Event generated */
 
 /* Register: RADIO_EVENTS_RSSIEND */
-/* Description: Sampling of receive signal strength complete. */
+/* Description: Sampling of receive signal strength complete */
 
-/* Bit 0 : Sampling of receive signal strength complete. */
+/* Bit 0 : Sampling of receive signal strength complete */
 #define RADIO_EVENTS_RSSIEND_EVENTS_RSSIEND_Pos (0UL) /*!< Position of EVENTS_RSSIEND field. */
 #define RADIO_EVENTS_RSSIEND_EVENTS_RSSIEND_Msk (0x1UL << RADIO_EVENTS_RSSIEND_EVENTS_RSSIEND_Pos) /*!< Bit mask of EVENTS_RSSIEND field. */
 #define RADIO_EVENTS_RSSIEND_EVENTS_RSSIEND_NotGenerated (0UL) /*!< Event not generated */
 #define RADIO_EVENTS_RSSIEND_EVENTS_RSSIEND_Generated (1UL) /*!< Event generated */
 
 /* Register: RADIO_EVENTS_BCMATCH */
-/* Description: Bit counter reached bit count value. */
+/* Description: Bit counter reached bit count value */
 
-/* Bit 0 : Bit counter reached bit count value. */
+/* Bit 0 : Bit counter reached bit count value */
 #define RADIO_EVENTS_BCMATCH_EVENTS_BCMATCH_Pos (0UL) /*!< Position of EVENTS_BCMATCH field. */
 #define RADIO_EVENTS_BCMATCH_EVENTS_BCMATCH_Msk (0x1UL << RADIO_EVENTS_BCMATCH_EVENTS_BCMATCH_Pos) /*!< Bit mask of EVENTS_BCMATCH field. */
 #define RADIO_EVENTS_BCMATCH_EVENTS_BCMATCH_NotGenerated (0UL) /*!< Event not generated */
@@ -6147,8 +4939,68 @@ POSSIBILITY OF SUCH DAMAGE.
 #define RADIO_EVENTS_CRCERROR_EVENTS_CRCERROR_NotGenerated (0UL) /*!< Event not generated */
 #define RADIO_EVENTS_CRCERROR_EVENTS_CRCERROR_Generated (1UL) /*!< Event generated */
 
+/* Register: RADIO_EVENTS_TXREADY */
+/* Description: RADIO has ramped up and is ready to be started TX path */
+
+/* Bit 0 : RADIO has ramped up and is ready to be started TX path */
+#define RADIO_EVENTS_TXREADY_EVENTS_TXREADY_Pos (0UL) /*!< Position of EVENTS_TXREADY field. */
+#define RADIO_EVENTS_TXREADY_EVENTS_TXREADY_Msk (0x1UL << RADIO_EVENTS_TXREADY_EVENTS_TXREADY_Pos) /*!< Bit mask of EVENTS_TXREADY field. */
+#define RADIO_EVENTS_TXREADY_EVENTS_TXREADY_NotGenerated (0UL) /*!< Event not generated */
+#define RADIO_EVENTS_TXREADY_EVENTS_TXREADY_Generated (1UL) /*!< Event generated */
+
+/* Register: RADIO_EVENTS_RXREADY */
+/* Description: RADIO has ramped up and is ready to be started RX path */
+
+/* Bit 0 : RADIO has ramped up and is ready to be started RX path */
+#define RADIO_EVENTS_RXREADY_EVENTS_RXREADY_Pos (0UL) /*!< Position of EVENTS_RXREADY field. */
+#define RADIO_EVENTS_RXREADY_EVENTS_RXREADY_Msk (0x1UL << RADIO_EVENTS_RXREADY_EVENTS_RXREADY_Pos) /*!< Bit mask of EVENTS_RXREADY field. */
+#define RADIO_EVENTS_RXREADY_EVENTS_RXREADY_NotGenerated (0UL) /*!< Event not generated */
+#define RADIO_EVENTS_RXREADY_EVENTS_RXREADY_Generated (1UL) /*!< Event generated */
+
+/* Register: RADIO_EVENTS_MHRMATCH */
+/* Description: MAC header match found */
+
+/* Bit 0 : MAC header match found */
+#define RADIO_EVENTS_MHRMATCH_EVENTS_MHRMATCH_Pos (0UL) /*!< Position of EVENTS_MHRMATCH field. */
+#define RADIO_EVENTS_MHRMATCH_EVENTS_MHRMATCH_Msk (0x1UL << RADIO_EVENTS_MHRMATCH_EVENTS_MHRMATCH_Pos) /*!< Bit mask of EVENTS_MHRMATCH field. */
+#define RADIO_EVENTS_MHRMATCH_EVENTS_MHRMATCH_NotGenerated (0UL) /*!< Event not generated */
+#define RADIO_EVENTS_MHRMATCH_EVENTS_MHRMATCH_Generated (1UL) /*!< Event generated */
+
+/* Register: RADIO_EVENTS_PHYEND */
+/* Description: Generated when last bit is sent on air */
+
+/* Bit 0 : Generated when last bit is sent on air */
+#define RADIO_EVENTS_PHYEND_EVENTS_PHYEND_Pos (0UL) /*!< Position of EVENTS_PHYEND field. */
+#define RADIO_EVENTS_PHYEND_EVENTS_PHYEND_Msk (0x1UL << RADIO_EVENTS_PHYEND_EVENTS_PHYEND_Pos) /*!< Bit mask of EVENTS_PHYEND field. */
+#define RADIO_EVENTS_PHYEND_EVENTS_PHYEND_NotGenerated (0UL) /*!< Event not generated */
+#define RADIO_EVENTS_PHYEND_EVENTS_PHYEND_Generated (1UL) /*!< Event generated */
+
 /* Register: RADIO_SHORTS */
 /* Description: Shortcuts between local events and tasks */
+
+/* Bit 21 : Shortcut between event PHYEND and task START */
+#define RADIO_SHORTS_PHYEND_START_Pos (21UL) /*!< Position of PHYEND_START field. */
+#define RADIO_SHORTS_PHYEND_START_Msk (0x1UL << RADIO_SHORTS_PHYEND_START_Pos) /*!< Bit mask of PHYEND_START field. */
+#define RADIO_SHORTS_PHYEND_START_Disabled (0UL) /*!< Disable shortcut */
+#define RADIO_SHORTS_PHYEND_START_Enabled (1UL) /*!< Enable shortcut */
+
+/* Bit 20 : Shortcut between event PHYEND and task DISABLE */
+#define RADIO_SHORTS_PHYEND_DISABLE_Pos (20UL) /*!< Position of PHYEND_DISABLE field. */
+#define RADIO_SHORTS_PHYEND_DISABLE_Msk (0x1UL << RADIO_SHORTS_PHYEND_DISABLE_Pos) /*!< Bit mask of PHYEND_DISABLE field. */
+#define RADIO_SHORTS_PHYEND_DISABLE_Disabled (0UL) /*!< Disable shortcut */
+#define RADIO_SHORTS_PHYEND_DISABLE_Enabled (1UL) /*!< Enable shortcut */
+
+/* Bit 19 : Shortcut between event RXREADY and task START */
+#define RADIO_SHORTS_RXREADY_START_Pos (19UL) /*!< Position of RXREADY_START field. */
+#define RADIO_SHORTS_RXREADY_START_Msk (0x1UL << RADIO_SHORTS_RXREADY_START_Pos) /*!< Bit mask of RXREADY_START field. */
+#define RADIO_SHORTS_RXREADY_START_Disabled (0UL) /*!< Disable shortcut */
+#define RADIO_SHORTS_RXREADY_START_Enabled (1UL) /*!< Enable shortcut */
+
+/* Bit 18 : Shortcut between event TXREADY and task START */
+#define RADIO_SHORTS_TXREADY_START_Pos (18UL) /*!< Position of TXREADY_START field. */
+#define RADIO_SHORTS_TXREADY_START_Msk (0x1UL << RADIO_SHORTS_TXREADY_START_Pos) /*!< Bit mask of TXREADY_START field. */
+#define RADIO_SHORTS_TXREADY_START_Disabled (0UL) /*!< Disable shortcut */
+#define RADIO_SHORTS_TXREADY_START_Enabled (1UL) /*!< Enable shortcut */
 
 /* Bit 8 : Shortcut between event DISABLED and task RSSISTOP */
 #define RADIO_SHORTS_DISABLED_RSSISTOP_Pos (8UL) /*!< Position of DISABLED_RSSISTOP field. */
@@ -6200,6 +5052,34 @@ POSSIBILITY OF SUCH DAMAGE.
 
 /* Register: RADIO_INTENSET */
 /* Description: Enable interrupt */
+
+/* Bit 27 : Write '1' to enable interrupt for event PHYEND */
+#define RADIO_INTENSET_PHYEND_Pos (27UL) /*!< Position of PHYEND field. */
+#define RADIO_INTENSET_PHYEND_Msk (0x1UL << RADIO_INTENSET_PHYEND_Pos) /*!< Bit mask of PHYEND field. */
+#define RADIO_INTENSET_PHYEND_Disabled (0UL) /*!< Read: Disabled */
+#define RADIO_INTENSET_PHYEND_Enabled (1UL) /*!< Read: Enabled */
+#define RADIO_INTENSET_PHYEND_Set (1UL) /*!< Enable */
+
+/* Bit 23 : Write '1' to enable interrupt for event MHRMATCH */
+#define RADIO_INTENSET_MHRMATCH_Pos (23UL) /*!< Position of MHRMATCH field. */
+#define RADIO_INTENSET_MHRMATCH_Msk (0x1UL << RADIO_INTENSET_MHRMATCH_Pos) /*!< Bit mask of MHRMATCH field. */
+#define RADIO_INTENSET_MHRMATCH_Disabled (0UL) /*!< Read: Disabled */
+#define RADIO_INTENSET_MHRMATCH_Enabled (1UL) /*!< Read: Enabled */
+#define RADIO_INTENSET_MHRMATCH_Set (1UL) /*!< Enable */
+
+/* Bit 22 : Write '1' to enable interrupt for event RXREADY */
+#define RADIO_INTENSET_RXREADY_Pos (22UL) /*!< Position of RXREADY field. */
+#define RADIO_INTENSET_RXREADY_Msk (0x1UL << RADIO_INTENSET_RXREADY_Pos) /*!< Bit mask of RXREADY field. */
+#define RADIO_INTENSET_RXREADY_Disabled (0UL) /*!< Read: Disabled */
+#define RADIO_INTENSET_RXREADY_Enabled (1UL) /*!< Read: Enabled */
+#define RADIO_INTENSET_RXREADY_Set (1UL) /*!< Enable */
+
+/* Bit 21 : Write '1' to enable interrupt for event TXREADY */
+#define RADIO_INTENSET_TXREADY_Pos (21UL) /*!< Position of TXREADY field. */
+#define RADIO_INTENSET_TXREADY_Msk (0x1UL << RADIO_INTENSET_TXREADY_Pos) /*!< Bit mask of TXREADY field. */
+#define RADIO_INTENSET_TXREADY_Disabled (0UL) /*!< Read: Disabled */
+#define RADIO_INTENSET_TXREADY_Enabled (1UL) /*!< Read: Enabled */
+#define RADIO_INTENSET_TXREADY_Set (1UL) /*!< Enable */
 
 /* Bit 13 : Write '1' to enable interrupt for event CRCERROR */
 #define RADIO_INTENSET_CRCERROR_Pos (13UL) /*!< Position of CRCERROR field. */
@@ -6280,6 +5160,34 @@ POSSIBILITY OF SUCH DAMAGE.
 
 /* Register: RADIO_INTENCLR */
 /* Description: Disable interrupt */
+
+/* Bit 27 : Write '1' to disable interrupt for event PHYEND */
+#define RADIO_INTENCLR_PHYEND_Pos (27UL) /*!< Position of PHYEND field. */
+#define RADIO_INTENCLR_PHYEND_Msk (0x1UL << RADIO_INTENCLR_PHYEND_Pos) /*!< Bit mask of PHYEND field. */
+#define RADIO_INTENCLR_PHYEND_Disabled (0UL) /*!< Read: Disabled */
+#define RADIO_INTENCLR_PHYEND_Enabled (1UL) /*!< Read: Enabled */
+#define RADIO_INTENCLR_PHYEND_Clear (1UL) /*!< Disable */
+
+/* Bit 23 : Write '1' to disable interrupt for event MHRMATCH */
+#define RADIO_INTENCLR_MHRMATCH_Pos (23UL) /*!< Position of MHRMATCH field. */
+#define RADIO_INTENCLR_MHRMATCH_Msk (0x1UL << RADIO_INTENCLR_MHRMATCH_Pos) /*!< Bit mask of MHRMATCH field. */
+#define RADIO_INTENCLR_MHRMATCH_Disabled (0UL) /*!< Read: Disabled */
+#define RADIO_INTENCLR_MHRMATCH_Enabled (1UL) /*!< Read: Enabled */
+#define RADIO_INTENCLR_MHRMATCH_Clear (1UL) /*!< Disable */
+
+/* Bit 22 : Write '1' to disable interrupt for event RXREADY */
+#define RADIO_INTENCLR_RXREADY_Pos (22UL) /*!< Position of RXREADY field. */
+#define RADIO_INTENCLR_RXREADY_Msk (0x1UL << RADIO_INTENCLR_RXREADY_Pos) /*!< Bit mask of RXREADY field. */
+#define RADIO_INTENCLR_RXREADY_Disabled (0UL) /*!< Read: Disabled */
+#define RADIO_INTENCLR_RXREADY_Enabled (1UL) /*!< Read: Enabled */
+#define RADIO_INTENCLR_RXREADY_Clear (1UL) /*!< Disable */
+
+/* Bit 21 : Write '1' to disable interrupt for event TXREADY */
+#define RADIO_INTENCLR_TXREADY_Pos (21UL) /*!< Position of TXREADY field. */
+#define RADIO_INTENCLR_TXREADY_Msk (0x1UL << RADIO_INTENCLR_TXREADY_Pos) /*!< Bit mask of TXREADY field. */
+#define RADIO_INTENCLR_TXREADY_Disabled (0UL) /*!< Read: Disabled */
+#define RADIO_INTENCLR_TXREADY_Enabled (1UL) /*!< Read: Enabled */
+#define RADIO_INTENCLR_TXREADY_Clear (1UL) /*!< Disable */
 
 /* Bit 13 : Write '1' to disable interrupt for event CRCERROR */
 #define RADIO_INTENCLR_CRCERROR_Pos (13UL) /*!< Position of CRCERROR field. */
@@ -6388,6 +5296,15 @@ POSSIBILITY OF SUCH DAMAGE.
 #define RADIO_DAI_DAI_Pos (0UL) /*!< Position of DAI field. */
 #define RADIO_DAI_DAI_Msk (0x7UL << RADIO_DAI_DAI_Pos) /*!< Bit mask of DAI field. */
 
+/* Register: RADIO_PDUSTAT */
+/* Description: Payload status */
+
+/* Bit 0 : Status on payload length vs. PCNF1.MAXLEN */
+#define RADIO_PDUSTAT_PDUSTAT_Pos (0UL) /*!< Position of PDUSTAT field. */
+#define RADIO_PDUSTAT_PDUSTAT_Msk (0x1UL << RADIO_PDUSTAT_PDUSTAT_Pos) /*!< Bit mask of PDUSTAT field. */
+#define RADIO_PDUSTAT_PDUSTAT_LessThan (0UL) /*!< Payload less than PCNF1.MAXLEN */
+#define RADIO_PDUSTAT_PDUSTAT_GreaterThan (1UL) /*!< Payload greater than PCNF1.MAXLEN */
+
 /* Register: RADIO_PACKETPTR */
 /* Description: Packet pointer */
 
@@ -6411,12 +5328,12 @@ POSSIBILITY OF SUCH DAMAGE.
 /* Register: RADIO_TXPOWER */
 /* Description: Output power */
 
-/* Bits 7..0 : RADIO output power. */
+/* Bits 7..0 : RADIO output power */
 #define RADIO_TXPOWER_TXPOWER_Pos (0UL) /*!< Position of TXPOWER field. */
 #define RADIO_TXPOWER_TXPOWER_Msk (0xFFUL << RADIO_TXPOWER_TXPOWER_Pos) /*!< Bit mask of TXPOWER field. */
-#define RADIO_TXPOWER_TXPOWER_0dBm (0x00UL) /*!< 0 dBm */
-#define RADIO_TXPOWER_TXPOWER_Pos3dBm (0x03UL) /*!< +3 dBm */
-#define RADIO_TXPOWER_TXPOWER_Pos4dBm (0x04UL) /*!< +4 dBm */
+#define RADIO_TXPOWER_TXPOWER_0dBm (0x0UL) /*!< 0 dBm */
+#define RADIO_TXPOWER_TXPOWER_Pos3dBm (0x3UL) /*!< +3 dBm */
+#define RADIO_TXPOWER_TXPOWER_Pos4dBm (0x4UL) /*!< +4 dBm */
 #define RADIO_TXPOWER_TXPOWER_Neg40dBm (0xD8UL) /*!< -40 dBm */
 #define RADIO_TXPOWER_TXPOWER_Neg30dBm (0xE2UL) /*!< Deprecated enumerator -  -40 dBm */
 #define RADIO_TXPOWER_TXPOWER_Neg20dBm (0xECUL) /*!< -20 dBm */
@@ -6428,20 +5345,26 @@ POSSIBILITY OF SUCH DAMAGE.
 /* Register: RADIO_MODE */
 /* Description: Data rate and modulation */
 
-/* Bits 3..0 : Radio data rate and modulation setting. The radio supports Frequency-shift Keying (FSK) modulation. */
+/* Bits 3..0 : Radio data rate and modulation setting. The radio supports frequency-shift keying (FSK) modulation. */
 #define RADIO_MODE_MODE_Pos (0UL) /*!< Position of MODE field. */
 #define RADIO_MODE_MODE_Msk (0xFUL << RADIO_MODE_MODE_Pos) /*!< Bit mask of MODE field. */
-#define RADIO_MODE_MODE_Nrf_1Mbit (0UL) /*!< 1 Mbit/s Nordic proprietary radio mode */
-#define RADIO_MODE_MODE_Nrf_2Mbit (1UL) /*!< 2 Mbit/s Nordic proprietary radio mode */
-#define RADIO_MODE_MODE_Ble_1Mbit (3UL) /*!< 1 Mbit/s Bluetooth Low Energy */
-#define RADIO_MODE_MODE_Ble_2Mbit (4UL) /*!< 2 Mbit/s Bluetooth Low Energy */
+#define RADIO_MODE_MODE_Nrf_1Mbit (0UL) /*!< 1 Mbps Nordic proprietary radio mode */
+#define RADIO_MODE_MODE_Nrf_2Mbit (1UL) /*!< 2 Mbps Nordic proprietary radio mode */
+#define RADIO_MODE_MODE_Ble_1Mbit (3UL) /*!< 1 Mbps BLE */
+#define RADIO_MODE_MODE_Ble_2Mbit (4UL) /*!< 2 Mbps BLE */
 
 /* Register: RADIO_PCNF0 */
 /* Description: Packet configuration register 0 */
 
-/* Bit 24 : Length of preamble on air. Decision point: TASKS_START task */
+/* Bit 26 : Indicates if LENGTH field contains CRC or not */
+#define RADIO_PCNF0_CRCINC_Pos (26UL) /*!< Position of CRCINC field. */
+#define RADIO_PCNF0_CRCINC_Msk (0x1UL << RADIO_PCNF0_CRCINC_Pos) /*!< Bit mask of CRCINC field. */
+#define RADIO_PCNF0_CRCINC_Exclude (0UL) /*!< LENGTH does not contain CRC */
+#define RADIO_PCNF0_CRCINC_Include (1UL) /*!< LENGTH includes CRC */
+
+/* Bits 25..24 : Length of preamble on air. Decision point: TASKS_START task */
 #define RADIO_PCNF0_PLEN_Pos (24UL) /*!< Position of PLEN field. */
-#define RADIO_PCNF0_PLEN_Msk (0x1UL << RADIO_PCNF0_PLEN_Pos) /*!< Bit mask of PLEN field. */
+#define RADIO_PCNF0_PLEN_Msk (0x3UL << RADIO_PCNF0_PLEN_Pos) /*!< Bit mask of PLEN field. */
 #define RADIO_PCNF0_PLEN_8bit (0UL) /*!< 8-bit preamble */
 #define RADIO_PCNF0_PLEN_16bit (1UL) /*!< 16-bit preamble */
 
@@ -6472,10 +5395,10 @@ POSSIBILITY OF SUCH DAMAGE.
 #define RADIO_PCNF1_WHITEEN_Disabled (0UL) /*!< Disable */
 #define RADIO_PCNF1_WHITEEN_Enabled (1UL) /*!< Enable */
 
-/* Bit 24 : On air endianness of packet, this applies to the S0, LENGTH, S1 and the PAYLOAD fields. */
+/* Bit 24 : On-air endianness of packet, this applies to the S0, LENGTH, S1, and the PAYLOAD fields. */
 #define RADIO_PCNF1_ENDIAN_Pos (24UL) /*!< Position of ENDIAN field. */
 #define RADIO_PCNF1_ENDIAN_Msk (0x1UL << RADIO_PCNF1_ENDIAN_Pos) /*!< Bit mask of ENDIAN field. */
-#define RADIO_PCNF1_ENDIAN_Little (0UL) /*!< Least Significant bit on air first */
+#define RADIO_PCNF1_ENDIAN_Little (0UL) /*!< Least significant bit on air first */
 #define RADIO_PCNF1_ENDIAN_Big (1UL) /*!< Most significant bit on air first */
 
 /* Bits 18..16 : Base address length in number of bytes */
@@ -6603,9 +5526,9 @@ POSSIBILITY OF SUCH DAMAGE.
 /* Register: RADIO_CRCCNF */
 /* Description: CRC configuration */
 
-/* Bit 8 : Include or exclude packet address field out of CRC calculation. */
+/* Bits 9..8 : Include or exclude packet address field out of CRC calculation. */
 #define RADIO_CRCCNF_SKIPADDR_Pos (8UL) /*!< Position of SKIPADDR field. */
-#define RADIO_CRCCNF_SKIPADDR_Msk (0x1UL << RADIO_CRCCNF_SKIPADDR_Pos) /*!< Bit mask of SKIPADDR field. */
+#define RADIO_CRCCNF_SKIPADDR_Msk (0x3UL << RADIO_CRCCNF_SKIPADDR_Pos) /*!< Bit mask of SKIPADDR field. */
 #define RADIO_CRCCNF_SKIPADDR_Include (0UL) /*!< CRC calculation includes address field */
 #define RADIO_CRCCNF_SKIPADDR_Skip (1UL) /*!< CRC calculation does not include address field. The CRC calculation will start at the first byte after the address. */
 
@@ -6632,11 +5555,11 @@ POSSIBILITY OF SUCH DAMAGE.
 #define RADIO_CRCINIT_CRCINIT_Msk (0xFFFFFFUL << RADIO_CRCINIT_CRCINIT_Pos) /*!< Bit mask of CRCINIT field. */
 
 /* Register: RADIO_TIFS */
-/* Description: Inter Frame Spacing in us */
+/* Description: Interframe spacing in us */
 
-/* Bits 7..0 : Inter Frame Spacing in us */
+/* Bits 9..0 : Interframe spacing in us */
 #define RADIO_TIFS_TIFS_Pos (0UL) /*!< Position of TIFS field. */
-#define RADIO_TIFS_TIFS_Msk (0xFFUL << RADIO_TIFS_TIFS_Pos) /*!< Bit mask of TIFS field. */
+#define RADIO_TIFS_TIFS_Msk (0x3FFUL << RADIO_TIFS_TIFS_Pos) /*!< Bit mask of TIFS field. */
 
 /* Register: RADIO_RSSISAMPLE */
 /* Description: RSSI sample */
@@ -6664,7 +5587,7 @@ POSSIBILITY OF SUCH DAMAGE.
 /* Register: RADIO_DATAWHITEIV */
 /* Description: Data whitening initial value */
 
-/* Bits 6..0 : Data whitening initial value. Bit 6 is hard-wired to '1', writing '0' to it has no effect, and it will always be read back and used by the device as '1'. */
+/* Bits 6..0 : Data whitening initial value. Bit 6 is hardwired to '1', writing '0' to it has no effect, and it will always be read back and used by the device as '1'. */
 #define RADIO_DATAWHITEIV_DATAWHITEIV_Pos (0UL) /*!< Position of DATAWHITEIV field. */
 #define RADIO_DATAWHITEIV_DATAWHITEIV_Msk (0x7FUL << RADIO_DATAWHITEIV_DATAWHITEIV_Pos) /*!< Bit mask of DATAWHITEIV field. */
 
@@ -6785,8 +5708,8 @@ POSSIBILITY OF SUCH DAMAGE.
 /* Bit 0 : Radio ramp-up time */
 #define RADIO_MODECNF0_RU_Pos (0UL) /*!< Position of RU field. */
 #define RADIO_MODECNF0_RU_Msk (0x1UL << RADIO_MODECNF0_RU_Pos) /*!< Bit mask of RU field. */
-#define RADIO_MODECNF0_RU_Default (0UL) /*!< Default ramp-up time (tRXEN), compatible with firmware written for nRF51 */
-#define RADIO_MODECNF0_RU_Fast (1UL) /*!< Fast ramp-up (tRXEN,FAST), see electrical specification for more information */
+#define RADIO_MODECNF0_RU_Default (0UL) /*!< Default ramp-up time (tRXEN and tTXEN), compatible with firmware written for nRF51 */
+#define RADIO_MODECNF0_RU_Fast (1UL) /*!< Fast ramp-up (tRXEN,FAST and tTXEN,FAST), see electrical specification for more information */
 
 /* Register: RADIO_POWER */
 /* Description: Peripheral power control */
@@ -8282,16 +7205,16 @@ POSSIBILITY OF SUCH DAMAGE.
 /* Register: SPIM_RXD_MAXCNT */
 /* Description: Maximum number of bytes in receive buffer */
 
-/* Bits 9..0 : Maximum number of bytes in receive buffer */
+/* Bits 13..0 : Maximum number of bytes in receive buffer */
 #define SPIM_RXD_MAXCNT_MAXCNT_Pos (0UL) /*!< Position of MAXCNT field. */
-#define SPIM_RXD_MAXCNT_MAXCNT_Msk (0x3FFUL << SPIM_RXD_MAXCNT_MAXCNT_Pos) /*!< Bit mask of MAXCNT field. */
+#define SPIM_RXD_MAXCNT_MAXCNT_Msk (0x3FFFUL << SPIM_RXD_MAXCNT_MAXCNT_Pos) /*!< Bit mask of MAXCNT field. */
 
 /* Register: SPIM_RXD_AMOUNT */
 /* Description: Number of bytes transferred in the last transaction */
 
-/* Bits 9..0 : Number of bytes transferred in the last transaction */
+/* Bits 13..0 : Number of bytes transferred in the last transaction */
 #define SPIM_RXD_AMOUNT_AMOUNT_Pos (0UL) /*!< Position of AMOUNT field. */
-#define SPIM_RXD_AMOUNT_AMOUNT_Msk (0x3FFUL << SPIM_RXD_AMOUNT_AMOUNT_Pos) /*!< Bit mask of AMOUNT field. */
+#define SPIM_RXD_AMOUNT_AMOUNT_Msk (0x3FFFUL << SPIM_RXD_AMOUNT_AMOUNT_Pos) /*!< Bit mask of AMOUNT field. */
 
 /* Register: SPIM_RXD_LIST */
 /* Description: EasyDMA list type */
@@ -8312,16 +7235,16 @@ POSSIBILITY OF SUCH DAMAGE.
 /* Register: SPIM_TXD_MAXCNT */
 /* Description: Maximum number of bytes in transmit buffer */
 
-/* Bits 9..0 : Maximum number of bytes in transmit buffer */
+/* Bits 13..0 : Maximum number of bytes in transmit buffer */
 #define SPIM_TXD_MAXCNT_MAXCNT_Pos (0UL) /*!< Position of MAXCNT field. */
-#define SPIM_TXD_MAXCNT_MAXCNT_Msk (0x3FFUL << SPIM_TXD_MAXCNT_MAXCNT_Pos) /*!< Bit mask of MAXCNT field. */
+#define SPIM_TXD_MAXCNT_MAXCNT_Msk (0x3FFFUL << SPIM_TXD_MAXCNT_MAXCNT_Pos) /*!< Bit mask of MAXCNT field. */
 
 /* Register: SPIM_TXD_AMOUNT */
 /* Description: Number of bytes transferred in the last transaction */
 
-/* Bits 9..0 : Number of bytes transferred in the last transaction */
+/* Bits 13..0 : Number of bytes transferred in the last transaction */
 #define SPIM_TXD_AMOUNT_AMOUNT_Pos (0UL) /*!< Position of AMOUNT field. */
-#define SPIM_TXD_AMOUNT_AMOUNT_Msk (0x3FFUL << SPIM_TXD_AMOUNT_AMOUNT_Pos) /*!< Bit mask of AMOUNT field. */
+#define SPIM_TXD_AMOUNT_AMOUNT_Msk (0x3FFFUL << SPIM_TXD_AMOUNT_AMOUNT_Pos) /*!< Bit mask of AMOUNT field. */
 
 /* Register: SPIM_TXD_LIST */
 /* Description: EasyDMA list type */
@@ -8563,16 +7486,16 @@ POSSIBILITY OF SUCH DAMAGE.
 /* Register: SPIS_RXD_MAXCNT */
 /* Description: Maximum number of bytes in receive buffer */
 
-/* Bits 9..0 : Maximum number of bytes in receive buffer */
+/* Bits 13..0 : Maximum number of bytes in receive buffer */
 #define SPIS_RXD_MAXCNT_MAXCNT_Pos (0UL) /*!< Position of MAXCNT field. */
-#define SPIS_RXD_MAXCNT_MAXCNT_Msk (0x3FFUL << SPIS_RXD_MAXCNT_MAXCNT_Pos) /*!< Bit mask of MAXCNT field. */
+#define SPIS_RXD_MAXCNT_MAXCNT_Msk (0x3FFFUL << SPIS_RXD_MAXCNT_MAXCNT_Pos) /*!< Bit mask of MAXCNT field. */
 
 /* Register: SPIS_RXD_AMOUNT */
 /* Description: Number of bytes received in last granted transaction */
 
-/* Bits 9..0 : Number of bytes received in the last granted transaction */
+/* Bits 13..0 : Number of bytes received in the last granted transaction */
 #define SPIS_RXD_AMOUNT_AMOUNT_Pos (0UL) /*!< Position of AMOUNT field. */
-#define SPIS_RXD_AMOUNT_AMOUNT_Msk (0x3FFUL << SPIS_RXD_AMOUNT_AMOUNT_Pos) /*!< Bit mask of AMOUNT field. */
+#define SPIS_RXD_AMOUNT_AMOUNT_Msk (0x3FFFUL << SPIS_RXD_AMOUNT_AMOUNT_Pos) /*!< Bit mask of AMOUNT field. */
 
 /* Register: SPIS_RXD_LIST */
 /* Description: EasyDMA list type */
@@ -8593,16 +7516,16 @@ POSSIBILITY OF SUCH DAMAGE.
 /* Register: SPIS_TXD_MAXCNT */
 /* Description: Maximum number of bytes in transmit buffer */
 
-/* Bits 9..0 : Maximum number of bytes in transmit buffer */
+/* Bits 13..0 : Maximum number of bytes in transmit buffer */
 #define SPIS_TXD_MAXCNT_MAXCNT_Pos (0UL) /*!< Position of MAXCNT field. */
-#define SPIS_TXD_MAXCNT_MAXCNT_Msk (0x3FFUL << SPIS_TXD_MAXCNT_MAXCNT_Pos) /*!< Bit mask of MAXCNT field. */
+#define SPIS_TXD_MAXCNT_MAXCNT_Msk (0x3FFFUL << SPIS_TXD_MAXCNT_MAXCNT_Pos) /*!< Bit mask of MAXCNT field. */
 
 /* Register: SPIS_TXD_AMOUNT */
 /* Description: Number of bytes transmitted in last granted transaction */
 
-/* Bits 9..0 : Number of bytes transmitted in last granted transaction */
+/* Bits 13..0 : Number of bytes transmitted in last granted transaction */
 #define SPIS_TXD_AMOUNT_AMOUNT_Pos (0UL) /*!< Position of AMOUNT field. */
-#define SPIS_TXD_AMOUNT_AMOUNT_Msk (0x3FFUL << SPIS_TXD_AMOUNT_AMOUNT_Pos) /*!< Bit mask of AMOUNT field. */
+#define SPIS_TXD_AMOUNT_AMOUNT_Msk (0x3FFFUL << SPIS_TXD_AMOUNT_AMOUNT_Pos) /*!< Bit mask of AMOUNT field. */
 
 /* Register: SPIS_TXD_LIST */
 /* Description: EasyDMA list type */
@@ -9745,16 +8668,16 @@ POSSIBILITY OF SUCH DAMAGE.
 /* Register: TWIM_RXD_MAXCNT */
 /* Description: Maximum number of bytes in receive buffer */
 
-/* Bits 9..0 : Maximum number of bytes in receive buffer */
+/* Bits 13..0 : Maximum number of bytes in receive buffer */
 #define TWIM_RXD_MAXCNT_MAXCNT_Pos (0UL) /*!< Position of MAXCNT field. */
-#define TWIM_RXD_MAXCNT_MAXCNT_Msk (0x3FFUL << TWIM_RXD_MAXCNT_MAXCNT_Pos) /*!< Bit mask of MAXCNT field. */
+#define TWIM_RXD_MAXCNT_MAXCNT_Msk (0x3FFFUL << TWIM_RXD_MAXCNT_MAXCNT_Pos) /*!< Bit mask of MAXCNT field. */
 
 /* Register: TWIM_RXD_AMOUNT */
 /* Description: Number of bytes transferred in the last transaction */
 
-/* Bits 9..0 : Number of bytes transferred in the last transaction. In case of NACK error, includes the NACK'ed byte. */
+/* Bits 13..0 : Number of bytes transferred in the last transaction. In case of NACK error, includes the NACK'ed byte. */
 #define TWIM_RXD_AMOUNT_AMOUNT_Pos (0UL) /*!< Position of AMOUNT field. */
-#define TWIM_RXD_AMOUNT_AMOUNT_Msk (0x3FFUL << TWIM_RXD_AMOUNT_AMOUNT_Pos) /*!< Bit mask of AMOUNT field. */
+#define TWIM_RXD_AMOUNT_AMOUNT_Msk (0x3FFFUL << TWIM_RXD_AMOUNT_AMOUNT_Pos) /*!< Bit mask of AMOUNT field. */
 
 /* Register: TWIM_RXD_LIST */
 /* Description: EasyDMA list type */
@@ -9775,16 +8698,16 @@ POSSIBILITY OF SUCH DAMAGE.
 /* Register: TWIM_TXD_MAXCNT */
 /* Description: Maximum number of bytes in transmit buffer */
 
-/* Bits 9..0 : Maximum number of bytes in transmit buffer */
+/* Bits 13..0 : Maximum number of bytes in transmit buffer */
 #define TWIM_TXD_MAXCNT_MAXCNT_Pos (0UL) /*!< Position of MAXCNT field. */
-#define TWIM_TXD_MAXCNT_MAXCNT_Msk (0x3FFUL << TWIM_TXD_MAXCNT_MAXCNT_Pos) /*!< Bit mask of MAXCNT field. */
+#define TWIM_TXD_MAXCNT_MAXCNT_Msk (0x3FFFUL << TWIM_TXD_MAXCNT_MAXCNT_Pos) /*!< Bit mask of MAXCNT field. */
 
 /* Register: TWIM_TXD_AMOUNT */
 /* Description: Number of bytes transferred in the last transaction */
 
-/* Bits 9..0 : Number of bytes transferred in the last transaction. In case of NACK error, includes the NACK'ed byte. */
+/* Bits 13..0 : Number of bytes transferred in the last transaction. In case of NACK error, includes the NACK'ed byte. */
 #define TWIM_TXD_AMOUNT_AMOUNT_Pos (0UL) /*!< Position of AMOUNT field. */
-#define TWIM_TXD_AMOUNT_AMOUNT_Msk (0x3FFUL << TWIM_TXD_AMOUNT_AMOUNT_Pos) /*!< Bit mask of AMOUNT field. */
+#define TWIM_TXD_AMOUNT_AMOUNT_Msk (0x3FFFUL << TWIM_TXD_AMOUNT_AMOUNT_Pos) /*!< Bit mask of AMOUNT field. */
 
 /* Register: TWIM_TXD_LIST */
 /* Description: EasyDMA list type */
@@ -10117,16 +9040,16 @@ POSSIBILITY OF SUCH DAMAGE.
 /* Register: TWIS_RXD_MAXCNT */
 /* Description: Maximum number of bytes in RXD buffer */
 
-/* Bits 9..0 : Maximum number of bytes in RXD buffer */
+/* Bits 13..0 : Maximum number of bytes in RXD buffer */
 #define TWIS_RXD_MAXCNT_MAXCNT_Pos (0UL) /*!< Position of MAXCNT field. */
-#define TWIS_RXD_MAXCNT_MAXCNT_Msk (0x3FFUL << TWIS_RXD_MAXCNT_MAXCNT_Pos) /*!< Bit mask of MAXCNT field. */
+#define TWIS_RXD_MAXCNT_MAXCNT_Msk (0x3FFFUL << TWIS_RXD_MAXCNT_MAXCNT_Pos) /*!< Bit mask of MAXCNT field. */
 
 /* Register: TWIS_RXD_AMOUNT */
 /* Description: Number of bytes transferred in the last RXD transaction */
 
-/* Bits 9..0 : Number of bytes transferred in the last RXD transaction */
+/* Bits 13..0 : Number of bytes transferred in the last RXD transaction */
 #define TWIS_RXD_AMOUNT_AMOUNT_Pos (0UL) /*!< Position of AMOUNT field. */
-#define TWIS_RXD_AMOUNT_AMOUNT_Msk (0x3FFUL << TWIS_RXD_AMOUNT_AMOUNT_Pos) /*!< Bit mask of AMOUNT field. */
+#define TWIS_RXD_AMOUNT_AMOUNT_Msk (0x3FFFUL << TWIS_RXD_AMOUNT_AMOUNT_Pos) /*!< Bit mask of AMOUNT field. */
 
 /* Register: TWIS_RXD_LIST */
 /* Description: EasyDMA list type */
@@ -10147,16 +9070,16 @@ POSSIBILITY OF SUCH DAMAGE.
 /* Register: TWIS_TXD_MAXCNT */
 /* Description: Maximum number of bytes in TXD buffer */
 
-/* Bits 9..0 : Maximum number of bytes in TXD buffer */
+/* Bits 13..0 : Maximum number of bytes in TXD buffer */
 #define TWIS_TXD_MAXCNT_MAXCNT_Pos (0UL) /*!< Position of MAXCNT field. */
-#define TWIS_TXD_MAXCNT_MAXCNT_Msk (0x3FFUL << TWIS_TXD_MAXCNT_MAXCNT_Pos) /*!< Bit mask of MAXCNT field. */
+#define TWIS_TXD_MAXCNT_MAXCNT_Msk (0x3FFFUL << TWIS_TXD_MAXCNT_MAXCNT_Pos) /*!< Bit mask of MAXCNT field. */
 
 /* Register: TWIS_TXD_AMOUNT */
 /* Description: Number of bytes transferred in the last TXD transaction */
 
-/* Bits 9..0 : Number of bytes transferred in the last TXD transaction */
+/* Bits 13..0 : Number of bytes transferred in the last TXD transaction */
 #define TWIS_TXD_AMOUNT_AMOUNT_Pos (0UL) /*!< Position of AMOUNT field. */
-#define TWIS_TXD_AMOUNT_AMOUNT_Msk (0x3FFUL << TWIS_TXD_AMOUNT_AMOUNT_Pos) /*!< Bit mask of AMOUNT field. */
+#define TWIS_TXD_AMOUNT_AMOUNT_Msk (0x3FFFUL << TWIS_TXD_AMOUNT_AMOUNT_Pos) /*!< Bit mask of AMOUNT field. */
 
 /* Register: TWIS_TXD_LIST */
 /* Description: EasyDMA list type */

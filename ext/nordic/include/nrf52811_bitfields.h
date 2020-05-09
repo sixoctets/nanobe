@@ -30,8 +30,8 @@ POSSIBILITY OF SUCH DAMAGE.
 
 */
 
-#ifndef __NRF52810_BITS_H
-#define __NRF52810_BITS_H
+#ifndef __NRF52811_BITS_H
+#define __NRF52811_BITS_H
 
 /*lint ++flb "Enter library region" */
 
@@ -169,7 +169,7 @@ POSSIBILITY OF SUCH DAMAGE.
 /* Register: AAR_SCRATCHPTR */
 /* Description: Pointer to data area used for temporary storage */
 
-/* Bits 31..0 : Pointer to a scratch data area used for temporary storage during resolution.A space of minimum 3 bytes must be reserved. */
+/* Bits 31..0 : Pointer to a scratch data area used for temporary storage during resolution. A space of minimum 3 bytes must be reserved. */
 #define AAR_SCRATCHPTR_SCRATCHPTR_Pos (0UL) /*!< Position of SCRATCHPTR field. */
 #define AAR_SCRATCHPTR_SCRATCHPTR_Msk (0xFFFFFFFFUL << AAR_SCRATCHPTR_SCRATCHPTR_Pos) /*!< Bit mask of SCRATCHPTR field. */
 
@@ -5974,7 +5974,7 @@ POSSIBILITY OF SUCH DAMAGE.
 
 
 /* Peripheral: RADIO */
-/* Description: 2.4 GHz Radio */
+/* Description: 2.4 GHz radio */
 
 /* Register: RADIO_TASKS_TXEN */
 /* Description: Enable RADIO in TX mode */
@@ -6017,9 +6017,9 @@ POSSIBILITY OF SUCH DAMAGE.
 #define RADIO_TASKS_DISABLE_TASKS_DISABLE_Trigger (1UL) /*!< Trigger task */
 
 /* Register: RADIO_TASKS_RSSISTART */
-/* Description: Start the RSSI and take one single sample of the receive signal strength. */
+/* Description: Start the RSSI and take one single sample of the receive signal strength */
 
-/* Bit 0 : Start the RSSI and take one single sample of the receive signal strength. */
+/* Bit 0 : Start the RSSI and take one single sample of the receive signal strength */
 #define RADIO_TASKS_RSSISTART_TASKS_RSSISTART_Pos (0UL) /*!< Position of TASKS_RSSISTART field. */
 #define RADIO_TASKS_RSSISTART_TASKS_RSSISTART_Msk (0x1UL << RADIO_TASKS_RSSISTART_TASKS_RSSISTART_Pos) /*!< Bit mask of TASKS_RSSISTART field. */
 #define RADIO_TASKS_RSSISTART_TASKS_RSSISTART_Trigger (1UL) /*!< Trigger task */
@@ -6047,6 +6047,38 @@ POSSIBILITY OF SUCH DAMAGE.
 #define RADIO_TASKS_BCSTOP_TASKS_BCSTOP_Pos (0UL) /*!< Position of TASKS_BCSTOP field. */
 #define RADIO_TASKS_BCSTOP_TASKS_BCSTOP_Msk (0x1UL << RADIO_TASKS_BCSTOP_TASKS_BCSTOP_Pos) /*!< Bit mask of TASKS_BCSTOP field. */
 #define RADIO_TASKS_BCSTOP_TASKS_BCSTOP_Trigger (1UL) /*!< Trigger task */
+
+/* Register: RADIO_TASKS_EDSTART */
+/* Description: Start the energy detect measurement used in IEEE 802.15.4 mode */
+
+/* Bit 0 : Start the energy detect measurement used in IEEE 802.15.4 mode */
+#define RADIO_TASKS_EDSTART_TASKS_EDSTART_Pos (0UL) /*!< Position of TASKS_EDSTART field. */
+#define RADIO_TASKS_EDSTART_TASKS_EDSTART_Msk (0x1UL << RADIO_TASKS_EDSTART_TASKS_EDSTART_Pos) /*!< Bit mask of TASKS_EDSTART field. */
+#define RADIO_TASKS_EDSTART_TASKS_EDSTART_Trigger (1UL) /*!< Trigger task */
+
+/* Register: RADIO_TASKS_EDSTOP */
+/* Description: Stop the energy detect measurement */
+
+/* Bit 0 : Stop the energy detect measurement */
+#define RADIO_TASKS_EDSTOP_TASKS_EDSTOP_Pos (0UL) /*!< Position of TASKS_EDSTOP field. */
+#define RADIO_TASKS_EDSTOP_TASKS_EDSTOP_Msk (0x1UL << RADIO_TASKS_EDSTOP_TASKS_EDSTOP_Pos) /*!< Bit mask of TASKS_EDSTOP field. */
+#define RADIO_TASKS_EDSTOP_TASKS_EDSTOP_Trigger (1UL) /*!< Trigger task */
+
+/* Register: RADIO_TASKS_CCASTART */
+/* Description: Start the clear channel assessment used in IEEE 802.15.4 mode */
+
+/* Bit 0 : Start the clear channel assessment used in IEEE 802.15.4 mode */
+#define RADIO_TASKS_CCASTART_TASKS_CCASTART_Pos (0UL) /*!< Position of TASKS_CCASTART field. */
+#define RADIO_TASKS_CCASTART_TASKS_CCASTART_Msk (0x1UL << RADIO_TASKS_CCASTART_TASKS_CCASTART_Pos) /*!< Bit mask of TASKS_CCASTART field. */
+#define RADIO_TASKS_CCASTART_TASKS_CCASTART_Trigger (1UL) /*!< Trigger task */
+
+/* Register: RADIO_TASKS_CCASTOP */
+/* Description: Stop the clear channel assessment */
+
+/* Bit 0 : Stop the clear channel assessment */
+#define RADIO_TASKS_CCASTOP_TASKS_CCASTOP_Pos (0UL) /*!< Position of TASKS_CCASTOP field. */
+#define RADIO_TASKS_CCASTOP_TASKS_CCASTOP_Msk (0x1UL << RADIO_TASKS_CCASTOP_TASKS_CCASTOP_Pos) /*!< Bit mask of TASKS_CCASTOP field. */
+#define RADIO_TASKS_CCASTOP_TASKS_CCASTOP_Trigger (1UL) /*!< Trigger task */
 
 /* Register: RADIO_EVENTS_READY */
 /* Description: RADIO has ramped up and is ready to be started */
@@ -6112,18 +6144,18 @@ POSSIBILITY OF SUCH DAMAGE.
 #define RADIO_EVENTS_DEVMISS_EVENTS_DEVMISS_Generated (1UL) /*!< Event generated */
 
 /* Register: RADIO_EVENTS_RSSIEND */
-/* Description: Sampling of receive signal strength complete. */
+/* Description: Sampling of receive signal strength complete */
 
-/* Bit 0 : Sampling of receive signal strength complete. */
+/* Bit 0 : Sampling of receive signal strength complete */
 #define RADIO_EVENTS_RSSIEND_EVENTS_RSSIEND_Pos (0UL) /*!< Position of EVENTS_RSSIEND field. */
 #define RADIO_EVENTS_RSSIEND_EVENTS_RSSIEND_Msk (0x1UL << RADIO_EVENTS_RSSIEND_EVENTS_RSSIEND_Pos) /*!< Bit mask of EVENTS_RSSIEND field. */
 #define RADIO_EVENTS_RSSIEND_EVENTS_RSSIEND_NotGenerated (0UL) /*!< Event not generated */
 #define RADIO_EVENTS_RSSIEND_EVENTS_RSSIEND_Generated (1UL) /*!< Event generated */
 
 /* Register: RADIO_EVENTS_BCMATCH */
-/* Description: Bit counter reached bit count value. */
+/* Description: Bit counter reached bit count value */
 
-/* Bit 0 : Bit counter reached bit count value. */
+/* Bit 0 : Bit counter reached bit count value */
 #define RADIO_EVENTS_BCMATCH_EVENTS_BCMATCH_Pos (0UL) /*!< Position of EVENTS_BCMATCH field. */
 #define RADIO_EVENTS_BCMATCH_EVENTS_BCMATCH_Msk (0x1UL << RADIO_EVENTS_BCMATCH_EVENTS_BCMATCH_Pos) /*!< Bit mask of EVENTS_BCMATCH field. */
 #define RADIO_EVENTS_BCMATCH_EVENTS_BCMATCH_NotGenerated (0UL) /*!< Event not generated */
@@ -6147,8 +6179,182 @@ POSSIBILITY OF SUCH DAMAGE.
 #define RADIO_EVENTS_CRCERROR_EVENTS_CRCERROR_NotGenerated (0UL) /*!< Event not generated */
 #define RADIO_EVENTS_CRCERROR_EVENTS_CRCERROR_Generated (1UL) /*!< Event generated */
 
+/* Register: RADIO_EVENTS_FRAMESTART */
+/* Description: IEEE 802.15.4 length field received */
+
+/* Bit 0 : IEEE 802.15.4 length field received */
+#define RADIO_EVENTS_FRAMESTART_EVENTS_FRAMESTART_Pos (0UL) /*!< Position of EVENTS_FRAMESTART field. */
+#define RADIO_EVENTS_FRAMESTART_EVENTS_FRAMESTART_Msk (0x1UL << RADIO_EVENTS_FRAMESTART_EVENTS_FRAMESTART_Pos) /*!< Bit mask of EVENTS_FRAMESTART field. */
+#define RADIO_EVENTS_FRAMESTART_EVENTS_FRAMESTART_NotGenerated (0UL) /*!< Event not generated */
+#define RADIO_EVENTS_FRAMESTART_EVENTS_FRAMESTART_Generated (1UL) /*!< Event generated */
+
+/* Register: RADIO_EVENTS_EDEND */
+/* Description: Sampling of energy detection complete. A new ED sample is ready for readout from the RADIO.EDSAMPLE register */
+
+/* Bit 0 : Sampling of energy detection complete. A new ED sample is ready for readout from the RADIO.EDSAMPLE register */
+#define RADIO_EVENTS_EDEND_EVENTS_EDEND_Pos (0UL) /*!< Position of EVENTS_EDEND field. */
+#define RADIO_EVENTS_EDEND_EVENTS_EDEND_Msk (0x1UL << RADIO_EVENTS_EDEND_EVENTS_EDEND_Pos) /*!< Bit mask of EVENTS_EDEND field. */
+#define RADIO_EVENTS_EDEND_EVENTS_EDEND_NotGenerated (0UL) /*!< Event not generated */
+#define RADIO_EVENTS_EDEND_EVENTS_EDEND_Generated (1UL) /*!< Event generated */
+
+/* Register: RADIO_EVENTS_EDSTOPPED */
+/* Description: The sampling of energy detection has stopped */
+
+/* Bit 0 : The sampling of energy detection has stopped */
+#define RADIO_EVENTS_EDSTOPPED_EVENTS_EDSTOPPED_Pos (0UL) /*!< Position of EVENTS_EDSTOPPED field. */
+#define RADIO_EVENTS_EDSTOPPED_EVENTS_EDSTOPPED_Msk (0x1UL << RADIO_EVENTS_EDSTOPPED_EVENTS_EDSTOPPED_Pos) /*!< Bit mask of EVENTS_EDSTOPPED field. */
+#define RADIO_EVENTS_EDSTOPPED_EVENTS_EDSTOPPED_NotGenerated (0UL) /*!< Event not generated */
+#define RADIO_EVENTS_EDSTOPPED_EVENTS_EDSTOPPED_Generated (1UL) /*!< Event generated */
+
+/* Register: RADIO_EVENTS_CCAIDLE */
+/* Description: Wireless medium in idle - clear to send */
+
+/* Bit 0 : Wireless medium in idle - clear to send */
+#define RADIO_EVENTS_CCAIDLE_EVENTS_CCAIDLE_Pos (0UL) /*!< Position of EVENTS_CCAIDLE field. */
+#define RADIO_EVENTS_CCAIDLE_EVENTS_CCAIDLE_Msk (0x1UL << RADIO_EVENTS_CCAIDLE_EVENTS_CCAIDLE_Pos) /*!< Bit mask of EVENTS_CCAIDLE field. */
+#define RADIO_EVENTS_CCAIDLE_EVENTS_CCAIDLE_NotGenerated (0UL) /*!< Event not generated */
+#define RADIO_EVENTS_CCAIDLE_EVENTS_CCAIDLE_Generated (1UL) /*!< Event generated */
+
+/* Register: RADIO_EVENTS_CCABUSY */
+/* Description: Wireless medium busy - do not send */
+
+/* Bit 0 : Wireless medium busy - do not send */
+#define RADIO_EVENTS_CCABUSY_EVENTS_CCABUSY_Pos (0UL) /*!< Position of EVENTS_CCABUSY field. */
+#define RADIO_EVENTS_CCABUSY_EVENTS_CCABUSY_Msk (0x1UL << RADIO_EVENTS_CCABUSY_EVENTS_CCABUSY_Pos) /*!< Bit mask of EVENTS_CCABUSY field. */
+#define RADIO_EVENTS_CCABUSY_EVENTS_CCABUSY_NotGenerated (0UL) /*!< Event not generated */
+#define RADIO_EVENTS_CCABUSY_EVENTS_CCABUSY_Generated (1UL) /*!< Event generated */
+
+/* Register: RADIO_EVENTS_CCASTOPPED */
+/* Description: The CCA has stopped */
+
+/* Bit 0 : The CCA has stopped */
+#define RADIO_EVENTS_CCASTOPPED_EVENTS_CCASTOPPED_Pos (0UL) /*!< Position of EVENTS_CCASTOPPED field. */
+#define RADIO_EVENTS_CCASTOPPED_EVENTS_CCASTOPPED_Msk (0x1UL << RADIO_EVENTS_CCASTOPPED_EVENTS_CCASTOPPED_Pos) /*!< Bit mask of EVENTS_CCASTOPPED field. */
+#define RADIO_EVENTS_CCASTOPPED_EVENTS_CCASTOPPED_NotGenerated (0UL) /*!< Event not generated */
+#define RADIO_EVENTS_CCASTOPPED_EVENTS_CCASTOPPED_Generated (1UL) /*!< Event generated */
+
+/* Register: RADIO_EVENTS_RATEBOOST */
+/* Description: Ble_LR CI field received, receive mode is changed from Ble_LR125Kbit to Ble_LR500Kbit. */
+
+/* Bit 0 : Ble_LR CI field received, receive mode is changed from Ble_LR125Kbit to Ble_LR500Kbit. */
+#define RADIO_EVENTS_RATEBOOST_EVENTS_RATEBOOST_Pos (0UL) /*!< Position of EVENTS_RATEBOOST field. */
+#define RADIO_EVENTS_RATEBOOST_EVENTS_RATEBOOST_Msk (0x1UL << RADIO_EVENTS_RATEBOOST_EVENTS_RATEBOOST_Pos) /*!< Bit mask of EVENTS_RATEBOOST field. */
+#define RADIO_EVENTS_RATEBOOST_EVENTS_RATEBOOST_NotGenerated (0UL) /*!< Event not generated */
+#define RADIO_EVENTS_RATEBOOST_EVENTS_RATEBOOST_Generated (1UL) /*!< Event generated */
+
+/* Register: RADIO_EVENTS_TXREADY */
+/* Description: RADIO has ramped up and is ready to be started TX path */
+
+/* Bit 0 : RADIO has ramped up and is ready to be started TX path */
+#define RADIO_EVENTS_TXREADY_EVENTS_TXREADY_Pos (0UL) /*!< Position of EVENTS_TXREADY field. */
+#define RADIO_EVENTS_TXREADY_EVENTS_TXREADY_Msk (0x1UL << RADIO_EVENTS_TXREADY_EVENTS_TXREADY_Pos) /*!< Bit mask of EVENTS_TXREADY field. */
+#define RADIO_EVENTS_TXREADY_EVENTS_TXREADY_NotGenerated (0UL) /*!< Event not generated */
+#define RADIO_EVENTS_TXREADY_EVENTS_TXREADY_Generated (1UL) /*!< Event generated */
+
+/* Register: RADIO_EVENTS_RXREADY */
+/* Description: RADIO has ramped up and is ready to be started RX path */
+
+/* Bit 0 : RADIO has ramped up and is ready to be started RX path */
+#define RADIO_EVENTS_RXREADY_EVENTS_RXREADY_Pos (0UL) /*!< Position of EVENTS_RXREADY field. */
+#define RADIO_EVENTS_RXREADY_EVENTS_RXREADY_Msk (0x1UL << RADIO_EVENTS_RXREADY_EVENTS_RXREADY_Pos) /*!< Bit mask of EVENTS_RXREADY field. */
+#define RADIO_EVENTS_RXREADY_EVENTS_RXREADY_NotGenerated (0UL) /*!< Event not generated */
+#define RADIO_EVENTS_RXREADY_EVENTS_RXREADY_Generated (1UL) /*!< Event generated */
+
+/* Register: RADIO_EVENTS_MHRMATCH */
+/* Description: MAC header match found */
+
+/* Bit 0 : MAC header match found */
+#define RADIO_EVENTS_MHRMATCH_EVENTS_MHRMATCH_Pos (0UL) /*!< Position of EVENTS_MHRMATCH field. */
+#define RADIO_EVENTS_MHRMATCH_EVENTS_MHRMATCH_Msk (0x1UL << RADIO_EVENTS_MHRMATCH_EVENTS_MHRMATCH_Pos) /*!< Bit mask of EVENTS_MHRMATCH field. */
+#define RADIO_EVENTS_MHRMATCH_EVENTS_MHRMATCH_NotGenerated (0UL) /*!< Event not generated */
+#define RADIO_EVENTS_MHRMATCH_EVENTS_MHRMATCH_Generated (1UL) /*!< Event generated */
+
+/* Register: RADIO_EVENTS_PHYEND */
+/* Description: Generated when last bit is sent on air */
+
+/* Bit 0 : Generated when last bit is sent on air */
+#define RADIO_EVENTS_PHYEND_EVENTS_PHYEND_Pos (0UL) /*!< Position of EVENTS_PHYEND field. */
+#define RADIO_EVENTS_PHYEND_EVENTS_PHYEND_Msk (0x1UL << RADIO_EVENTS_PHYEND_EVENTS_PHYEND_Pos) /*!< Bit mask of EVENTS_PHYEND field. */
+#define RADIO_EVENTS_PHYEND_EVENTS_PHYEND_NotGenerated (0UL) /*!< Event not generated */
+#define RADIO_EVENTS_PHYEND_EVENTS_PHYEND_Generated (1UL) /*!< Event generated */
+
+/* Register: RADIO_EVENTS_CTEPRESENT */
+/* Description: CTE is present (early warning right after receiving CTEInfo byte) */
+
+/* Bit 0 : CTE is present (early warning right after receiving CTEInfo byte) */
+#define RADIO_EVENTS_CTEPRESENT_EVENTS_CTEPRESENT_Pos (0UL) /*!< Position of EVENTS_CTEPRESENT field. */
+#define RADIO_EVENTS_CTEPRESENT_EVENTS_CTEPRESENT_Msk (0x1UL << RADIO_EVENTS_CTEPRESENT_EVENTS_CTEPRESENT_Pos) /*!< Bit mask of EVENTS_CTEPRESENT field. */
+#define RADIO_EVENTS_CTEPRESENT_EVENTS_CTEPRESENT_NotGenerated (0UL) /*!< Event not generated */
+#define RADIO_EVENTS_CTEPRESENT_EVENTS_CTEPRESENT_Generated (1UL) /*!< Event generated */
+
 /* Register: RADIO_SHORTS */
 /* Description: Shortcuts between local events and tasks */
+
+/* Bit 21 : Shortcut between event PHYEND and task START */
+#define RADIO_SHORTS_PHYEND_START_Pos (21UL) /*!< Position of PHYEND_START field. */
+#define RADIO_SHORTS_PHYEND_START_Msk (0x1UL << RADIO_SHORTS_PHYEND_START_Pos) /*!< Bit mask of PHYEND_START field. */
+#define RADIO_SHORTS_PHYEND_START_Disabled (0UL) /*!< Disable shortcut */
+#define RADIO_SHORTS_PHYEND_START_Enabled (1UL) /*!< Enable shortcut */
+
+/* Bit 20 : Shortcut between event PHYEND and task DISABLE */
+#define RADIO_SHORTS_PHYEND_DISABLE_Pos (20UL) /*!< Position of PHYEND_DISABLE field. */
+#define RADIO_SHORTS_PHYEND_DISABLE_Msk (0x1UL << RADIO_SHORTS_PHYEND_DISABLE_Pos) /*!< Bit mask of PHYEND_DISABLE field. */
+#define RADIO_SHORTS_PHYEND_DISABLE_Disabled (0UL) /*!< Disable shortcut */
+#define RADIO_SHORTS_PHYEND_DISABLE_Enabled (1UL) /*!< Enable shortcut */
+
+/* Bit 19 : Shortcut between event RXREADY and task START */
+#define RADIO_SHORTS_RXREADY_START_Pos (19UL) /*!< Position of RXREADY_START field. */
+#define RADIO_SHORTS_RXREADY_START_Msk (0x1UL << RADIO_SHORTS_RXREADY_START_Pos) /*!< Bit mask of RXREADY_START field. */
+#define RADIO_SHORTS_RXREADY_START_Disabled (0UL) /*!< Disable shortcut */
+#define RADIO_SHORTS_RXREADY_START_Enabled (1UL) /*!< Enable shortcut */
+
+/* Bit 18 : Shortcut between event TXREADY and task START */
+#define RADIO_SHORTS_TXREADY_START_Pos (18UL) /*!< Position of TXREADY_START field. */
+#define RADIO_SHORTS_TXREADY_START_Msk (0x1UL << RADIO_SHORTS_TXREADY_START_Pos) /*!< Bit mask of TXREADY_START field. */
+#define RADIO_SHORTS_TXREADY_START_Disabled (0UL) /*!< Disable shortcut */
+#define RADIO_SHORTS_TXREADY_START_Enabled (1UL) /*!< Enable shortcut */
+
+/* Bit 17 : Shortcut between event CCAIDLE and task STOP */
+#define RADIO_SHORTS_CCAIDLE_STOP_Pos (17UL) /*!< Position of CCAIDLE_STOP field. */
+#define RADIO_SHORTS_CCAIDLE_STOP_Msk (0x1UL << RADIO_SHORTS_CCAIDLE_STOP_Pos) /*!< Bit mask of CCAIDLE_STOP field. */
+#define RADIO_SHORTS_CCAIDLE_STOP_Disabled (0UL) /*!< Disable shortcut */
+#define RADIO_SHORTS_CCAIDLE_STOP_Enabled (1UL) /*!< Enable shortcut */
+
+/* Bit 16 : Shortcut between event EDEND and task DISABLE */
+#define RADIO_SHORTS_EDEND_DISABLE_Pos (16UL) /*!< Position of EDEND_DISABLE field. */
+#define RADIO_SHORTS_EDEND_DISABLE_Msk (0x1UL << RADIO_SHORTS_EDEND_DISABLE_Pos) /*!< Bit mask of EDEND_DISABLE field. */
+#define RADIO_SHORTS_EDEND_DISABLE_Disabled (0UL) /*!< Disable shortcut */
+#define RADIO_SHORTS_EDEND_DISABLE_Enabled (1UL) /*!< Enable shortcut */
+
+/* Bit 15 : Shortcut between event READY and task EDSTART */
+#define RADIO_SHORTS_READY_EDSTART_Pos (15UL) /*!< Position of READY_EDSTART field. */
+#define RADIO_SHORTS_READY_EDSTART_Msk (0x1UL << RADIO_SHORTS_READY_EDSTART_Pos) /*!< Bit mask of READY_EDSTART field. */
+#define RADIO_SHORTS_READY_EDSTART_Disabled (0UL) /*!< Disable shortcut */
+#define RADIO_SHORTS_READY_EDSTART_Enabled (1UL) /*!< Enable shortcut */
+
+/* Bit 14 : Shortcut between event FRAMESTART and task BCSTART */
+#define RADIO_SHORTS_FRAMESTART_BCSTART_Pos (14UL) /*!< Position of FRAMESTART_BCSTART field. */
+#define RADIO_SHORTS_FRAMESTART_BCSTART_Msk (0x1UL << RADIO_SHORTS_FRAMESTART_BCSTART_Pos) /*!< Bit mask of FRAMESTART_BCSTART field. */
+#define RADIO_SHORTS_FRAMESTART_BCSTART_Disabled (0UL) /*!< Disable shortcut */
+#define RADIO_SHORTS_FRAMESTART_BCSTART_Enabled (1UL) /*!< Enable shortcut */
+
+/* Bit 13 : Shortcut between event CCABUSY and task DISABLE */
+#define RADIO_SHORTS_CCABUSY_DISABLE_Pos (13UL) /*!< Position of CCABUSY_DISABLE field. */
+#define RADIO_SHORTS_CCABUSY_DISABLE_Msk (0x1UL << RADIO_SHORTS_CCABUSY_DISABLE_Pos) /*!< Bit mask of CCABUSY_DISABLE field. */
+#define RADIO_SHORTS_CCABUSY_DISABLE_Disabled (0UL) /*!< Disable shortcut */
+#define RADIO_SHORTS_CCABUSY_DISABLE_Enabled (1UL) /*!< Enable shortcut */
+
+/* Bit 12 : Shortcut between event CCAIDLE and task TXEN */
+#define RADIO_SHORTS_CCAIDLE_TXEN_Pos (12UL) /*!< Position of CCAIDLE_TXEN field. */
+#define RADIO_SHORTS_CCAIDLE_TXEN_Msk (0x1UL << RADIO_SHORTS_CCAIDLE_TXEN_Pos) /*!< Bit mask of CCAIDLE_TXEN field. */
+#define RADIO_SHORTS_CCAIDLE_TXEN_Disabled (0UL) /*!< Disable shortcut */
+#define RADIO_SHORTS_CCAIDLE_TXEN_Enabled (1UL) /*!< Enable shortcut */
+
+/* Bit 11 : Shortcut between event RXREADY and task CCASTART */
+#define RADIO_SHORTS_RXREADY_CCASTART_Pos (11UL) /*!< Position of RXREADY_CCASTART field. */
+#define RADIO_SHORTS_RXREADY_CCASTART_Msk (0x1UL << RADIO_SHORTS_RXREADY_CCASTART_Pos) /*!< Bit mask of RXREADY_CCASTART field. */
+#define RADIO_SHORTS_RXREADY_CCASTART_Disabled (0UL) /*!< Disable shortcut */
+#define RADIO_SHORTS_RXREADY_CCASTART_Enabled (1UL) /*!< Enable shortcut */
 
 /* Bit 8 : Shortcut between event DISABLED and task RSSISTOP */
 #define RADIO_SHORTS_DISABLED_RSSISTOP_Pos (8UL) /*!< Position of DISABLED_RSSISTOP field. */
@@ -6200,6 +6406,90 @@ POSSIBILITY OF SUCH DAMAGE.
 
 /* Register: RADIO_INTENSET */
 /* Description: Enable interrupt */
+
+/* Bit 28 : Write '1' to enable interrupt for event CTEPRESENT */
+#define RADIO_INTENSET_CTEPRESENT_Pos (28UL) /*!< Position of CTEPRESENT field. */
+#define RADIO_INTENSET_CTEPRESENT_Msk (0x1UL << RADIO_INTENSET_CTEPRESENT_Pos) /*!< Bit mask of CTEPRESENT field. */
+#define RADIO_INTENSET_CTEPRESENT_Disabled (0UL) /*!< Read: Disabled */
+#define RADIO_INTENSET_CTEPRESENT_Enabled (1UL) /*!< Read: Enabled */
+#define RADIO_INTENSET_CTEPRESENT_Set (1UL) /*!< Enable */
+
+/* Bit 27 : Write '1' to enable interrupt for event PHYEND */
+#define RADIO_INTENSET_PHYEND_Pos (27UL) /*!< Position of PHYEND field. */
+#define RADIO_INTENSET_PHYEND_Msk (0x1UL << RADIO_INTENSET_PHYEND_Pos) /*!< Bit mask of PHYEND field. */
+#define RADIO_INTENSET_PHYEND_Disabled (0UL) /*!< Read: Disabled */
+#define RADIO_INTENSET_PHYEND_Enabled (1UL) /*!< Read: Enabled */
+#define RADIO_INTENSET_PHYEND_Set (1UL) /*!< Enable */
+
+/* Bit 23 : Write '1' to enable interrupt for event MHRMATCH */
+#define RADIO_INTENSET_MHRMATCH_Pos (23UL) /*!< Position of MHRMATCH field. */
+#define RADIO_INTENSET_MHRMATCH_Msk (0x1UL << RADIO_INTENSET_MHRMATCH_Pos) /*!< Bit mask of MHRMATCH field. */
+#define RADIO_INTENSET_MHRMATCH_Disabled (0UL) /*!< Read: Disabled */
+#define RADIO_INTENSET_MHRMATCH_Enabled (1UL) /*!< Read: Enabled */
+#define RADIO_INTENSET_MHRMATCH_Set (1UL) /*!< Enable */
+
+/* Bit 22 : Write '1' to enable interrupt for event RXREADY */
+#define RADIO_INTENSET_RXREADY_Pos (22UL) /*!< Position of RXREADY field. */
+#define RADIO_INTENSET_RXREADY_Msk (0x1UL << RADIO_INTENSET_RXREADY_Pos) /*!< Bit mask of RXREADY field. */
+#define RADIO_INTENSET_RXREADY_Disabled (0UL) /*!< Read: Disabled */
+#define RADIO_INTENSET_RXREADY_Enabled (1UL) /*!< Read: Enabled */
+#define RADIO_INTENSET_RXREADY_Set (1UL) /*!< Enable */
+
+/* Bit 21 : Write '1' to enable interrupt for event TXREADY */
+#define RADIO_INTENSET_TXREADY_Pos (21UL) /*!< Position of TXREADY field. */
+#define RADIO_INTENSET_TXREADY_Msk (0x1UL << RADIO_INTENSET_TXREADY_Pos) /*!< Bit mask of TXREADY field. */
+#define RADIO_INTENSET_TXREADY_Disabled (0UL) /*!< Read: Disabled */
+#define RADIO_INTENSET_TXREADY_Enabled (1UL) /*!< Read: Enabled */
+#define RADIO_INTENSET_TXREADY_Set (1UL) /*!< Enable */
+
+/* Bit 20 : Write '1' to enable interrupt for event RATEBOOST */
+#define RADIO_INTENSET_RATEBOOST_Pos (20UL) /*!< Position of RATEBOOST field. */
+#define RADIO_INTENSET_RATEBOOST_Msk (0x1UL << RADIO_INTENSET_RATEBOOST_Pos) /*!< Bit mask of RATEBOOST field. */
+#define RADIO_INTENSET_RATEBOOST_Disabled (0UL) /*!< Read: Disabled */
+#define RADIO_INTENSET_RATEBOOST_Enabled (1UL) /*!< Read: Enabled */
+#define RADIO_INTENSET_RATEBOOST_Set (1UL) /*!< Enable */
+
+/* Bit 19 : Write '1' to enable interrupt for event CCASTOPPED */
+#define RADIO_INTENSET_CCASTOPPED_Pos (19UL) /*!< Position of CCASTOPPED field. */
+#define RADIO_INTENSET_CCASTOPPED_Msk (0x1UL << RADIO_INTENSET_CCASTOPPED_Pos) /*!< Bit mask of CCASTOPPED field. */
+#define RADIO_INTENSET_CCASTOPPED_Disabled (0UL) /*!< Read: Disabled */
+#define RADIO_INTENSET_CCASTOPPED_Enabled (1UL) /*!< Read: Enabled */
+#define RADIO_INTENSET_CCASTOPPED_Set (1UL) /*!< Enable */
+
+/* Bit 18 : Write '1' to enable interrupt for event CCABUSY */
+#define RADIO_INTENSET_CCABUSY_Pos (18UL) /*!< Position of CCABUSY field. */
+#define RADIO_INTENSET_CCABUSY_Msk (0x1UL << RADIO_INTENSET_CCABUSY_Pos) /*!< Bit mask of CCABUSY field. */
+#define RADIO_INTENSET_CCABUSY_Disabled (0UL) /*!< Read: Disabled */
+#define RADIO_INTENSET_CCABUSY_Enabled (1UL) /*!< Read: Enabled */
+#define RADIO_INTENSET_CCABUSY_Set (1UL) /*!< Enable */
+
+/* Bit 17 : Write '1' to enable interrupt for event CCAIDLE */
+#define RADIO_INTENSET_CCAIDLE_Pos (17UL) /*!< Position of CCAIDLE field. */
+#define RADIO_INTENSET_CCAIDLE_Msk (0x1UL << RADIO_INTENSET_CCAIDLE_Pos) /*!< Bit mask of CCAIDLE field. */
+#define RADIO_INTENSET_CCAIDLE_Disabled (0UL) /*!< Read: Disabled */
+#define RADIO_INTENSET_CCAIDLE_Enabled (1UL) /*!< Read: Enabled */
+#define RADIO_INTENSET_CCAIDLE_Set (1UL) /*!< Enable */
+
+/* Bit 16 : Write '1' to enable interrupt for event EDSTOPPED */
+#define RADIO_INTENSET_EDSTOPPED_Pos (16UL) /*!< Position of EDSTOPPED field. */
+#define RADIO_INTENSET_EDSTOPPED_Msk (0x1UL << RADIO_INTENSET_EDSTOPPED_Pos) /*!< Bit mask of EDSTOPPED field. */
+#define RADIO_INTENSET_EDSTOPPED_Disabled (0UL) /*!< Read: Disabled */
+#define RADIO_INTENSET_EDSTOPPED_Enabled (1UL) /*!< Read: Enabled */
+#define RADIO_INTENSET_EDSTOPPED_Set (1UL) /*!< Enable */
+
+/* Bit 15 : Write '1' to enable interrupt for event EDEND */
+#define RADIO_INTENSET_EDEND_Pos (15UL) /*!< Position of EDEND field. */
+#define RADIO_INTENSET_EDEND_Msk (0x1UL << RADIO_INTENSET_EDEND_Pos) /*!< Bit mask of EDEND field. */
+#define RADIO_INTENSET_EDEND_Disabled (0UL) /*!< Read: Disabled */
+#define RADIO_INTENSET_EDEND_Enabled (1UL) /*!< Read: Enabled */
+#define RADIO_INTENSET_EDEND_Set (1UL) /*!< Enable */
+
+/* Bit 14 : Write '1' to enable interrupt for event FRAMESTART */
+#define RADIO_INTENSET_FRAMESTART_Pos (14UL) /*!< Position of FRAMESTART field. */
+#define RADIO_INTENSET_FRAMESTART_Msk (0x1UL << RADIO_INTENSET_FRAMESTART_Pos) /*!< Bit mask of FRAMESTART field. */
+#define RADIO_INTENSET_FRAMESTART_Disabled (0UL) /*!< Read: Disabled */
+#define RADIO_INTENSET_FRAMESTART_Enabled (1UL) /*!< Read: Enabled */
+#define RADIO_INTENSET_FRAMESTART_Set (1UL) /*!< Enable */
 
 /* Bit 13 : Write '1' to enable interrupt for event CRCERROR */
 #define RADIO_INTENSET_CRCERROR_Pos (13UL) /*!< Position of CRCERROR field. */
@@ -6280,6 +6570,90 @@ POSSIBILITY OF SUCH DAMAGE.
 
 /* Register: RADIO_INTENCLR */
 /* Description: Disable interrupt */
+
+/* Bit 28 : Write '1' to disable interrupt for event CTEPRESENT */
+#define RADIO_INTENCLR_CTEPRESENT_Pos (28UL) /*!< Position of CTEPRESENT field. */
+#define RADIO_INTENCLR_CTEPRESENT_Msk (0x1UL << RADIO_INTENCLR_CTEPRESENT_Pos) /*!< Bit mask of CTEPRESENT field. */
+#define RADIO_INTENCLR_CTEPRESENT_Disabled (0UL) /*!< Read: Disabled */
+#define RADIO_INTENCLR_CTEPRESENT_Enabled (1UL) /*!< Read: Enabled */
+#define RADIO_INTENCLR_CTEPRESENT_Clear (1UL) /*!< Disable */
+
+/* Bit 27 : Write '1' to disable interrupt for event PHYEND */
+#define RADIO_INTENCLR_PHYEND_Pos (27UL) /*!< Position of PHYEND field. */
+#define RADIO_INTENCLR_PHYEND_Msk (0x1UL << RADIO_INTENCLR_PHYEND_Pos) /*!< Bit mask of PHYEND field. */
+#define RADIO_INTENCLR_PHYEND_Disabled (0UL) /*!< Read: Disabled */
+#define RADIO_INTENCLR_PHYEND_Enabled (1UL) /*!< Read: Enabled */
+#define RADIO_INTENCLR_PHYEND_Clear (1UL) /*!< Disable */
+
+/* Bit 23 : Write '1' to disable interrupt for event MHRMATCH */
+#define RADIO_INTENCLR_MHRMATCH_Pos (23UL) /*!< Position of MHRMATCH field. */
+#define RADIO_INTENCLR_MHRMATCH_Msk (0x1UL << RADIO_INTENCLR_MHRMATCH_Pos) /*!< Bit mask of MHRMATCH field. */
+#define RADIO_INTENCLR_MHRMATCH_Disabled (0UL) /*!< Read: Disabled */
+#define RADIO_INTENCLR_MHRMATCH_Enabled (1UL) /*!< Read: Enabled */
+#define RADIO_INTENCLR_MHRMATCH_Clear (1UL) /*!< Disable */
+
+/* Bit 22 : Write '1' to disable interrupt for event RXREADY */
+#define RADIO_INTENCLR_RXREADY_Pos (22UL) /*!< Position of RXREADY field. */
+#define RADIO_INTENCLR_RXREADY_Msk (0x1UL << RADIO_INTENCLR_RXREADY_Pos) /*!< Bit mask of RXREADY field. */
+#define RADIO_INTENCLR_RXREADY_Disabled (0UL) /*!< Read: Disabled */
+#define RADIO_INTENCLR_RXREADY_Enabled (1UL) /*!< Read: Enabled */
+#define RADIO_INTENCLR_RXREADY_Clear (1UL) /*!< Disable */
+
+/* Bit 21 : Write '1' to disable interrupt for event TXREADY */
+#define RADIO_INTENCLR_TXREADY_Pos (21UL) /*!< Position of TXREADY field. */
+#define RADIO_INTENCLR_TXREADY_Msk (0x1UL << RADIO_INTENCLR_TXREADY_Pos) /*!< Bit mask of TXREADY field. */
+#define RADIO_INTENCLR_TXREADY_Disabled (0UL) /*!< Read: Disabled */
+#define RADIO_INTENCLR_TXREADY_Enabled (1UL) /*!< Read: Enabled */
+#define RADIO_INTENCLR_TXREADY_Clear (1UL) /*!< Disable */
+
+/* Bit 20 : Write '1' to disable interrupt for event RATEBOOST */
+#define RADIO_INTENCLR_RATEBOOST_Pos (20UL) /*!< Position of RATEBOOST field. */
+#define RADIO_INTENCLR_RATEBOOST_Msk (0x1UL << RADIO_INTENCLR_RATEBOOST_Pos) /*!< Bit mask of RATEBOOST field. */
+#define RADIO_INTENCLR_RATEBOOST_Disabled (0UL) /*!< Read: Disabled */
+#define RADIO_INTENCLR_RATEBOOST_Enabled (1UL) /*!< Read: Enabled */
+#define RADIO_INTENCLR_RATEBOOST_Clear (1UL) /*!< Disable */
+
+/* Bit 19 : Write '1' to disable interrupt for event CCASTOPPED */
+#define RADIO_INTENCLR_CCASTOPPED_Pos (19UL) /*!< Position of CCASTOPPED field. */
+#define RADIO_INTENCLR_CCASTOPPED_Msk (0x1UL << RADIO_INTENCLR_CCASTOPPED_Pos) /*!< Bit mask of CCASTOPPED field. */
+#define RADIO_INTENCLR_CCASTOPPED_Disabled (0UL) /*!< Read: Disabled */
+#define RADIO_INTENCLR_CCASTOPPED_Enabled (1UL) /*!< Read: Enabled */
+#define RADIO_INTENCLR_CCASTOPPED_Clear (1UL) /*!< Disable */
+
+/* Bit 18 : Write '1' to disable interrupt for event CCABUSY */
+#define RADIO_INTENCLR_CCABUSY_Pos (18UL) /*!< Position of CCABUSY field. */
+#define RADIO_INTENCLR_CCABUSY_Msk (0x1UL << RADIO_INTENCLR_CCABUSY_Pos) /*!< Bit mask of CCABUSY field. */
+#define RADIO_INTENCLR_CCABUSY_Disabled (0UL) /*!< Read: Disabled */
+#define RADIO_INTENCLR_CCABUSY_Enabled (1UL) /*!< Read: Enabled */
+#define RADIO_INTENCLR_CCABUSY_Clear (1UL) /*!< Disable */
+
+/* Bit 17 : Write '1' to disable interrupt for event CCAIDLE */
+#define RADIO_INTENCLR_CCAIDLE_Pos (17UL) /*!< Position of CCAIDLE field. */
+#define RADIO_INTENCLR_CCAIDLE_Msk (0x1UL << RADIO_INTENCLR_CCAIDLE_Pos) /*!< Bit mask of CCAIDLE field. */
+#define RADIO_INTENCLR_CCAIDLE_Disabled (0UL) /*!< Read: Disabled */
+#define RADIO_INTENCLR_CCAIDLE_Enabled (1UL) /*!< Read: Enabled */
+#define RADIO_INTENCLR_CCAIDLE_Clear (1UL) /*!< Disable */
+
+/* Bit 16 : Write '1' to disable interrupt for event EDSTOPPED */
+#define RADIO_INTENCLR_EDSTOPPED_Pos (16UL) /*!< Position of EDSTOPPED field. */
+#define RADIO_INTENCLR_EDSTOPPED_Msk (0x1UL << RADIO_INTENCLR_EDSTOPPED_Pos) /*!< Bit mask of EDSTOPPED field. */
+#define RADIO_INTENCLR_EDSTOPPED_Disabled (0UL) /*!< Read: Disabled */
+#define RADIO_INTENCLR_EDSTOPPED_Enabled (1UL) /*!< Read: Enabled */
+#define RADIO_INTENCLR_EDSTOPPED_Clear (1UL) /*!< Disable */
+
+/* Bit 15 : Write '1' to disable interrupt for event EDEND */
+#define RADIO_INTENCLR_EDEND_Pos (15UL) /*!< Position of EDEND field. */
+#define RADIO_INTENCLR_EDEND_Msk (0x1UL << RADIO_INTENCLR_EDEND_Pos) /*!< Bit mask of EDEND field. */
+#define RADIO_INTENCLR_EDEND_Disabled (0UL) /*!< Read: Disabled */
+#define RADIO_INTENCLR_EDEND_Enabled (1UL) /*!< Read: Enabled */
+#define RADIO_INTENCLR_EDEND_Clear (1UL) /*!< Disable */
+
+/* Bit 14 : Write '1' to disable interrupt for event FRAMESTART */
+#define RADIO_INTENCLR_FRAMESTART_Pos (14UL) /*!< Position of FRAMESTART field. */
+#define RADIO_INTENCLR_FRAMESTART_Msk (0x1UL << RADIO_INTENCLR_FRAMESTART_Pos) /*!< Bit mask of FRAMESTART field. */
+#define RADIO_INTENCLR_FRAMESTART_Disabled (0UL) /*!< Read: Disabled */
+#define RADIO_INTENCLR_FRAMESTART_Enabled (1UL) /*!< Read: Enabled */
+#define RADIO_INTENCLR_FRAMESTART_Clear (1UL) /*!< Disable */
 
 /* Bit 13 : Write '1' to disable interrupt for event CRCERROR */
 #define RADIO_INTENCLR_CRCERROR_Pos (13UL) /*!< Position of CRCERROR field. */
@@ -6388,6 +6762,55 @@ POSSIBILITY OF SUCH DAMAGE.
 #define RADIO_DAI_DAI_Pos (0UL) /*!< Position of DAI field. */
 #define RADIO_DAI_DAI_Msk (0x7UL << RADIO_DAI_DAI_Pos) /*!< Bit mask of DAI field. */
 
+/* Register: RADIO_PDUSTAT */
+/* Description: Payload status */
+
+/* Bits 2..1 : Status on what rate packet is received with in Long Range */
+#define RADIO_PDUSTAT_CISTAT_Pos (1UL) /*!< Position of CISTAT field. */
+#define RADIO_PDUSTAT_CISTAT_Msk (0x3UL << RADIO_PDUSTAT_CISTAT_Pos) /*!< Bit mask of CISTAT field. */
+#define RADIO_PDUSTAT_CISTAT_LR125kbit (0UL) /*!< Frame is received at 125kbps */
+#define RADIO_PDUSTAT_CISTAT_LR500kbit (1UL) /*!< Frame is received at 500kbps */
+
+/* Bit 0 : Status on payload length vs. PCNF1.MAXLEN */
+#define RADIO_PDUSTAT_PDUSTAT_Pos (0UL) /*!< Position of PDUSTAT field. */
+#define RADIO_PDUSTAT_PDUSTAT_Msk (0x1UL << RADIO_PDUSTAT_PDUSTAT_Pos) /*!< Bit mask of PDUSTAT field. */
+#define RADIO_PDUSTAT_PDUSTAT_LessThan (0UL) /*!< Payload less than PCNF1.MAXLEN */
+#define RADIO_PDUSTAT_PDUSTAT_GreaterThan (1UL) /*!< Payload greater than PCNF1.MAXLEN */
+
+/* Register: RADIO_CTESTATUS */
+/* Description: CTEInfo parsed from received packet */
+
+/* Bits 7..6 : CTEType parsed from packet */
+#define RADIO_CTESTATUS_CTETYPE_Pos (6UL) /*!< Position of CTETYPE field. */
+#define RADIO_CTESTATUS_CTETYPE_Msk (0x3UL << RADIO_CTESTATUS_CTETYPE_Pos) /*!< Bit mask of CTETYPE field. */
+
+/* Bit 5 : RFU parsed from packet */
+#define RADIO_CTESTATUS_RFU_Pos (5UL) /*!< Position of RFU field. */
+#define RADIO_CTESTATUS_RFU_Msk (0x1UL << RADIO_CTESTATUS_RFU_Pos) /*!< Bit mask of RFU field. */
+
+/* Bits 4..0 : CTETime parsed from packet */
+#define RADIO_CTESTATUS_CTETIME_Pos (0UL) /*!< Position of CTETIME field. */
+#define RADIO_CTESTATUS_CTETIME_Msk (0x1FUL << RADIO_CTESTATUS_CTETIME_Pos) /*!< Bit mask of CTETIME field. */
+
+/* Register: RADIO_DFESTATUS */
+/* Description: DFE status information */
+
+/* Bit 4 : Internal state of sampling state machine */
+#define RADIO_DFESTATUS_SAMPLINGSTATE_Pos (4UL) /*!< Position of SAMPLINGSTATE field. */
+#define RADIO_DFESTATUS_SAMPLINGSTATE_Msk (0x1UL << RADIO_DFESTATUS_SAMPLINGSTATE_Pos) /*!< Bit mask of SAMPLINGSTATE field. */
+#define RADIO_DFESTATUS_SAMPLINGSTATE_Idle (0UL) /*!< Sampling state Idle */
+#define RADIO_DFESTATUS_SAMPLINGSTATE_Sampling (1UL) /*!< Sampling state Sampling */
+
+/* Bits 2..0 : Internal state of switching state machine */
+#define RADIO_DFESTATUS_SWITCHINGSTATE_Pos (0UL) /*!< Position of SWITCHINGSTATE field. */
+#define RADIO_DFESTATUS_SWITCHINGSTATE_Msk (0x7UL << RADIO_DFESTATUS_SWITCHINGSTATE_Pos) /*!< Bit mask of SWITCHINGSTATE field. */
+#define RADIO_DFESTATUS_SWITCHINGSTATE_Idle (0UL) /*!< Switching state Idle */
+#define RADIO_DFESTATUS_SWITCHINGSTATE_Offset (1UL) /*!< Switching state Offset */
+#define RADIO_DFESTATUS_SWITCHINGSTATE_Guard (2UL) /*!< Switching state Guard */
+#define RADIO_DFESTATUS_SWITCHINGSTATE_Ref (3UL) /*!< Switching state Ref */
+#define RADIO_DFESTATUS_SWITCHINGSTATE_Switching (4UL) /*!< Switching state Switching */
+#define RADIO_DFESTATUS_SWITCHINGSTATE_Ending (5UL) /*!< Switching state Ending */
+
 /* Register: RADIO_PACKETPTR */
 /* Description: Packet pointer */
 
@@ -6411,12 +6834,12 @@ POSSIBILITY OF SUCH DAMAGE.
 /* Register: RADIO_TXPOWER */
 /* Description: Output power */
 
-/* Bits 7..0 : RADIO output power. */
+/* Bits 7..0 : RADIO output power */
 #define RADIO_TXPOWER_TXPOWER_Pos (0UL) /*!< Position of TXPOWER field. */
 #define RADIO_TXPOWER_TXPOWER_Msk (0xFFUL << RADIO_TXPOWER_TXPOWER_Pos) /*!< Bit mask of TXPOWER field. */
-#define RADIO_TXPOWER_TXPOWER_0dBm (0x00UL) /*!< 0 dBm */
-#define RADIO_TXPOWER_TXPOWER_Pos3dBm (0x03UL) /*!< +3 dBm */
-#define RADIO_TXPOWER_TXPOWER_Pos4dBm (0x04UL) /*!< +4 dBm */
+#define RADIO_TXPOWER_TXPOWER_0dBm (0x0UL) /*!< 0 dBm */
+#define RADIO_TXPOWER_TXPOWER_Pos3dBm (0x3UL) /*!< +3 dBm */
+#define RADIO_TXPOWER_TXPOWER_Pos4dBm (0x4UL) /*!< +4 dBm */
 #define RADIO_TXPOWER_TXPOWER_Neg40dBm (0xD8UL) /*!< -40 dBm */
 #define RADIO_TXPOWER_TXPOWER_Neg30dBm (0xE2UL) /*!< Deprecated enumerator -  -40 dBm */
 #define RADIO_TXPOWER_TXPOWER_Neg20dBm (0xECUL) /*!< -20 dBm */
@@ -6428,22 +6851,41 @@ POSSIBILITY OF SUCH DAMAGE.
 /* Register: RADIO_MODE */
 /* Description: Data rate and modulation */
 
-/* Bits 3..0 : Radio data rate and modulation setting. The radio supports Frequency-shift Keying (FSK) modulation. */
+/* Bits 3..0 : Radio data rate and modulation setting. The radio supports frequency-shift keying (FSK) modulation. */
 #define RADIO_MODE_MODE_Pos (0UL) /*!< Position of MODE field. */
 #define RADIO_MODE_MODE_Msk (0xFUL << RADIO_MODE_MODE_Pos) /*!< Bit mask of MODE field. */
-#define RADIO_MODE_MODE_Nrf_1Mbit (0UL) /*!< 1 Mbit/s Nordic proprietary radio mode */
-#define RADIO_MODE_MODE_Nrf_2Mbit (1UL) /*!< 2 Mbit/s Nordic proprietary radio mode */
-#define RADIO_MODE_MODE_Ble_1Mbit (3UL) /*!< 1 Mbit/s Bluetooth Low Energy */
-#define RADIO_MODE_MODE_Ble_2Mbit (4UL) /*!< 2 Mbit/s Bluetooth Low Energy */
+#define RADIO_MODE_MODE_Nrf_1Mbit (0UL) /*!< 1 Mbps Nordic proprietary radio mode */
+#define RADIO_MODE_MODE_Nrf_2Mbit (1UL) /*!< 2 Mbps Nordic proprietary radio mode */
+#define RADIO_MODE_MODE_Ble_1Mbit (3UL) /*!< 1 Mbps BLE */
+#define RADIO_MODE_MODE_Ble_2Mbit (4UL) /*!< 2 Mbps BLE */
+#define RADIO_MODE_MODE_Ble_LR125Kbit (5UL) /*!< Long range 125 kbps TX, 125 kbps and 500 kbps RX */
+#define RADIO_MODE_MODE_Ble_LR500Kbit (6UL) /*!< Long range 500 kbps TX, 125 kbps and 500 kbps RX */
+#define RADIO_MODE_MODE_Ieee802154_250Kbit (15UL) /*!< IEEE 802.15.4-2006 250 kbps */
 
 /* Register: RADIO_PCNF0 */
 /* Description: Packet configuration register 0 */
 
-/* Bit 24 : Length of preamble on air. Decision point: TASKS_START task */
+/* Bits 30..29 : Length of TERM field in Long Range operation */
+#define RADIO_PCNF0_TERMLEN_Pos (29UL) /*!< Position of TERMLEN field. */
+#define RADIO_PCNF0_TERMLEN_Msk (0x3UL << RADIO_PCNF0_TERMLEN_Pos) /*!< Bit mask of TERMLEN field. */
+
+/* Bit 26 : Indicates if LENGTH field contains CRC or not */
+#define RADIO_PCNF0_CRCINC_Pos (26UL) /*!< Position of CRCINC field. */
+#define RADIO_PCNF0_CRCINC_Msk (0x1UL << RADIO_PCNF0_CRCINC_Pos) /*!< Bit mask of CRCINC field. */
+#define RADIO_PCNF0_CRCINC_Exclude (0UL) /*!< LENGTH does not contain CRC */
+#define RADIO_PCNF0_CRCINC_Include (1UL) /*!< LENGTH includes CRC */
+
+/* Bits 25..24 : Length of preamble on air. Decision point: TASKS_START task */
 #define RADIO_PCNF0_PLEN_Pos (24UL) /*!< Position of PLEN field. */
-#define RADIO_PCNF0_PLEN_Msk (0x1UL << RADIO_PCNF0_PLEN_Pos) /*!< Bit mask of PLEN field. */
+#define RADIO_PCNF0_PLEN_Msk (0x3UL << RADIO_PCNF0_PLEN_Pos) /*!< Bit mask of PLEN field. */
 #define RADIO_PCNF0_PLEN_8bit (0UL) /*!< 8-bit preamble */
 #define RADIO_PCNF0_PLEN_16bit (1UL) /*!< 16-bit preamble */
+#define RADIO_PCNF0_PLEN_32bitZero (2UL) /*!< 32-bit zero preamble - used for IEEE 802.15.4 */
+#define RADIO_PCNF0_PLEN_LongRange (3UL) /*!< Preamble - used for BLE long range */
+
+/* Bits 23..22 : Length of code indicator - long range */
+#define RADIO_PCNF0_CILEN_Pos (22UL) /*!< Position of CILEN field. */
+#define RADIO_PCNF0_CILEN_Msk (0x3UL << RADIO_PCNF0_CILEN_Pos) /*!< Bit mask of CILEN field. */
 
 /* Bit 20 : Include or exclude S1 field in RAM */
 #define RADIO_PCNF0_S1INCL_Pos (20UL) /*!< Position of S1INCL field. */
@@ -6472,10 +6914,10 @@ POSSIBILITY OF SUCH DAMAGE.
 #define RADIO_PCNF1_WHITEEN_Disabled (0UL) /*!< Disable */
 #define RADIO_PCNF1_WHITEEN_Enabled (1UL) /*!< Enable */
 
-/* Bit 24 : On air endianness of packet, this applies to the S0, LENGTH, S1 and the PAYLOAD fields. */
+/* Bit 24 : On-air endianness of packet, this applies to the S0, LENGTH, S1, and the PAYLOAD fields. */
 #define RADIO_PCNF1_ENDIAN_Pos (24UL) /*!< Position of ENDIAN field. */
 #define RADIO_PCNF1_ENDIAN_Msk (0x1UL << RADIO_PCNF1_ENDIAN_Pos) /*!< Bit mask of ENDIAN field. */
-#define RADIO_PCNF1_ENDIAN_Little (0UL) /*!< Least Significant bit on air first */
+#define RADIO_PCNF1_ENDIAN_Little (0UL) /*!< Least significant bit on air first */
 #define RADIO_PCNF1_ENDIAN_Big (1UL) /*!< Most significant bit on air first */
 
 /* Bits 18..16 : Base address length in number of bytes */
@@ -6603,11 +7045,12 @@ POSSIBILITY OF SUCH DAMAGE.
 /* Register: RADIO_CRCCNF */
 /* Description: CRC configuration */
 
-/* Bit 8 : Include or exclude packet address field out of CRC calculation. */
+/* Bits 9..8 : Include or exclude packet address field out of CRC calculation. */
 #define RADIO_CRCCNF_SKIPADDR_Pos (8UL) /*!< Position of SKIPADDR field. */
-#define RADIO_CRCCNF_SKIPADDR_Msk (0x1UL << RADIO_CRCCNF_SKIPADDR_Pos) /*!< Bit mask of SKIPADDR field. */
+#define RADIO_CRCCNF_SKIPADDR_Msk (0x3UL << RADIO_CRCCNF_SKIPADDR_Pos) /*!< Bit mask of SKIPADDR field. */
 #define RADIO_CRCCNF_SKIPADDR_Include (0UL) /*!< CRC calculation includes address field */
 #define RADIO_CRCCNF_SKIPADDR_Skip (1UL) /*!< CRC calculation does not include address field. The CRC calculation will start at the first byte after the address. */
+#define RADIO_CRCCNF_SKIPADDR_Ieee802154 (2UL) /*!< CRC calculation as per 802.15.4 standard. Starting at first byte after length field. */
 
 /* Bits 1..0 : CRC length in number of bytes. */
 #define RADIO_CRCCNF_LEN_Pos (0UL) /*!< Position of LEN field. */
@@ -6632,11 +7075,11 @@ POSSIBILITY OF SUCH DAMAGE.
 #define RADIO_CRCINIT_CRCINIT_Msk (0xFFFFFFUL << RADIO_CRCINIT_CRCINIT_Pos) /*!< Bit mask of CRCINIT field. */
 
 /* Register: RADIO_TIFS */
-/* Description: Inter Frame Spacing in us */
+/* Description: Interframe spacing in us */
 
-/* Bits 7..0 : Inter Frame Spacing in us */
+/* Bits 9..0 : Interframe spacing in us */
 #define RADIO_TIFS_TIFS_Pos (0UL) /*!< Position of TIFS field. */
-#define RADIO_TIFS_TIFS_Msk (0xFFUL << RADIO_TIFS_TIFS_Pos) /*!< Bit mask of TIFS field. */
+#define RADIO_TIFS_TIFS_Msk (0x3FFUL << RADIO_TIFS_TIFS_Pos) /*!< Bit mask of TIFS field. */
 
 /* Register: RADIO_RSSISAMPLE */
 /* Description: RSSI sample */
@@ -6664,7 +7107,7 @@ POSSIBILITY OF SUCH DAMAGE.
 /* Register: RADIO_DATAWHITEIV */
 /* Description: Data whitening initial value */
 
-/* Bits 6..0 : Data whitening initial value. Bit 6 is hard-wired to '1', writing '0' to it has no effect, and it will always be read back and used by the device as '1'. */
+/* Bits 6..0 : Data whitening initial value. Bit 6 is hardwired to '1', writing '0' to it has no effect, and it will always be read back and used by the device as '1'. */
 #define RADIO_DATAWHITEIV_DATAWHITEIV_Pos (0UL) /*!< Position of DATAWHITEIV field. */
 #define RADIO_DATAWHITEIV_DATAWHITEIV_Msk (0x7FUL << RADIO_DATAWHITEIV_DATAWHITEIV_Pos) /*!< Bit mask of DATAWHITEIV field. */
 
@@ -6772,6 +7215,20 @@ POSSIBILITY OF SUCH DAMAGE.
 #define RADIO_DACNF_ENA0_Disabled (0UL) /*!< Disabled */
 #define RADIO_DACNF_ENA0_Enabled (1UL) /*!< Enabled */
 
+/* Register: RADIO_MHRMATCHCONF */
+/* Description: Search pattern configuration */
+
+/* Bits 31..0 : Search pattern configuration */
+#define RADIO_MHRMATCHCONF_MHRMATCHCONF_Pos (0UL) /*!< Position of MHRMATCHCONF field. */
+#define RADIO_MHRMATCHCONF_MHRMATCHCONF_Msk (0xFFFFFFFFUL << RADIO_MHRMATCHCONF_MHRMATCHCONF_Pos) /*!< Bit mask of MHRMATCHCONF field. */
+
+/* Register: RADIO_MHRMATCHMAS */
+/* Description: Pattern mask */
+
+/* Bits 31..0 : Pattern mask */
+#define RADIO_MHRMATCHMAS_MHRMATCHMAS_Pos (0UL) /*!< Position of MHRMATCHMAS field. */
+#define RADIO_MHRMATCHMAS_MHRMATCHMAS_Msk (0xFFFFFFFFUL << RADIO_MHRMATCHMAS_MHRMATCHMAS_Pos) /*!< Bit mask of MHRMATCHMAS field. */
+
 /* Register: RADIO_MODECNF0 */
 /* Description: Radio mode configuration register 0 */
 
@@ -6785,8 +7242,233 @@ POSSIBILITY OF SUCH DAMAGE.
 /* Bit 0 : Radio ramp-up time */
 #define RADIO_MODECNF0_RU_Pos (0UL) /*!< Position of RU field. */
 #define RADIO_MODECNF0_RU_Msk (0x1UL << RADIO_MODECNF0_RU_Pos) /*!< Bit mask of RU field. */
-#define RADIO_MODECNF0_RU_Default (0UL) /*!< Default ramp-up time (tRXEN), compatible with firmware written for nRF51 */
-#define RADIO_MODECNF0_RU_Fast (1UL) /*!< Fast ramp-up (tRXEN,FAST), see electrical specification for more information */
+#define RADIO_MODECNF0_RU_Default (0UL) /*!< Default ramp-up time (tRXEN and tTXEN), compatible with firmware written for nRF51 */
+#define RADIO_MODECNF0_RU_Fast (1UL) /*!< Fast ramp-up (tRXEN,FAST and tTXEN,FAST), see electrical specification for more information */
+
+/* Register: RADIO_SFD */
+/* Description: IEEE 802.15.4 start of frame delimiter */
+
+/* Bits 7..0 : IEEE 802.15.4 start of frame delimiter */
+#define RADIO_SFD_SFD_Pos (0UL) /*!< Position of SFD field. */
+#define RADIO_SFD_SFD_Msk (0xFFUL << RADIO_SFD_SFD_Pos) /*!< Bit mask of SFD field. */
+
+/* Register: RADIO_EDCNT */
+/* Description: IEEE 802.15.4 energy detect loop count */
+
+/* Bits 20..0 : IEEE 802.15.4 energy detect loop count */
+#define RADIO_EDCNT_EDCNT_Pos (0UL) /*!< Position of EDCNT field. */
+#define RADIO_EDCNT_EDCNT_Msk (0x1FFFFFUL << RADIO_EDCNT_EDCNT_Pos) /*!< Bit mask of EDCNT field. */
+
+/* Register: RADIO_EDSAMPLE */
+/* Description: IEEE 802.15.4 energy detect level */
+
+/* Bits 7..0 : IEEE 802.15.4 energy detect level */
+#define RADIO_EDSAMPLE_EDLVL_Pos (0UL) /*!< Position of EDLVL field. */
+#define RADIO_EDSAMPLE_EDLVL_Msk (0xFFUL << RADIO_EDSAMPLE_EDLVL_Pos) /*!< Bit mask of EDLVL field. */
+
+/* Register: RADIO_CCACTRL */
+/* Description: IEEE 802.15.4 clear channel assessment control */
+
+/* Bits 31..24 : Limit for occurances above CCACORRTHRES. When not equal to zero the corrolator based signal detect is enabled. */
+#define RADIO_CCACTRL_CCACORRCNT_Pos (24UL) /*!< Position of CCACORRCNT field. */
+#define RADIO_CCACTRL_CCACORRCNT_Msk (0xFFUL << RADIO_CCACTRL_CCACORRCNT_Pos) /*!< Bit mask of CCACORRCNT field. */
+
+/* Bits 23..16 : CCA correlator busy threshold. Only relevant to CarrierMode, CarrierAndEdMode, and CarrierOrEdMode. */
+#define RADIO_CCACTRL_CCACORRTHRES_Pos (16UL) /*!< Position of CCACORRTHRES field. */
+#define RADIO_CCACTRL_CCACORRTHRES_Msk (0xFFUL << RADIO_CCACTRL_CCACORRTHRES_Pos) /*!< Bit mask of CCACORRTHRES field. */
+
+/* Bits 15..8 : CCA energy busy threshold. Used in all the CCA modes except CarrierMode. */
+#define RADIO_CCACTRL_CCAEDTHRES_Pos (8UL) /*!< Position of CCAEDTHRES field. */
+#define RADIO_CCACTRL_CCAEDTHRES_Msk (0xFFUL << RADIO_CCACTRL_CCAEDTHRES_Pos) /*!< Bit mask of CCAEDTHRES field. */
+
+/* Bits 2..0 : CCA mode of operation */
+#define RADIO_CCACTRL_CCAMODE_Pos (0UL) /*!< Position of CCAMODE field. */
+#define RADIO_CCACTRL_CCAMODE_Msk (0x7UL << RADIO_CCACTRL_CCAMODE_Pos) /*!< Bit mask of CCAMODE field. */
+#define RADIO_CCACTRL_CCAMODE_EdMode (0UL) /*!< Energy above threshold */
+#define RADIO_CCACTRL_CCAMODE_CarrierMode (1UL) /*!< Carrier seen */
+#define RADIO_CCACTRL_CCAMODE_CarrierAndEdMode (2UL) /*!< Energy above threshold AND carrier seen */
+#define RADIO_CCACTRL_CCAMODE_CarrierOrEdMode (3UL) /*!< Energy above threshold OR carrier seen */
+#define RADIO_CCACTRL_CCAMODE_EdModeTest1 (4UL) /*!< Energy above threshold test mode that will abort when first ED measurement over threshold is seen. No averaging. */
+
+/* Register: RADIO_DFEMODE */
+/* Description: Whether to use Angle-of-Arrival (AOA) or Angle-of-Departure (AOD) */
+
+/* Bits 1..0 : Direction finding operation mode */
+#define RADIO_DFEMODE_DFEOPMODE_Pos (0UL) /*!< Position of DFEOPMODE field. */
+#define RADIO_DFEMODE_DFEOPMODE_Msk (0x3UL << RADIO_DFEMODE_DFEOPMODE_Pos) /*!< Bit mask of DFEOPMODE field. */
+#define RADIO_DFEMODE_DFEOPMODE_Disabled (0UL) /*!< Direction finding mode disabled */
+#define RADIO_DFEMODE_DFEOPMODE_AoD (2UL) /*!< Direction finding mode set to AoD */
+#define RADIO_DFEMODE_DFEOPMODE_AoA (3UL) /*!< Direction finding mode set to AoA */
+
+/* Register: RADIO_CTEINLINECONF */
+/* Description: Configuration for CTE inline mode */
+
+/* Bits 31..24 : S0 bit mask to set which bit to match */
+#define RADIO_CTEINLINECONF_S0MASK_Pos (24UL) /*!< Position of S0MASK field. */
+#define RADIO_CTEINLINECONF_S0MASK_Msk (0xFFUL << RADIO_CTEINLINECONF_S0MASK_Pos) /*!< Bit mask of S0MASK field. */
+
+/* Bits 23..16 : S0 bit pattern to match */
+#define RADIO_CTEINLINECONF_S0CONF_Pos (16UL) /*!< Position of S0CONF field. */
+#define RADIO_CTEINLINECONF_S0CONF_Msk (0xFFUL << RADIO_CTEINLINECONF_S0CONF_Pos) /*!< Bit mask of S0CONF field. */
+
+/* Bits 15..13 : Spacing between samples for the samples in the SWITCHING period when CTEINLINEMODE is set */
+#define RADIO_CTEINLINECONF_CTEINLINERXMODE2US_Pos (13UL) /*!< Position of CTEINLINERXMODE2US field. */
+#define RADIO_CTEINLINECONF_CTEINLINERXMODE2US_Msk (0x7UL << RADIO_CTEINLINECONF_CTEINLINERXMODE2US_Pos) /*!< Bit mask of CTEINLINERXMODE2US field. */
+#define RADIO_CTEINLINECONF_CTEINLINERXMODE2US_4us (1UL) /*!< 4us */
+#define RADIO_CTEINLINECONF_CTEINLINERXMODE2US_2us (2UL) /*!< 2us */
+#define RADIO_CTEINLINECONF_CTEINLINERXMODE2US_1us (3UL) /*!< 1us */
+#define RADIO_CTEINLINECONF_CTEINLINERXMODE2US_500ns (4UL) /*!< 0.5us */
+#define RADIO_CTEINLINECONF_CTEINLINERXMODE2US_250ns (5UL) /*!< 0.25us */
+#define RADIO_CTEINLINECONF_CTEINLINERXMODE2US_125ns (6UL) /*!< 0.125us */
+
+/* Bits 12..10 : Spacing between samples for the samples in the SWITCHING period when CTEINLINEMODE is set */
+#define RADIO_CTEINLINECONF_CTEINLINERXMODE1US_Pos (10UL) /*!< Position of CTEINLINERXMODE1US field. */
+#define RADIO_CTEINLINECONF_CTEINLINERXMODE1US_Msk (0x7UL << RADIO_CTEINLINECONF_CTEINLINERXMODE1US_Pos) /*!< Bit mask of CTEINLINERXMODE1US field. */
+#define RADIO_CTEINLINECONF_CTEINLINERXMODE1US_4us (1UL) /*!< 4us */
+#define RADIO_CTEINLINECONF_CTEINLINERXMODE1US_2us (2UL) /*!< 2us */
+#define RADIO_CTEINLINECONF_CTEINLINERXMODE1US_1us (3UL) /*!< 1us */
+#define RADIO_CTEINLINECONF_CTEINLINERXMODE1US_500ns (4UL) /*!< 0.5us */
+#define RADIO_CTEINLINECONF_CTEINLINERXMODE1US_250ns (5UL) /*!< 0.25us */
+#define RADIO_CTEINLINECONF_CTEINLINERXMODE1US_125ns (6UL) /*!< 0.125us */
+
+/* Bits 7..6 : Max range of CTETime */
+#define RADIO_CTEINLINECONF_CTETIMEVALIDRANGE_Pos (6UL) /*!< Position of CTETIMEVALIDRANGE field. */
+#define RADIO_CTEINLINECONF_CTETIMEVALIDRANGE_Msk (0x3UL << RADIO_CTEINLINECONF_CTETIMEVALIDRANGE_Pos) /*!< Bit mask of CTETIMEVALIDRANGE field. */
+#define RADIO_CTEINLINECONF_CTETIMEVALIDRANGE_20 (0UL) /*!< 20 in 8us unit (default) Set to 20 if parsed CTETime is larger han 20 */
+#define RADIO_CTEINLINECONF_CTETIMEVALIDRANGE_31 (1UL) /*!< 31 in 8us unit */
+#define RADIO_CTEINLINECONF_CTETIMEVALIDRANGE_63 (2UL) /*!< 63 in 8us unit */
+
+/* Bit 4 : Sampling/switching if CRC is not OK */
+#define RADIO_CTEINLINECONF_CTEERRORHANDLING_Pos (4UL) /*!< Position of CTEERRORHANDLING field. */
+#define RADIO_CTEINLINECONF_CTEERRORHANDLING_Msk (0x1UL << RADIO_CTEINLINECONF_CTEERRORHANDLING_Pos) /*!< Bit mask of CTEERRORHANDLING field. */
+#define RADIO_CTEINLINECONF_CTEERRORHANDLING_No (0UL) /*!< No sampling and antenna switching when CRC is not OK */
+#define RADIO_CTEINLINECONF_CTEERRORHANDLING_Yes (1UL) /*!< Sampling and antenna switching also when CRC is not OK */
+
+/* Bit 3 : CTEInfo is S1 byte or not */
+#define RADIO_CTEINLINECONF_CTEINFOINS1_Pos (3UL) /*!< Position of CTEINFOINS1 field. */
+#define RADIO_CTEINLINECONF_CTEINFOINS1_Msk (0x1UL << RADIO_CTEINLINECONF_CTEINFOINS1_Pos) /*!< Bit mask of CTEINFOINS1 field. */
+#define RADIO_CTEINLINECONF_CTEINFOINS1_NotInS1 (0UL) /*!< CTEInfo is NOT in S1 byte (advertising PDU) */
+#define RADIO_CTEINLINECONF_CTEINFOINS1_InS1 (1UL) /*!< CTEInfo is in S1 byte (data PDU) */
+
+/* Bit 0 : Enable parsing of CTEInfo from received packet in BLE modes */
+#define RADIO_CTEINLINECONF_CTEINLINECTRLEN_Pos (0UL) /*!< Position of CTEINLINECTRLEN field. */
+#define RADIO_CTEINLINECONF_CTEINLINECTRLEN_Msk (0x1UL << RADIO_CTEINLINECONF_CTEINLINECTRLEN_Pos) /*!< Bit mask of CTEINLINECTRLEN field. */
+#define RADIO_CTEINLINECONF_CTEINLINECTRLEN_Disabled (0UL) /*!< Parsing of CTEInfo is disabled */
+#define RADIO_CTEINLINECONF_CTEINLINECTRLEN_Enabled (1UL) /*!< Parsing of CTEInfo is enabled */
+
+/* Register: RADIO_DFECTRL1 */
+/* Description: Various configuration for Direction finding */
+
+/* Bits 27..24 : Gain will be lowered by the specified number of gain steps at the start of CTE */
+#define RADIO_DFECTRL1_AGCBACKOFFGAIN_Pos (24UL) /*!< Position of AGCBACKOFFGAIN field. */
+#define RADIO_DFECTRL1_AGCBACKOFFGAIN_Msk (0xFUL << RADIO_DFECTRL1_AGCBACKOFFGAIN_Pos) /*!< Bit mask of AGCBACKOFFGAIN field. */
+
+/* Bits 18..16 : Interval between samples in the SWITCHING period when CTEINLINECTRLEN is 0 */
+#define RADIO_DFECTRL1_TSAMPLESPACING_Pos (16UL) /*!< Position of TSAMPLESPACING field. */
+#define RADIO_DFECTRL1_TSAMPLESPACING_Msk (0x7UL << RADIO_DFECTRL1_TSAMPLESPACING_Pos) /*!< Bit mask of TSAMPLESPACING field. */
+#define RADIO_DFECTRL1_TSAMPLESPACING_4us (1UL) /*!< 4us */
+#define RADIO_DFECTRL1_TSAMPLESPACING_2us (2UL) /*!< 2us */
+#define RADIO_DFECTRL1_TSAMPLESPACING_1us (3UL) /*!< 1us */
+#define RADIO_DFECTRL1_TSAMPLESPACING_500ns (4UL) /*!< 0.5us */
+#define RADIO_DFECTRL1_TSAMPLESPACING_250ns (5UL) /*!< 0.25us */
+#define RADIO_DFECTRL1_TSAMPLESPACING_125ns (6UL) /*!< 0.125us */
+
+/* Bit 15 : Whether to sample I/Q or magnitude/phase */
+#define RADIO_DFECTRL1_SAMPLETYPE_Pos (15UL) /*!< Position of SAMPLETYPE field. */
+#define RADIO_DFECTRL1_SAMPLETYPE_Msk (0x1UL << RADIO_DFECTRL1_SAMPLETYPE_Pos) /*!< Bit mask of SAMPLETYPE field. */
+#define RADIO_DFECTRL1_SAMPLETYPE_IQ (0UL) /*!< Complex samples in I and Q */
+#define RADIO_DFECTRL1_SAMPLETYPE_MagPhase (1UL) /*!< Complex samples as magnitude and phase */
+
+/* Bits 14..12 : Interval between samples in the REFERENCE period */
+#define RADIO_DFECTRL1_TSAMPLESPACINGREF_Pos (12UL) /*!< Position of TSAMPLESPACINGREF field. */
+#define RADIO_DFECTRL1_TSAMPLESPACINGREF_Msk (0x7UL << RADIO_DFECTRL1_TSAMPLESPACINGREF_Pos) /*!< Bit mask of TSAMPLESPACINGREF field. */
+#define RADIO_DFECTRL1_TSAMPLESPACINGREF_4us (1UL) /*!< 4us */
+#define RADIO_DFECTRL1_TSAMPLESPACINGREF_2us (2UL) /*!< 2us */
+#define RADIO_DFECTRL1_TSAMPLESPACINGREF_1us (3UL) /*!< 1us */
+#define RADIO_DFECTRL1_TSAMPLESPACINGREF_500ns (4UL) /*!< 0.5us */
+#define RADIO_DFECTRL1_TSAMPLESPACINGREF_250ns (5UL) /*!< 0.25us */
+#define RADIO_DFECTRL1_TSAMPLESPACINGREF_125ns (6UL) /*!< 0.125us */
+
+/* Bits 10..8 : Interval between every time the antenna is changed in the SWITCHING state */
+#define RADIO_DFECTRL1_TSWITCHSPACING_Pos (8UL) /*!< Position of TSWITCHSPACING field. */
+#define RADIO_DFECTRL1_TSWITCHSPACING_Msk (0x7UL << RADIO_DFECTRL1_TSWITCHSPACING_Pos) /*!< Bit mask of TSWITCHSPACING field. */
+#define RADIO_DFECTRL1_TSWITCHSPACING_4us (1UL) /*!< 4us */
+#define RADIO_DFECTRL1_TSWITCHSPACING_2us (2UL) /*!< 2us */
+#define RADIO_DFECTRL1_TSWITCHSPACING_1us (3UL) /*!< 1us */
+
+/* Bit 7 : Add CTE extension and do antenna switching/sampling in this extension */
+#define RADIO_DFECTRL1_DFEINEXTENSION_Pos (7UL) /*!< Position of DFEINEXTENSION field. */
+#define RADIO_DFECTRL1_DFEINEXTENSION_Msk (0x1UL << RADIO_DFECTRL1_DFEINEXTENSION_Pos) /*!< Bit mask of DFEINEXTENSION field. */
+#define RADIO_DFECTRL1_DFEINEXTENSION_Payload (0UL) /*!< Antenna switching/sampling is done in the packet payload */
+#define RADIO_DFECTRL1_DFEINEXTENSION_CRC (1UL) /*!< AoA/AoD procedure triggered at end of CRC */
+
+/* Bits 5..0 : Length of the AoA/AoD procedure in number of 8 us units */
+#define RADIO_DFECTRL1_NUMBEROF8US_Pos (0UL) /*!< Position of NUMBEROF8US field. */
+#define RADIO_DFECTRL1_NUMBEROF8US_Msk (0x3FUL << RADIO_DFECTRL1_NUMBEROF8US_Pos) /*!< Bit mask of NUMBEROF8US field. */
+
+/* Register: RADIO_DFECTRL2 */
+/* Description: Start offset for Direction finding */
+
+/* Bits 27..16 : Signed value offset before starting sampling in number of 16M cycles relative to the beginning of the REFERENCE state - 12 us after switching start */
+#define RADIO_DFECTRL2_TSAMPLEOFFSET_Pos (16UL) /*!< Position of TSAMPLEOFFSET field. */
+#define RADIO_DFECTRL2_TSAMPLEOFFSET_Msk (0xFFFUL << RADIO_DFECTRL2_TSAMPLEOFFSET_Pos) /*!< Bit mask of TSAMPLEOFFSET field. */
+
+/* Bits 12..0 : Signed value offset after the end of the CRC before starting switching in number of 16M cycles */
+#define RADIO_DFECTRL2_TSWITCHOFFSET_Pos (0UL) /*!< Position of TSWITCHOFFSET field. */
+#define RADIO_DFECTRL2_TSWITCHOFFSET_Msk (0x1FFFUL << RADIO_DFECTRL2_TSWITCHOFFSET_Pos) /*!< Bit mask of TSWITCHOFFSET field. */
+
+/* Register: RADIO_SWITCHPATTERN */
+/* Description: GPIO patterns to be used for each antenna */
+
+/* Bits 7..0 : Fill array of GPIO patterns for antenna control */
+#define RADIO_SWITCHPATTERN_SWITCHPATTERN_Pos (0UL) /*!< Position of SWITCHPATTERN field. */
+#define RADIO_SWITCHPATTERN_SWITCHPATTERN_Msk (0xFFUL << RADIO_SWITCHPATTERN_SWITCHPATTERN_Pos) /*!< Bit mask of SWITCHPATTERN field. */
+
+/* Register: RADIO_CLEARPATTERN */
+/* Description: Clear the GPIO pattern array for antenna control */
+
+/* Bit 0 : Clears GPIO pattern array for antenna control */
+#define RADIO_CLEARPATTERN_CLEARPATTERN_Pos (0UL) /*!< Position of CLEARPATTERN field. */
+#define RADIO_CLEARPATTERN_CLEARPATTERN_Msk (0x1UL << RADIO_CLEARPATTERN_CLEARPATTERN_Pos) /*!< Bit mask of CLEARPATTERN field. */
+#define RADIO_CLEARPATTERN_CLEARPATTERN_Clear (1UL) /*!< Clear the GPIO pattern */
+
+/* Register: RADIO_PSEL_DFEGPIO */
+/* Description: Description collection: Pin select for DFE pin n */
+
+/* Bit 31 : Connection */
+#define RADIO_PSEL_DFEGPIO_CONNECT_Pos (31UL) /*!< Position of CONNECT field. */
+#define RADIO_PSEL_DFEGPIO_CONNECT_Msk (0x1UL << RADIO_PSEL_DFEGPIO_CONNECT_Pos) /*!< Bit mask of CONNECT field. */
+#define RADIO_PSEL_DFEGPIO_CONNECT_Connected (0UL) /*!< Connect */
+#define RADIO_PSEL_DFEGPIO_CONNECT_Disconnected (1UL) /*!< Disconnect */
+
+/* Bit 5 : Port number */
+#define RADIO_PSEL_DFEGPIO_PORT_Pos (5UL) /*!< Position of PORT field. */
+#define RADIO_PSEL_DFEGPIO_PORT_Msk (0x1UL << RADIO_PSEL_DFEGPIO_PORT_Pos) /*!< Bit mask of PORT field. */
+
+/* Bits 4..0 : Pin number */
+#define RADIO_PSEL_DFEGPIO_PIN_Pos (0UL) /*!< Position of PIN field. */
+#define RADIO_PSEL_DFEGPIO_PIN_Msk (0x1FUL << RADIO_PSEL_DFEGPIO_PIN_Pos) /*!< Bit mask of PIN field. */
+
+/* Register: RADIO_DFEPACKET_PTR */
+/* Description: Data pointer */
+
+/* Bits 31..0 : Data pointer */
+#define RADIO_DFEPACKET_PTR_PTR_Pos (0UL) /*!< Position of PTR field. */
+#define RADIO_DFEPACKET_PTR_PTR_Msk (0xFFFFFFFFUL << RADIO_DFEPACKET_PTR_PTR_Pos) /*!< Bit mask of PTR field. */
+
+/* Register: RADIO_DFEPACKET_MAXCNT */
+/* Description: Maximum number of buffer words to transfer */
+
+/* Bits 12..0 : Maximum number of buffer words to transfer */
+#define RADIO_DFEPACKET_MAXCNT_MAXCNT_Pos (0UL) /*!< Position of MAXCNT field. */
+#define RADIO_DFEPACKET_MAXCNT_MAXCNT_Msk (0x1FFFUL << RADIO_DFEPACKET_MAXCNT_MAXCNT_Pos) /*!< Bit mask of MAXCNT field. */
+
+/* Register: RADIO_DFEPACKET_AMOUNT */
+/* Description: Number of samples transferred in the last transaction */
+
+/* Bits 15..0 : Number of samples transferred in the last transaction */
+#define RADIO_DFEPACKET_AMOUNT_AMOUNT_Pos (0UL) /*!< Position of AMOUNT field. */
+#define RADIO_DFEPACKET_AMOUNT_AMOUNT_Msk (0xFFFFUL << RADIO_DFEPACKET_AMOUNT_AMOUNT_Pos) /*!< Bit mask of AMOUNT field. */
 
 /* Register: RADIO_POWER */
 /* Description: Peripheral power control */
@@ -7916,7 +8598,7 @@ POSSIBILITY OF SUCH DAMAGE.
 
 
 /* Peripheral: SPI */
-/* Description: Serial Peripheral Interface */
+/* Description: Serial Peripheral Interface 0 */
 
 /* Register: SPI_EVENTS_READY */
 /* Description: TXD byte sent and RXD byte received */
@@ -8046,7 +8728,7 @@ POSSIBILITY OF SUCH DAMAGE.
 
 
 /* Peripheral: SPIM */
-/* Description: Serial Peripheral Interface Master with EasyDMA */
+/* Description: Serial Peripheral Interface Master with EasyDMA 0 */
 
 /* Register: SPIM_TASKS_START */
 /* Description: Start SPI transaction */
@@ -8282,16 +8964,16 @@ POSSIBILITY OF SUCH DAMAGE.
 /* Register: SPIM_RXD_MAXCNT */
 /* Description: Maximum number of bytes in receive buffer */
 
-/* Bits 9..0 : Maximum number of bytes in receive buffer */
+/* Bits 13..0 : Maximum number of bytes in receive buffer */
 #define SPIM_RXD_MAXCNT_MAXCNT_Pos (0UL) /*!< Position of MAXCNT field. */
-#define SPIM_RXD_MAXCNT_MAXCNT_Msk (0x3FFUL << SPIM_RXD_MAXCNT_MAXCNT_Pos) /*!< Bit mask of MAXCNT field. */
+#define SPIM_RXD_MAXCNT_MAXCNT_Msk (0x3FFFUL << SPIM_RXD_MAXCNT_MAXCNT_Pos) /*!< Bit mask of MAXCNT field. */
 
 /* Register: SPIM_RXD_AMOUNT */
 /* Description: Number of bytes transferred in the last transaction */
 
-/* Bits 9..0 : Number of bytes transferred in the last transaction */
+/* Bits 13..0 : Number of bytes transferred in the last transaction */
 #define SPIM_RXD_AMOUNT_AMOUNT_Pos (0UL) /*!< Position of AMOUNT field. */
-#define SPIM_RXD_AMOUNT_AMOUNT_Msk (0x3FFUL << SPIM_RXD_AMOUNT_AMOUNT_Pos) /*!< Bit mask of AMOUNT field. */
+#define SPIM_RXD_AMOUNT_AMOUNT_Msk (0x3FFFUL << SPIM_RXD_AMOUNT_AMOUNT_Pos) /*!< Bit mask of AMOUNT field. */
 
 /* Register: SPIM_RXD_LIST */
 /* Description: EasyDMA list type */
@@ -8312,16 +8994,16 @@ POSSIBILITY OF SUCH DAMAGE.
 /* Register: SPIM_TXD_MAXCNT */
 /* Description: Maximum number of bytes in transmit buffer */
 
-/* Bits 9..0 : Maximum number of bytes in transmit buffer */
+/* Bits 13..0 : Maximum number of bytes in transmit buffer */
 #define SPIM_TXD_MAXCNT_MAXCNT_Pos (0UL) /*!< Position of MAXCNT field. */
-#define SPIM_TXD_MAXCNT_MAXCNT_Msk (0x3FFUL << SPIM_TXD_MAXCNT_MAXCNT_Pos) /*!< Bit mask of MAXCNT field. */
+#define SPIM_TXD_MAXCNT_MAXCNT_Msk (0x3FFFUL << SPIM_TXD_MAXCNT_MAXCNT_Pos) /*!< Bit mask of MAXCNT field. */
 
 /* Register: SPIM_TXD_AMOUNT */
 /* Description: Number of bytes transferred in the last transaction */
 
-/* Bits 9..0 : Number of bytes transferred in the last transaction */
+/* Bits 13..0 : Number of bytes transferred in the last transaction */
 #define SPIM_TXD_AMOUNT_AMOUNT_Pos (0UL) /*!< Position of AMOUNT field. */
-#define SPIM_TXD_AMOUNT_AMOUNT_Msk (0x3FFUL << SPIM_TXD_AMOUNT_AMOUNT_Pos) /*!< Bit mask of AMOUNT field. */
+#define SPIM_TXD_AMOUNT_AMOUNT_Msk (0x3FFFUL << SPIM_TXD_AMOUNT_AMOUNT_Pos) /*!< Bit mask of AMOUNT field. */
 
 /* Register: SPIM_TXD_LIST */
 /* Description: EasyDMA list type */
@@ -8362,7 +9044,7 @@ POSSIBILITY OF SUCH DAMAGE.
 
 
 /* Peripheral: SPIS */
-/* Description: SPI Slave */
+/* Description: SPI Slave 0 */
 
 /* Register: SPIS_TASKS_ACQUIRE */
 /* Description: Acquire SPI semaphore */
@@ -8563,16 +9245,16 @@ POSSIBILITY OF SUCH DAMAGE.
 /* Register: SPIS_RXD_MAXCNT */
 /* Description: Maximum number of bytes in receive buffer */
 
-/* Bits 9..0 : Maximum number of bytes in receive buffer */
+/* Bits 13..0 : Maximum number of bytes in receive buffer */
 #define SPIS_RXD_MAXCNT_MAXCNT_Pos (0UL) /*!< Position of MAXCNT field. */
-#define SPIS_RXD_MAXCNT_MAXCNT_Msk (0x3FFUL << SPIS_RXD_MAXCNT_MAXCNT_Pos) /*!< Bit mask of MAXCNT field. */
+#define SPIS_RXD_MAXCNT_MAXCNT_Msk (0x3FFFUL << SPIS_RXD_MAXCNT_MAXCNT_Pos) /*!< Bit mask of MAXCNT field. */
 
 /* Register: SPIS_RXD_AMOUNT */
 /* Description: Number of bytes received in last granted transaction */
 
-/* Bits 9..0 : Number of bytes received in the last granted transaction */
+/* Bits 13..0 : Number of bytes received in the last granted transaction */
 #define SPIS_RXD_AMOUNT_AMOUNT_Pos (0UL) /*!< Position of AMOUNT field. */
-#define SPIS_RXD_AMOUNT_AMOUNT_Msk (0x3FFUL << SPIS_RXD_AMOUNT_AMOUNT_Pos) /*!< Bit mask of AMOUNT field. */
+#define SPIS_RXD_AMOUNT_AMOUNT_Msk (0x3FFFUL << SPIS_RXD_AMOUNT_AMOUNT_Pos) /*!< Bit mask of AMOUNT field. */
 
 /* Register: SPIS_RXD_LIST */
 /* Description: EasyDMA list type */
@@ -8593,16 +9275,16 @@ POSSIBILITY OF SUCH DAMAGE.
 /* Register: SPIS_TXD_MAXCNT */
 /* Description: Maximum number of bytes in transmit buffer */
 
-/* Bits 9..0 : Maximum number of bytes in transmit buffer */
+/* Bits 13..0 : Maximum number of bytes in transmit buffer */
 #define SPIS_TXD_MAXCNT_MAXCNT_Pos (0UL) /*!< Position of MAXCNT field. */
-#define SPIS_TXD_MAXCNT_MAXCNT_Msk (0x3FFUL << SPIS_TXD_MAXCNT_MAXCNT_Pos) /*!< Bit mask of MAXCNT field. */
+#define SPIS_TXD_MAXCNT_MAXCNT_Msk (0x3FFFUL << SPIS_TXD_MAXCNT_MAXCNT_Pos) /*!< Bit mask of MAXCNT field. */
 
 /* Register: SPIS_TXD_AMOUNT */
 /* Description: Number of bytes transmitted in last granted transaction */
 
-/* Bits 9..0 : Number of bytes transmitted in last granted transaction */
+/* Bits 13..0 : Number of bytes transmitted in last granted transaction */
 #define SPIS_TXD_AMOUNT_AMOUNT_Pos (0UL) /*!< Position of AMOUNT field. */
-#define SPIS_TXD_AMOUNT_AMOUNT_Msk (0x3FFUL << SPIS_TXD_AMOUNT_AMOUNT_Pos) /*!< Bit mask of AMOUNT field. */
+#define SPIS_TXD_AMOUNT_AMOUNT_Msk (0x3FFFUL << SPIS_TXD_AMOUNT_AMOUNT_Pos) /*!< Bit mask of AMOUNT field. */
 
 /* Register: SPIS_TXD_LIST */
 /* Description: EasyDMA list type */
@@ -9745,16 +10427,16 @@ POSSIBILITY OF SUCH DAMAGE.
 /* Register: TWIM_RXD_MAXCNT */
 /* Description: Maximum number of bytes in receive buffer */
 
-/* Bits 9..0 : Maximum number of bytes in receive buffer */
+/* Bits 13..0 : Maximum number of bytes in receive buffer */
 #define TWIM_RXD_MAXCNT_MAXCNT_Pos (0UL) /*!< Position of MAXCNT field. */
-#define TWIM_RXD_MAXCNT_MAXCNT_Msk (0x3FFUL << TWIM_RXD_MAXCNT_MAXCNT_Pos) /*!< Bit mask of MAXCNT field. */
+#define TWIM_RXD_MAXCNT_MAXCNT_Msk (0x3FFFUL << TWIM_RXD_MAXCNT_MAXCNT_Pos) /*!< Bit mask of MAXCNT field. */
 
 /* Register: TWIM_RXD_AMOUNT */
 /* Description: Number of bytes transferred in the last transaction */
 
-/* Bits 9..0 : Number of bytes transferred in the last transaction. In case of NACK error, includes the NACK'ed byte. */
+/* Bits 13..0 : Number of bytes transferred in the last transaction. In case of NACK error, includes the NACK'ed byte. */
 #define TWIM_RXD_AMOUNT_AMOUNT_Pos (0UL) /*!< Position of AMOUNT field. */
-#define TWIM_RXD_AMOUNT_AMOUNT_Msk (0x3FFUL << TWIM_RXD_AMOUNT_AMOUNT_Pos) /*!< Bit mask of AMOUNT field. */
+#define TWIM_RXD_AMOUNT_AMOUNT_Msk (0x3FFFUL << TWIM_RXD_AMOUNT_AMOUNT_Pos) /*!< Bit mask of AMOUNT field. */
 
 /* Register: TWIM_RXD_LIST */
 /* Description: EasyDMA list type */
@@ -9775,16 +10457,16 @@ POSSIBILITY OF SUCH DAMAGE.
 /* Register: TWIM_TXD_MAXCNT */
 /* Description: Maximum number of bytes in transmit buffer */
 
-/* Bits 9..0 : Maximum number of bytes in transmit buffer */
+/* Bits 13..0 : Maximum number of bytes in transmit buffer */
 #define TWIM_TXD_MAXCNT_MAXCNT_Pos (0UL) /*!< Position of MAXCNT field. */
-#define TWIM_TXD_MAXCNT_MAXCNT_Msk (0x3FFUL << TWIM_TXD_MAXCNT_MAXCNT_Pos) /*!< Bit mask of MAXCNT field. */
+#define TWIM_TXD_MAXCNT_MAXCNT_Msk (0x3FFFUL << TWIM_TXD_MAXCNT_MAXCNT_Pos) /*!< Bit mask of MAXCNT field. */
 
 /* Register: TWIM_TXD_AMOUNT */
 /* Description: Number of bytes transferred in the last transaction */
 
-/* Bits 9..0 : Number of bytes transferred in the last transaction. In case of NACK error, includes the NACK'ed byte. */
+/* Bits 13..0 : Number of bytes transferred in the last transaction. In case of NACK error, includes the NACK'ed byte. */
 #define TWIM_TXD_AMOUNT_AMOUNT_Pos (0UL) /*!< Position of AMOUNT field. */
-#define TWIM_TXD_AMOUNT_AMOUNT_Msk (0x3FFUL << TWIM_TXD_AMOUNT_AMOUNT_Pos) /*!< Bit mask of AMOUNT field. */
+#define TWIM_TXD_AMOUNT_AMOUNT_Msk (0x3FFFUL << TWIM_TXD_AMOUNT_AMOUNT_Pos) /*!< Bit mask of AMOUNT field. */
 
 /* Register: TWIM_TXD_LIST */
 /* Description: EasyDMA list type */
@@ -10117,16 +10799,16 @@ POSSIBILITY OF SUCH DAMAGE.
 /* Register: TWIS_RXD_MAXCNT */
 /* Description: Maximum number of bytes in RXD buffer */
 
-/* Bits 9..0 : Maximum number of bytes in RXD buffer */
+/* Bits 13..0 : Maximum number of bytes in RXD buffer */
 #define TWIS_RXD_MAXCNT_MAXCNT_Pos (0UL) /*!< Position of MAXCNT field. */
-#define TWIS_RXD_MAXCNT_MAXCNT_Msk (0x3FFUL << TWIS_RXD_MAXCNT_MAXCNT_Pos) /*!< Bit mask of MAXCNT field. */
+#define TWIS_RXD_MAXCNT_MAXCNT_Msk (0x3FFFUL << TWIS_RXD_MAXCNT_MAXCNT_Pos) /*!< Bit mask of MAXCNT field. */
 
 /* Register: TWIS_RXD_AMOUNT */
 /* Description: Number of bytes transferred in the last RXD transaction */
 
-/* Bits 9..0 : Number of bytes transferred in the last RXD transaction */
+/* Bits 13..0 : Number of bytes transferred in the last RXD transaction */
 #define TWIS_RXD_AMOUNT_AMOUNT_Pos (0UL) /*!< Position of AMOUNT field. */
-#define TWIS_RXD_AMOUNT_AMOUNT_Msk (0x3FFUL << TWIS_RXD_AMOUNT_AMOUNT_Pos) /*!< Bit mask of AMOUNT field. */
+#define TWIS_RXD_AMOUNT_AMOUNT_Msk (0x3FFFUL << TWIS_RXD_AMOUNT_AMOUNT_Pos) /*!< Bit mask of AMOUNT field. */
 
 /* Register: TWIS_RXD_LIST */
 /* Description: EasyDMA list type */
@@ -10147,16 +10829,16 @@ POSSIBILITY OF SUCH DAMAGE.
 /* Register: TWIS_TXD_MAXCNT */
 /* Description: Maximum number of bytes in TXD buffer */
 
-/* Bits 9..0 : Maximum number of bytes in TXD buffer */
+/* Bits 13..0 : Maximum number of bytes in TXD buffer */
 #define TWIS_TXD_MAXCNT_MAXCNT_Pos (0UL) /*!< Position of MAXCNT field. */
-#define TWIS_TXD_MAXCNT_MAXCNT_Msk (0x3FFUL << TWIS_TXD_MAXCNT_MAXCNT_Pos) /*!< Bit mask of MAXCNT field. */
+#define TWIS_TXD_MAXCNT_MAXCNT_Msk (0x3FFFUL << TWIS_TXD_MAXCNT_MAXCNT_Pos) /*!< Bit mask of MAXCNT field. */
 
 /* Register: TWIS_TXD_AMOUNT */
 /* Description: Number of bytes transferred in the last TXD transaction */
 
-/* Bits 9..0 : Number of bytes transferred in the last TXD transaction */
+/* Bits 13..0 : Number of bytes transferred in the last TXD transaction */
 #define TWIS_TXD_AMOUNT_AMOUNT_Pos (0UL) /*!< Position of AMOUNT field. */
-#define TWIS_TXD_AMOUNT_AMOUNT_Msk (0x3FFUL << TWIS_TXD_AMOUNT_AMOUNT_Pos) /*!< Bit mask of AMOUNT field. */
+#define TWIS_TXD_AMOUNT_AMOUNT_Msk (0x3FFFUL << TWIS_TXD_AMOUNT_AMOUNT_Pos) /*!< Bit mask of AMOUNT field. */
 
 /* Register: TWIS_TXD_LIST */
 /* Description: EasyDMA list type */

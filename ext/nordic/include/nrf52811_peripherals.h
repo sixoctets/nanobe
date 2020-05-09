@@ -30,8 +30,8 @@ POSSIBILITY OF SUCH DAMAGE.
 
 */
 
-#ifndef _NRF52810_PERIPHERALS_H
-#define _NRF52810_PERIPHERALS_H
+#ifndef _NRF52811_PERIPHERALS_H
+#define _NRF52811_PERIPHERALS_H
 
 
 /* Clock Peripheral */
@@ -76,6 +76,7 @@ POSSIBILITY OF SUCH DAMAGE.
 #define RADIO_COUNT 1
 
 #define RADIO_EASYDMA_MAXCNT_SIZE 8
+#define RADIO_FEATURE_IEEE_802_15_4_PRESENT
 
 /* Accelerated Address Resolver */
 #define AAR_PRESENT
@@ -140,27 +141,33 @@ POSSIBILITY OF SUCH DAMAGE.
 
 /* Serial Peripheral Interface Master */
 #define SPI_PRESENT
-#define SPI_COUNT 1
+#define SPI_COUNT 2
 
 /* Serial Peripheral Interface Master with DMA */
 #define SPIM_PRESENT
-#define SPIM_COUNT 1
+#define SPIM_COUNT 2
 
 #define SPIM0_MAX_DATARATE  8
+#define SPIM1_MAX_DATARATE  8
 
 #define SPIM0_FEATURE_HARDWARE_CSN_PRESENT  0
+#define SPIM1_FEATURE_HARDWARE_CSN_PRESENT  0
 
 #define SPIM0_FEATURE_DCX_PRESENT  0
+#define SPIM1_FEATURE_DCX_PRESENT  0
 
 #define SPIM0_FEATURE_RXDELAY_PRESENT  0
+#define SPIM1_FEATURE_RXDELAY_PRESENT  0
 
-#define SPIM0_EASYDMA_MAXCNT_SIZE 10
+#define SPIM0_EASYDMA_MAXCNT_SIZE 14
+#define SPIM1_EASYDMA_MAXCNT_SIZE 14
 
 /* Serial Peripheral Interface Slave with DMA*/
 #define SPIS_PRESENT
-#define SPIS_COUNT 1
+#define SPIS_COUNT 2
 
-#define SPIS0_EASYDMA_MAXCNT_SIZE 10
+#define SPIS0_EASYDMA_MAXCNT_SIZE 14
+#define SPIS1_EASYDMA_MAXCNT_SIZE 14
 
 /* Two Wire Interface Master */
 #define TWI_PRESENT
@@ -170,13 +177,13 @@ POSSIBILITY OF SUCH DAMAGE.
 #define TWIM_PRESENT
 #define TWIM_COUNT 1
 
-#define TWIM0_EASYDMA_MAXCNT_SIZE 10
+#define TWIM0_EASYDMA_MAXCNT_SIZE 14
 
 /* Two Wire Interface Slave with DMA */
 #define TWIS_PRESENT
 #define TWIS_COUNT 1
 
-#define TWIS0_EASYDMA_MAXCNT_SIZE 10
+#define TWIS0_EASYDMA_MAXCNT_SIZE 14
 
 /* Universal Asynchronous Receiver-Transmitter */
 #define UART_PRESENT
@@ -186,7 +193,7 @@ POSSIBILITY OF SUCH DAMAGE.
 #define UARTE_PRESENT
 #define UARTE_COUNT 1
 
-#define UARTE0_EASYDMA_MAXCNT_SIZE 10
+#define UARTE0_EASYDMA_MAXCNT_SIZE 14
 
 /* Quadrature Decoder */
 #define QDEC_PRESENT
@@ -228,4 +235,4 @@ POSSIBILITY OF SUCH DAMAGE.
 #define PDM_EASYDMA_MAXCNT_SIZE 15
 
 
-#endif      // _NRF52810_PERIPHERALS_H
+#endif      // _NRF52811_PERIPHERALS_H

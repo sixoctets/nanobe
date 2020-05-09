@@ -30,8 +30,8 @@ POSSIBILITY OF SUCH DAMAGE.
 
 */
 
-#ifndef _NRF52810_PERIPHERALS_H
-#define _NRF52810_PERIPHERALS_H
+#ifndef _NRF52805_PERIPHERALS_H
+#define _NRF52805_PERIPHERALS_H
 
 
 /* Clock Peripheral */
@@ -95,7 +95,7 @@ POSSIBILITY OF SUCH DAMAGE.
 #define PPI_PRESENT
 #define PPI_COUNT 1
 
-#define PPI_CH_NUM 20
+#define PPI_CH_NUM 10
 #define PPI_FIXED_CH_NUM 12
 #define PPI_GROUP_NUM 6
 #define PPI_FEATURE_FORKS_PRESENT
@@ -140,27 +140,33 @@ POSSIBILITY OF SUCH DAMAGE.
 
 /* Serial Peripheral Interface Master */
 #define SPI_PRESENT
-#define SPI_COUNT 1
+#define SPI_COUNT 2
 
 /* Serial Peripheral Interface Master with DMA */
 #define SPIM_PRESENT
-#define SPIM_COUNT 1
+#define SPIM_COUNT 2
 
 #define SPIM0_MAX_DATARATE  8
+#define SPIM1_MAX_DATARATE  8
 
 #define SPIM0_FEATURE_HARDWARE_CSN_PRESENT  0
+#define SPIM1_FEATURE_HARDWARE_CSN_PRESENT  0
 
 #define SPIM0_FEATURE_DCX_PRESENT  0
+#define SPIM1_FEATURE_DCX_PRESENT  0
 
 #define SPIM0_FEATURE_RXDELAY_PRESENT  0
+#define SPIM1_FEATURE_RXDELAY_PRESENT  0
 
-#define SPIM0_EASYDMA_MAXCNT_SIZE 10
+#define SPIM0_EASYDMA_MAXCNT_SIZE 14
+#define SPIM1_EASYDMA_MAXCNT_SIZE 14
 
 /* Serial Peripheral Interface Slave with DMA*/
 #define SPIS_PRESENT
-#define SPIS_COUNT 1
+#define SPIS_COUNT 2
 
-#define SPIS0_EASYDMA_MAXCNT_SIZE 10
+#define SPIS0_EASYDMA_MAXCNT_SIZE 14
+#define SPIS1_EASYDMA_MAXCNT_SIZE 14
 
 /* Two Wire Interface Master */
 #define TWI_PRESENT
@@ -170,13 +176,13 @@ POSSIBILITY OF SUCH DAMAGE.
 #define TWIM_PRESENT
 #define TWIM_COUNT 1
 
-#define TWIM0_EASYDMA_MAXCNT_SIZE 10
+#define TWIM0_EASYDMA_MAXCNT_SIZE 14
 
 /* Two Wire Interface Slave with DMA */
 #define TWIS_PRESENT
 #define TWIS_COUNT 1
 
-#define TWIS0_EASYDMA_MAXCNT_SIZE 10
+#define TWIS0_EASYDMA_MAXCNT_SIZE 14
 
 /* Universal Asynchronous Receiver-Transmitter */
 #define UART_PRESENT
@@ -186,11 +192,7 @@ POSSIBILITY OF SUCH DAMAGE.
 #define UARTE_PRESENT
 #define UARTE_COUNT 1
 
-#define UARTE0_EASYDMA_MAXCNT_SIZE 10
-
-/* Quadrature Decoder */
-#define QDEC_PRESENT
-#define QDEC_COUNT 1
+#define UARTE0_EASYDMA_MAXCNT_SIZE 14
 
 /* Successive Approximation Analog to Digital Converter */
 #define SAADC_PRESENT
@@ -209,23 +211,5 @@ POSSIBILITY OF SUCH DAMAGE.
 #define GPIOTE_FEATURE_SET_PRESENT
 #define GPIOTE_FEATURE_CLR_PRESENT
 
-/* Comparator */
-#define COMP_PRESENT
-#define COMP_COUNT 1
 
-/* Pulse Width Modulator */
-#define PWM_PRESENT
-#define PWM_COUNT 1
-
-#define PWM0_CH_NUM 4
-
-#define PWM0_EASYDMA_MAXCNT_SIZE 15
-
-/* Pulse Density Modulator */
-#define PDM_PRESENT
-#define PDM_COUNT 1
-
-#define PDM_EASYDMA_MAXCNT_SIZE 15
-
-
-#endif      // _NRF52810_PERIPHERALS_H
+#endif      // _NRF52805_PERIPHERALS_H

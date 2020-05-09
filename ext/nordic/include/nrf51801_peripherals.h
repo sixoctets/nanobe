@@ -30,8 +30,9 @@ POSSIBILITY OF SUCH DAMAGE.
 
 */
 
-#ifndef _NRF52810_PERIPHERALS_H
-#define _NRF52810_PERIPHERALS_H
+/* This file is deprecated */
+#ifndef _NRF51801_PERIPHERALS_H
+#define _NRF51801_PERIPHERALS_H
 
 
 /* Clock Peripheral */
@@ -42,16 +43,11 @@ POSSIBILITY OF SUCH DAMAGE.
 #define POWER_PRESENT
 #define POWER_COUNT 1
 
-#define POWER_FEATURE_RAM_REGISTERS_PRESENT
-#define POWER_FEATURE_RAM_REGISTERS_COUNT       3
+#define POWER_FEATURE_RAMON_REGISTERS_PRESENT
 
 /* Non-Volatile Memory Controller */
 #define NVMC_PRESENT
 #define NVMC_COUNT 1
-
-/* Systick timer */
-#define SYSTICK_PRESENT
-#define SYSTICK_COUNT 1
 
 /* Software Interrupts */
 #define SWI_PRESENT
@@ -69,19 +65,17 @@ POSSIBILITY OF SUCH DAMAGE.
 #define BPROT_PRESENT
 
 #define BPROT_REGIONS_SIZE 4096
-#define BPROT_REGIONS_NUM 48
+#define BPROT_REGIONS_NUM 64
 
 /* Radio */
 #define RADIO_PRESENT
 #define RADIO_COUNT 1
 
-#define RADIO_EASYDMA_MAXCNT_SIZE 8
-
 /* Accelerated Address Resolver */
 #define AAR_PRESENT
 #define AAR_COUNT 1
 
-#define AAR_MAX_IRK_NUM 16
+#define AAR_MAX_IRK_NUM 8
 
 /* AES Electronic CodeBook mode encryption */
 #define ECB_PRESENT
@@ -95,25 +89,17 @@ POSSIBILITY OF SUCH DAMAGE.
 #define PPI_PRESENT
 #define PPI_COUNT 1
 
-#define PPI_CH_NUM 20
+#define PPI_CH_NUM 16
 #define PPI_FIXED_CH_NUM 12
-#define PPI_GROUP_NUM 6
-#define PPI_FEATURE_FORKS_PRESENT
-
-/* Event Generator Unit */
-#define EGU_PRESENT
-#define EGU_COUNT 2
-
-#define EGU0_CH_NUM 16
-#define EGU1_CH_NUM 16
+#define PPI_GROUP_NUM 4
 
 /* Timer/Counter */
 #define TIMER_PRESENT
 #define TIMER_COUNT 3
 
 #define TIMER0_MAX_SIZE 32
-#define TIMER1_MAX_SIZE 32
-#define TIMER2_MAX_SIZE 32
+#define TIMER1_MAX_SIZE 16
+#define TIMER2_MAX_SIZE 16
 
 #define TIMER0_CC_NUM 4
 #define TIMER1_CC_NUM 4
@@ -140,92 +126,41 @@ POSSIBILITY OF SUCH DAMAGE.
 
 /* Serial Peripheral Interface Master */
 #define SPI_PRESENT
-#define SPI_COUNT 1
+#define SPI_COUNT 2
 
-/* Serial Peripheral Interface Master with DMA */
-#define SPIM_PRESENT
-#define SPIM_COUNT 1
-
-#define SPIM0_MAX_DATARATE  8
-
-#define SPIM0_FEATURE_HARDWARE_CSN_PRESENT  0
-
-#define SPIM0_FEATURE_DCX_PRESENT  0
-
-#define SPIM0_FEATURE_RXDELAY_PRESENT  0
-
-#define SPIM0_EASYDMA_MAXCNT_SIZE 10
-
-/* Serial Peripheral Interface Slave with DMA*/
+/* Serial Peripheral Interface Slave with DMA */
 #define SPIS_PRESENT
 #define SPIS_COUNT 1
 
-#define SPIS0_EASYDMA_MAXCNT_SIZE 10
+#define SPIS1_EASYDMA_MAXCNT_SIZE 8
 
 /* Two Wire Interface Master */
 #define TWI_PRESENT
-#define TWI_COUNT 1
-
-/* Two Wire Interface Master with DMA */
-#define TWIM_PRESENT
-#define TWIM_COUNT 1
-
-#define TWIM0_EASYDMA_MAXCNT_SIZE 10
-
-/* Two Wire Interface Slave with DMA */
-#define TWIS_PRESENT
-#define TWIS_COUNT 1
-
-#define TWIS0_EASYDMA_MAXCNT_SIZE 10
+#define TWI_COUNT 2
 
 /* Universal Asynchronous Receiver-Transmitter */
 #define UART_PRESENT
 #define UART_COUNT 1
 
-/* Universal Asynchronous Receiver-Transmitter with DMA */
-#define UARTE_PRESENT
-#define UARTE_COUNT 1
-
-#define UARTE0_EASYDMA_MAXCNT_SIZE 10
-
 /* Quadrature Decoder */
 #define QDEC_PRESENT
 #define QDEC_COUNT 1
 
-/* Successive Approximation Analog to Digital Converter */
-#define SAADC_PRESENT
-#define SAADC_COUNT 1
-
-#define SAADC_EASYDMA_MAXCNT_SIZE 15
-
-#define SAADC_CH_NUM 8
+/* Analog to Digital Converter */
+#define ADC_PRESENT
+#define ADC_COUNT 1
 
 /* GPIO Tasks and Events */
 #define GPIOTE_PRESENT
 #define GPIOTE_COUNT 1
 
-#define GPIOTE_CH_NUM 8
+#define GPIOTE_CH_NUM 4
 
-#define GPIOTE_FEATURE_SET_PRESENT
-#define GPIOTE_FEATURE_CLR_PRESENT
+/* Low Power Comparator */
+#define LPCOMP_PRESENT
+#define LPCOMP_COUNT 1
 
-/* Comparator */
-#define COMP_PRESENT
-#define COMP_COUNT 1
-
-/* Pulse Width Modulator */
-#define PWM_PRESENT
-#define PWM_COUNT 1
-
-#define PWM0_CH_NUM 4
-
-#define PWM0_EASYDMA_MAXCNT_SIZE 15
-
-/* Pulse Density Modulator */
-#define PDM_PRESENT
-#define PDM_COUNT 1
-
-#define PDM_EASYDMA_MAXCNT_SIZE 15
+#define LPCOMP_REFSEL_RESOLUTION 8
 
 
-#endif      // _NRF52810_PERIPHERALS_H
+#endif      // _NRF51801_PERIPHERALS_H

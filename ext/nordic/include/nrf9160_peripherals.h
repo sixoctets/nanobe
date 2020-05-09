@@ -30,9 +30,11 @@ POSSIBILITY OF SUCH DAMAGE.
 
 */
 
-#ifndef _NRF52810_PERIPHERALS_H
-#define _NRF52810_PERIPHERALS_H
+#ifndef _NRF9160_PERIPHERALS_H
+#define _NRF9160_PERIPHERALS_H
 
+/* UICR */
+#define UICR_KEYSLOT_COUNT 128
 
 /* Clock Peripheral */
 #define CLOCK_PRESENT
@@ -42,20 +44,11 @@ POSSIBILITY OF SUCH DAMAGE.
 #define POWER_PRESENT
 #define POWER_COUNT 1
 
-#define POWER_FEATURE_RAM_REGISTERS_PRESENT
-#define POWER_FEATURE_RAM_REGISTERS_COUNT       3
-
 /* Non-Volatile Memory Controller */
 #define NVMC_PRESENT
 #define NVMC_COUNT 1
 
-/* Systick timer */
-#define SYSTICK_PRESENT
-#define SYSTICK_COUNT 1
-
-/* Software Interrupts */
-#define SWI_PRESENT
-#define SWI_COUNT 6
+#define NVMC_FEATURE_CACHE_PRESENT
 
 /* GPIO */
 #define GPIO_PRESENT
@@ -65,47 +58,23 @@ POSSIBILITY OF SUCH DAMAGE.
 
 #define P0_FEATURE_PINS_PRESENT 0xFFFFFFFFUL
 
-/* MPU and BPROT */
-#define BPROT_PRESENT
+/* Distributed  Peripheral to Peripheral Interconnect */
+#define DPPI_PRESENT
+#define DPPI_COUNT 1
 
-#define BPROT_REGIONS_SIZE 4096
-#define BPROT_REGIONS_NUM 48
-
-/* Radio */
-#define RADIO_PRESENT
-#define RADIO_COUNT 1
-
-#define RADIO_EASYDMA_MAXCNT_SIZE 8
-
-/* Accelerated Address Resolver */
-#define AAR_PRESENT
-#define AAR_COUNT 1
-
-#define AAR_MAX_IRK_NUM 16
-
-/* AES Electronic CodeBook mode encryption */
-#define ECB_PRESENT
-#define ECB_COUNT 1
-
-/* AES CCM mode encryption */
-#define CCM_PRESENT
-#define CCM_COUNT 1
-
-/* Peripheral to Peripheral Interconnect */
-#define PPI_PRESENT
-#define PPI_COUNT 1
-
-#define PPI_CH_NUM 20
-#define PPI_FIXED_CH_NUM 12
-#define PPI_GROUP_NUM 6
-#define PPI_FEATURE_FORKS_PRESENT
+#define DPPI_CH_NUM 16
+#define DPPI_GROUP_NUM 6
 
 /* Event Generator Unit */
 #define EGU_PRESENT
-#define EGU_COUNT 2
+#define EGU_COUNT 6
 
 #define EGU0_CH_NUM 16
 #define EGU1_CH_NUM 16
+#define EGU2_CH_NUM 16
+#define EGU3_CH_NUM 16
+#define EGU4_CH_NUM 16
+#define EGU5_CH_NUM 16
 
 /* Timer/Counter */
 #define TIMER_PRESENT
@@ -115,111 +84,95 @@ POSSIBILITY OF SUCH DAMAGE.
 #define TIMER1_MAX_SIZE 32
 #define TIMER2_MAX_SIZE 32
 
-#define TIMER0_CC_NUM 4
-#define TIMER1_CC_NUM 4
-#define TIMER2_CC_NUM 4
+
+#define TIMER0_CC_NUM 6
+#define TIMER1_CC_NUM 6
+#define TIMER2_CC_NUM 6
 
 /* Real Time Counter */
 #define RTC_PRESENT
 #define RTC_COUNT 2
 
-#define RTC0_CC_NUM 3
+#define RTC0_CC_NUM 4
 #define RTC1_CC_NUM 4
-
-/* RNG */
-#define RNG_PRESENT
-#define RNG_COUNT 1
 
 /* Watchdog Timer */
 #define WDT_PRESENT
 #define WDT_COUNT 1
 
-/* Temperature Sensor */
-#define TEMP_PRESENT
-#define TEMP_COUNT 1
-
-/* Serial Peripheral Interface Master */
-#define SPI_PRESENT
-#define SPI_COUNT 1
-
 /* Serial Peripheral Interface Master with DMA */
 #define SPIM_PRESENT
-#define SPIM_COUNT 1
+#define SPIM_COUNT 4
 
 #define SPIM0_MAX_DATARATE  8
+#define SPIM1_MAX_DATARATE  8
+#define SPIM2_MAX_DATARATE  8
+#define SPIM3_MAX_DATARATE  8
 
-#define SPIM0_FEATURE_HARDWARE_CSN_PRESENT  0
-
-#define SPIM0_FEATURE_DCX_PRESENT  0
-
-#define SPIM0_FEATURE_RXDELAY_PRESENT  0
-
-#define SPIM0_EASYDMA_MAXCNT_SIZE 10
+#define SPIM0_EASYDMA_MAXCNT_SIZE 12
+#define SPIM1_EASYDMA_MAXCNT_SIZE 12
+#define SPIM2_EASYDMA_MAXCNT_SIZE 12
+#define SPIM3_EASYDMA_MAXCNT_SIZE 12
 
 /* Serial Peripheral Interface Slave with DMA*/
 #define SPIS_PRESENT
-#define SPIS_COUNT 1
+#define SPIS_COUNT 4
 
-#define SPIS0_EASYDMA_MAXCNT_SIZE 10
-
-/* Two Wire Interface Master */
-#define TWI_PRESENT
-#define TWI_COUNT 1
+#define SPIS0_EASYDMA_MAXCNT_SIZE 12
+#define SPIS1_EASYDMA_MAXCNT_SIZE 12
+#define SPIS2_EASYDMA_MAXCNT_SIZE 12
+#define SPIS3_EASYDMA_MAXCNT_SIZE 12
 
 /* Two Wire Interface Master with DMA */
 #define TWIM_PRESENT
-#define TWIM_COUNT 1
+#define TWIM_COUNT 4
 
-#define TWIM0_EASYDMA_MAXCNT_SIZE 10
+#define TWIM0_EASYDMA_MAXCNT_SIZE 12
+#define TWIM1_EASYDMA_MAXCNT_SIZE 12
+#define TWIM2_EASYDMA_MAXCNT_SIZE 12
+#define TWIM3_EASYDMA_MAXCNT_SIZE 12
 
 /* Two Wire Interface Slave with DMA */
 #define TWIS_PRESENT
-#define TWIS_COUNT 1
+#define TWIS_COUNT 4
 
-#define TWIS0_EASYDMA_MAXCNT_SIZE 10
-
-/* Universal Asynchronous Receiver-Transmitter */
-#define UART_PRESENT
-#define UART_COUNT 1
+#define TWIS0_EASYDMA_MAXCNT_SIZE 12
+#define TWIS1_EASYDMA_MAXCNT_SIZE 12
+#define TWIS2_EASYDMA_MAXCNT_SIZE 12
+#define TWIS3_EASYDMA_MAXCNT_SIZE 12
 
 /* Universal Asynchronous Receiver-Transmitter with DMA */
 #define UARTE_PRESENT
-#define UARTE_COUNT 1
+#define UARTE_COUNT 4
 
-#define UARTE0_EASYDMA_MAXCNT_SIZE 10
-
-/* Quadrature Decoder */
-#define QDEC_PRESENT
-#define QDEC_COUNT 1
+#define UARTE0_EASYDMA_MAXCNT_SIZE 12
+#define UARTE1_EASYDMA_MAXCNT_SIZE 12
+#define UARTE2_EASYDMA_MAXCNT_SIZE 12
+#define UARTE3_EASYDMA_MAXCNT_SIZE 12
 
 /* Successive Approximation Analog to Digital Converter */
 #define SAADC_PRESENT
 #define SAADC_COUNT 1
 
-#define SAADC_EASYDMA_MAXCNT_SIZE 15
-
 #define SAADC_CH_NUM 8
+#define SAADC_EASYDMA_MAXCNT_SIZE 15
 
 /* GPIO Tasks and Events */
 #define GPIOTE_PRESENT
-#define GPIOTE_COUNT 1
+#define GPIOTE_COUNT 2
 
 #define GPIOTE_CH_NUM 8
 
 #define GPIOTE_FEATURE_SET_PRESENT
 #define GPIOTE_FEATURE_CLR_PRESENT
 
-/* Comparator */
-#define COMP_PRESENT
-#define COMP_COUNT 1
-
 /* Pulse Width Modulator */
 #define PWM_PRESENT
-#define PWM_COUNT 1
+#define PWM_COUNT 4
 
-#define PWM0_CH_NUM 4
+#define PWM_CH_NUM 4
 
-#define PWM0_EASYDMA_MAXCNT_SIZE 15
+#define PWM_EASYDMA_MAXCNT_SIZE 15
 
 /* Pulse Density Modulator */
 #define PDM_PRESENT
@@ -227,5 +180,46 @@ POSSIBILITY OF SUCH DAMAGE.
 
 #define PDM_EASYDMA_MAXCNT_SIZE 15
 
+/* Inter-IC Sound Interface */
+#define I2S_PRESENT
+#define I2S_COUNT 1
 
-#endif      // _NRF52810_PERIPHERALS_H
+#define I2S_EASYDMA_MAXCNT_SIZE 14
+
+/* Inter Processor Communication */
+#define IPC_PRESENT
+#define IPC_COUNT 1
+
+#define IPC_CH_NUM 8
+#define IPC_CONF_NUM 8
+#define IPC_GPMEM_NUM 4
+
+/* FPU */
+#define FPU_PRESENT
+#define FPU_COUNT 1
+
+/* SPU */
+#define SPU_PRESENT
+#define SPU_COUNT 1
+
+/* CRYPTOCELL */
+#define CRYPTOCELL_PRESENT
+#define CRYPTOCELL_COUNT 1
+
+/* KMU */
+#define KMU_PRESENT
+#define KMU_COUNT 1
+
+#define KMU_KEYSLOT_PRESENT
+
+/* MAGPIO */
+#define MAGPIO_PRESENT
+#define MAGPIO_COUNT 1
+#define MAGPIO_PIN_NUM 3
+
+/* REGULATORS */
+#define REGULATORS_PRESENT
+#define REGULATORS_COUNT 1
+
+
+#endif  // _NRF9160_PERIPHERALS_H
