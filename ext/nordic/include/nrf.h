@@ -188,7 +188,7 @@ POSSIBILITY OF SUCH DAMAGE.
         #error "Device must be defined. See nrf.h."
     #endif /* NRF51, NRF52805_XXAA, NRF52810_XXAA, NRF52811_XXAA, NRF52820_XXAA, NRF52832_XXAA, NRF52832_XXAB, NRF52833_XXAA, NRF52840_XXAA, NRF5340_XXAA_APPLICATION, NRF5340_XXAA_NETWORK, NRF9160_XXAA */
 
-    #include "compiler_abstraction.h"
+    //#include "compiler_abstraction.h"
 
 #endif /* _WIN32 || __unix || __APPLE__ */
 

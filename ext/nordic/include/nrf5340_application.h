@@ -134,7 +134,7 @@ typedef enum {
 /** @} */ /* End of group Configuration_of_CMSIS */
 
 #include "core_cm33.h"                          /*!< ARM Cortex-M33 processor and core peripherals                             */
-#include "system_nrf5340_application.h"         /*!< nrf5340_application System                                                */
+//#include "system_nrf5340_application.h"         /*!< nrf5340_application System                                                */
 
 #ifndef __IM                                    /*!< Fallback for older CMSIS versions                                         */
   #define __IM   __I
