@@ -1,20 +1,135 @@
 NANOBE_BASE = $(shell pwd)
 export NANOBE_BASE
 
+ifeq ($(BOARD), HiFive1)
+	SOC = fe310
+	INCLUDES = \
+		-I board/HiFive1 \
+
+else ifeq ($(BOARD), nrf52840dongle_nrf52840)
+	SOC = nrf52840
+	FLASH_START = 0x00001000
+	FLASH_SIZE = 0x1f000
+
+	ASFLAGS = \
+		-mcpu=cortex-m4 \
+		-mthumb
+
+	CFLAGS = \
+		-mcpu=cortex-m4 \
+		-mthumb \
+		-DNRF52840_XXAA \
+		-DDEBUG=1 \
+		-DUART=5 \
+
+	INCLUDES = \
+		-I board/nrf52840dongle_nrf52840 \
+
+else ifeq ($(BOARD), nrf5340pdk_nrf5340_cpuapp)
+	SOC = nrf5340
+	FLASH_START = 0x00000000
+	FLASH_SIZE = 0x20000
+
+	ASFLAGS = \
+		-mcpu=cortex-m33 \
+		-mthumb
+
+	CFLAGS = \
+		-mcpu=cortex-m33 \
+		-mthumb \
+		-DNRF5340_XXAA_APPLICATION \
+		-DDEBUG=1 \
+		-DUART=8 \
+
+	INCLUDES = \
+		-I board/nrf5340pdk_nrf5340 \
+
+else ifeq ($(BOARD), nrf51dk_nrf51822)
+	SOC = nrf51822
+	FLASH_START = 0x00000000
+	FLASH_SIZE = 0x20000
+
+	ASFLAGS = \
+		-mcpu=cortex-m0 \
+		-mthumb
+
+	CFLAGS = \
+		-mcpu=cortex-m0 \
+		-mthumb \
+		-DNRF51 \
+		-DDEBUG=1 \
+		-DUART=8 \
+
+	INCLUDES = \
+		-I board/nrf51dk_nrf51822 \
+
+endif
+
+ifeq ($(SOC), fe310)
+	ARCH = riscv
+	SRCS_HAL_FE310 = \
+		hal/fe310/gpio.c \
+
+	SRCS_HAL = $(SRCS_HAL_FE310)
+
+else ifeq ($(SOC), nrf52840)
+	ARCH = arm
+	ASMS_SOC_NRF5 = \
+		soc/nrf5/soc.s \
+
+	SRCS_SOC_NRF5 = \
+		soc/nrf5/soc_c.c \
+
+	SRCS_HAL_NRF5 = \
+		hal/nrf5/gpio.c \
+		hal/nrf5/clock.c \
+		hal/nrf5/uart.c \
+
+	ASMS_SOC = $(ASMS_SOC_NRF5)
+	SRCS_SOC = $(SRCS_SOC_NRF5)
+	SRCS_HAL = $(SRCS_HAL_NRF5)
+
+else ifeq ($(SOC), nrf5340)
+	ARCH = arm
+	ASMS_SOC_NRF5 = \
+		soc/nrf5/soc.s \
+
+	SRCS_SOC_NRF5 = \
+		soc/nrf5/soc_c.c \
+
+	SRCS_HAL_NRF5 = \
+		hal/nrf5/gpio.c \
+		hal/nrf5/clock.c \
+		hal/nrf5/uart.c \
+
+	ASMS_SOC = $(ASMS_SOC_NRF5)
+	SRCS_SOC = $(SRCS_SOC_NRF5)
+	SRCS_HAL = $(SRCS_HAL_NRF5)
+
+else ifeq ($(SOC), nrf51822)
+	ARCH = arm
+	ASMS_SOC_NRF5 = \
+		soc/nrf5/soc.s \
+
+	SRCS_SOC_NRF5 = \
+		soc/nrf5/soc_c.c \
+
+	SRCS_HAL_NRF5 = \
+		hal/nrf5/gpio.c \
+		hal/nrf5/clock.c \
+		hal/nrf5/uart.c \
+
+	ASMS_SOC = $(ASMS_SOC_NRF5)
+	SRCS_SOC = $(SRCS_SOC_NRF5)
+	SRCS_HAL = $(SRCS_HAL_NRF5)
+
+endif
+
 ifeq ($(ARCH), riscv)
   ASMS_COMMON = \
 	arch/riscv/startup.s \
 
   ASMS_NANOBE = \
-
-  SRCS_HAL_FE310 = \
-	hal/fe310/gpio.c \
-
-  SRCS_HAL = $(SRCS_HAL_FE310)
-
-  INCLUDES += \
-	-I . \
-	-I board/HiFive1 \
 
 else ifeq ($(ARCH), arm)
   ASMS_COMMON = \
@@ -28,24 +143,9 @@ else ifeq ($(ARCH), arm)
 	-I ext/arm/cmsis/include \
 	-I arch/arm/cortex_m \
 
-  ASMS_SOC_NRF5 = \
-	soc/nrf5/soc.s \
-
-  SRCS_SOC_NRF5 = \
-	soc/nrf5/soc_c.c \
-
-  SRCS_HAL_NRF5 = \
-	hal/nrf5/gpio.c \
-	hal/nrf5/clock.c \
-	hal/nrf5/uart.c \
-
-  ASMS_SOC = $(ASMS_SOC_NRF5)
-  SRCS_SOC = $(SRCS_SOC_NRF5)
-  SRCS_HAL = $(SRCS_HAL_NRF5)
-
   INCLUDES += \
 	-I . \
-	-I board/nRF52840Dongle_nRF52840 \
+	-I board/nrf5340pdk_nrf5340 \
 
 endif
 
@@ -84,6 +184,7 @@ ifeq ($(ARCH), arm)
 	app/app_profile.c \
 
   INCLUDES += \
+	-I . \
 	-I ext/nordic/include \
 	-I soc/nrf5 \
 	-I nanobe \
