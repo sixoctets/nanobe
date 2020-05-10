@@ -14,17 +14,19 @@ THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND 
 */
 
 #include "soc.h"
+#include "util/misc.h"
 
 /****************************************************************************
 System
 ****************************************************************************/
 void soc_init(void)
 {
-#if NRF51
+#if defined(NRF51_SERIES)
 	/* Power on peripherals */
 	*(uint32_t *)0x40000504 = 0xC002FFC7;
 #endif
 
+#if defined(NRF52_SERIES)
 	/* Disconnect all GPIOs */
 	do {
 		uint8_t i;
@@ -35,6 +37,7 @@ void soc_init(void)
 			NRF_GPIO->PIN_CNF[i] = 0x00000002;
 		}
 	} while (0);
+#endif
 
 	/* SEVONPEND */
 	SCB->SCR |= SCB_SCR_SEVONPEND_Msk;
@@ -52,6 +55,7 @@ Assert handler
 
 void exc_hardfault(uint32_t sp)
 {
+#if defined(NRF51_SERIES) || defined(NRF52_SERIES)
 	uint32_t *p_flash = (uint32_t *) ASSERT_STACK_FRAME;
 	uint32_t count = 9; /* Cortex-M0 stack frame size = 8 32-bit words, 
 			     * plus SP itself to store.
@@ -84,6 +88,9 @@ void exc_hardfault(uint32_t sp)
 	while (NRF_NVMC->READY == 0) {
 	}
 	NRF_NVMC->CONFIG = NVMC_CONFIG_WEN_Ren;
+#else
+	ARG_UNUSED(sp);
+#endif
 
 	/* low power hang! */
 	while(1)

@@ -33,6 +33,7 @@ static uint8_t volatile rx_last;
 
 void uart_init(uint8_t pin, uint8_t hwfc)
 {
+#if defined(NRF51_SERIES) || defined(NRF52_SERIES)
 	NRF_UART0->ENABLE = UART_ENABLE_ENABLE_Enabled;
 	NRF_UART0->BAUDRATE = UART_BAUDRATE_BAUDRATE_Baud115200;
 	NRF_UART0->CONFIG = (hwfc) ? UART_CONFIG_HWFC_Msk: 0;
@@ -50,6 +51,7 @@ void uart_init(uint8_t pin, uint8_t hwfc)
 
 	NRF_UART0->TASKS_STARTTX = 1;
 	NRF_UART0->TASKS_STARTRX = 1;
+#endif
 }
 
 void uart_tx(uint8_t x)
@@ -72,9 +74,11 @@ void uart_tx(uint8_t x)
 	prev_last = tx_last;
 	tx_last = last;
 
+#if defined(NRF51_SERIES) || defined(NRF52_SERIES)
 	if (tx_first == prev_last) {
 		NRF_UART0->TXD = tx[tx_first];
 	}
+#endif
 }
 
 uint32_t uart_tx_done(void)
@@ -124,9 +128,11 @@ uint32_t uart_rx(uint8_t *p_x)
 	}
 	rx_first = first;
 
+#if defined(NRF51_SERIES) || defined(NRF52_SERIES)
 	if (NRF_UART0->EVENTS_RXDRDY) {
 		NRF_UART0->INTENSET = UART_INTENSET_RXDRDY_Msk;
 	}
+#endif
 
 	return(1);
 }
@@ -145,6 +151,7 @@ void isr_uart0(void *param)
 	/* TODO: use param as s/w instance of h/w */
 	(void)param;
 
+#if defined(NRF51_SERIES) || defined(NRF52_SERIES)
 	if (NRF_UART0->EVENTS_TXDRDY) {
 		uint8_t first;
 
@@ -185,4 +192,5 @@ void isr_uart0(void *param)
 	if (NRF_UART0->EVENTS_ERROR) {
 		NRF_UART0->EVENTS_ERROR = 0;
 	}
+#endif
 }

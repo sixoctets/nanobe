@@ -22,7 +22,20 @@ THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND 
 			} \
 		} while (0)
 
-#if DEBUG
+#if defined(DEBUG)
+
+#ifndef NRF_P0
+#define NRF_P0 NRF_P0_S
+#endif
+
+#ifndef NRF_P1
+#define NRF_P1 NRF_P1_S
+#endif
+
+#ifndef NRF_GPIO
+#define NRF_GPIO NRF_P0
+#endif
+
 #define DEBUG_PIN_INIT(x) do { \
 				NRF_GPIO->DIRSET = (1 << x); \
 				NRF_GPIO->OUTCLR = (1 << x); \

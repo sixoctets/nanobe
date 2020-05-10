@@ -19,6 +19,10 @@ THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND 
 #include "hal/isr.h"
 #include "hal/debug.h"
 
+#ifndef NRF_TIMER2
+#define NRF_TIMER2 NRF_TIMER2_S
+#endif
+
 #define NRF_TIMER  NRF_TIMER2
 #define TIMER_IRQn TIMER2_IRQn
 
