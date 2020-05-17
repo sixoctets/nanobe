@@ -13,43 +13,23 @@ Redistribution and use in source and binary forms, with or without modification,
 THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 */
 
-#ifndef _DEBUG_H_
-#define _DEBUG_H_
-
-#define ASSERT(x) do { \
-			if (!(x)) { \
-				__asm__ volatile (".inst 0xde00\n"); \
-			} \
-		} while (0)
-
-#if defined(DEBUG)
-
-#include "hal/nrf5/gpio_internal.h"
-
-#define DEBUG_PIN_INIT(x) do { \
-				NRF_GPIO->DIRSET = (1 << x); \
-				NRF_GPIO->OUTCLR = (1 << x); \
-			  } while (0)
-#define DEBUG_PIN_SET(x)  do { \
-				NRF_GPIO->OUTSET = (1 << x); \
-			  } while (0)
-#define DEBUG_PIN_CLR(x)  do { \
-				NRF_GPIO->OUTCLR = (1 << x); \
-			  } while (0)
-#define DEBUG_PIN_ON(x)   do { \
-				NRF_GPIO->OUTCLR = (1 << x); \
-				NRF_GPIO->OUTSET = (1 << x); \
-			  } while (0)
-#define DEBUG_PIN_OFF(x)  do { \
-				NRF_GPIO->OUTSET = (1 << x); \
-				NRF_GPIO->OUTCLR = (1 << x); \
-			  } while (0)
+#if !defined(NRF_P0)
+#if defined(NRF_P0_S)
+#define NRF_P0 NRF_P0_S
 #else
-#define DEBUG_PIN_INIT(x)
-#define DEBUG_PIN_SET(x)
-#define DEBUG_PIN_CLR(x)
-#define DEBUG_PIN_ON(x)
-#define DEBUG_PIN_OFF(x)
+#define NRF_P0 NRF_P0_NS
+#endif
 #endif
 
-#endif /* _DEBUG_H_ */
+#if !defined(NRF_P1)
+#if defined(NRF_P1_S)
+#define NRF_P1 NRF_P1_S
+#else
+#define NRF_P1 NRF_P1_NS
+#endif
+#endif
+
+#ifndef NRF_GPIO
+#define NRF_GPIO NRF_P0
+#endif
+

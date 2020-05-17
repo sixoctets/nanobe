@@ -6,6 +6,42 @@ ifeq ($(BOARD), HiFive1)
 	INCLUDES = \
 		-I board/HiFive1 \
 
+else ifeq ($(BOARD), nrf5340pdk_nrf5340_cpuapp)
+	SOC = nrf5340
+	FLASH_START = 0x00000000
+	FLASH_SIZE = 0x100000
+
+	ASFLAGS = \
+		-mcpu=cortex-m33 \
+		-mthumb
+
+	CFLAGS = \
+		-mcpu=cortex-m33 \
+		-mthumb \
+		-DNRF5340_XXAA_APPLICATION \
+		-DDEBUG=1 \
+
+	INCLUDES = \
+		-I board/nrf5340pdk_nrf5340 \
+
+else ifeq ($(BOARD), nrf5340pdk_nrf5340_cpunet)
+	SOC = nrf5340
+	FLASH_START = 0x00000000
+	FLASH_SIZE = 0x100000
+
+	ASFLAGS = \
+		-mcpu=cortex-m33+nodsp \
+		-mthumb
+
+	CFLAGS = \
+		-mcpu=cortex-m33+nodsp \
+		-mthumb \
+		-DNRF5340_XXAA_NETWORK \
+		-DDEBUG=1 \
+
+	INCLUDES = \
+		-I board/nrf5340pdk_nrf5340 \
+
 else ifeq ($(BOARD), nrf52840dongle_nrf52840)
 	SOC = nrf52840
 	FLASH_START = 0x00001000
@@ -20,29 +56,9 @@ else ifeq ($(BOARD), nrf52840dongle_nrf52840)
 		-mthumb \
 		-DNRF52840_XXAA \
 		-DDEBUG=1 \
-		-DUART=5 \
 
 	INCLUDES = \
 		-I board/nrf52840dongle_nrf52840 \
-
-else ifeq ($(BOARD), nrf5340pdk_nrf5340_cpuapp)
-	SOC = nrf5340
-	FLASH_START = 0x00000000
-	FLASH_SIZE = 0x20000
-
-	ASFLAGS = \
-		-mcpu=cortex-m33 \
-		-mthumb
-
-	CFLAGS = \
-		-mcpu=cortex-m33 \
-		-mthumb \
-		-DNRF5340_XXAA_APPLICATION \
-		-DDEBUG=1 \
-		-DUART=8 \
-
-	INCLUDES = \
-		-I board/nrf5340pdk_nrf5340 \
 
 else ifeq ($(BOARD), nrf51dk_nrf51822)
 	SOC = nrf51822
@@ -72,7 +88,7 @@ ifeq ($(SOC), fe310)
 
 	SRCS_HAL = $(SRCS_HAL_FE310)
 
-else ifeq ($(SOC), nrf52840)
+else ifeq ($(SOC), nrf5340)
 	ARCH = arm
 	ASMS_SOC_NRF5 = \
 		soc/nrf5/soc.s \
@@ -89,7 +105,7 @@ else ifeq ($(SOC), nrf52840)
 	SRCS_SOC = $(SRCS_SOC_NRF5)
 	SRCS_HAL = $(SRCS_HAL_NRF5)
 
-else ifeq ($(SOC), nrf5340)
+else ifeq ($(SOC), nrf52840)
 	ARCH = arm
 	ASMS_SOC_NRF5 = \
 		soc/nrf5/soc.s \
