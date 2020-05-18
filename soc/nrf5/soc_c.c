@@ -1,5 +1,5 @@
 /*
-Copyright (c) 2016, Vinayak Kariappa Chettimada
+Copyright (c) 2016-2020, Vinayak Kariappa Chettimada
 All rights reserved.
 
 Redistribution and use in source and binary forms, with or without modification, are permitted provided that the following conditions are met:
@@ -14,6 +14,7 @@ THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND 
 */
 
 #include "soc.h"
+#include "board.h"
 #include "util/misc.h"
 
 /****************************************************************************
@@ -37,6 +38,17 @@ void soc_init(void)
 			NRF_GPIO->PIN_CNF[i] = 0x00000002;
 		}
 	} while (0);
+#endif
+
+#if defined(NRF5340_XXAA_APPLICATION)
+#if defined(NRF5340_CPUNET_ON)
+	NRF_RESET_S->NETWORK.FORCEOFF = 0;
+#if defined(DEBUG) && (DEBUG)
+	NRF_P0_S->PIN_CNF[LED_BLINK_NET] = (GPIO_PIN_CNF_MCUSEL_NetworkMCU <<
+					    GPIO_PIN_CNF_MCUSEL_Pos) &
+					   GPIO_PIN_CNF_MCUSEL_Msk;
+#endif
+#endif
 #endif
 
 	/* SEVONPEND */

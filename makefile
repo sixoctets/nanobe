@@ -21,6 +21,7 @@ else ifeq ($(BOARD), nrf5340pdk_nrf5340_cpuapp)
 		-mcpu=cortex-m33 \
 		-mthumb \
 		-DNRF5340_XXAA_APPLICATION \
+		-DNRF5340_CPUNET_ON \
 		-DDEBUG=1 \
 
 	INCLUDES = \
