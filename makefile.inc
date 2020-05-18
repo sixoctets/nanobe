@@ -36,7 +36,7 @@ info :
 	@echo DEPS = $(DEPS)
 
 $(TARGETS) :
-	$(CC) $(CFLAGS) -Wl,--gc-sections,--defsym=FLASH_ORIGIN=$(FLASH_START),--defsym=FLASH_LENGTH=$(FLASH_SIZE),--script=$(LDSCRIPT),-Map=$(basename $@).map -o $@ $^ -lgcc
+	$(CC) $(CFLAGS) -Wl,--gc-sections,--defsym=FLASH_ORIGIN=$(FLASH_START),--defsym=FLASH_LENGTH=$(FLASH_SIZE),--defsym=RAM_ORIGIN=$(RAM_START),--defsym=RAM_LENGTH=$(RAM_SIZE),--script=$(LDSCRIPT),-Map=$(basename $@).map -o $@ $^ -lgcc
 	$(OBJDUMP) -D $@ > $(basename $@).lst
 	$(OBJCOPY) -O ihex $@ $(basename $@).hex
 	$(OBJCOPY) -O binary $@ $(basename $@).bin

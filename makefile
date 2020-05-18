@@ -9,7 +9,9 @@ ifeq ($(BOARD), HiFive1)
 else ifeq ($(BOARD), nrf5340pdk_nrf5340_cpuapp)
 	SOC = nrf5340
 	FLASH_START = 0x00000000
-	FLASH_SIZE = 0x100000
+	FLASH_SIZE  = 0x00100000
+	RAM_START   = 0x20000000
+	RAM_SIZE    = 0x00080000
 
 	ASFLAGS = \
 		-mcpu=cortex-m33 \
@@ -26,8 +28,10 @@ else ifeq ($(BOARD), nrf5340pdk_nrf5340_cpuapp)
 
 else ifeq ($(BOARD), nrf5340pdk_nrf5340_cpunet)
 	SOC = nrf5340
-	FLASH_START = 0x00000000
-	FLASH_SIZE = 0x100000
+	FLASH_START = 0x01000000
+	FLASH_SIZE  = 0x00040000
+	RAM_START   = 0x21000000
+	RAM_SIZE    = 0x00010000
 
 	ASFLAGS = \
 		-mcpu=cortex-m33+nodsp \
@@ -45,7 +49,9 @@ else ifeq ($(BOARD), nrf5340pdk_nrf5340_cpunet)
 else ifeq ($(BOARD), nrf52840dongle_nrf52840)
 	SOC = nrf52840
 	FLASH_START = 0x00001000
-	FLASH_SIZE = 0x1f000
+	FLASH_SIZE  = 0x000ff000
+	RAM_START   = 0x20000000
+	RAM_SIZE    = 0x00040000
 
 	ASFLAGS = \
 		-mcpu=cortex-m4 \
@@ -63,7 +69,9 @@ else ifeq ($(BOARD), nrf52840dongle_nrf52840)
 else ifeq ($(BOARD), nrf51dk_nrf51822)
 	SOC = nrf51822
 	FLASH_START = 0x00000000
-	FLASH_SIZE = 0x20000
+	FLASH_SIZE  = 0x00020000
+	RAM_START   = 0x20000000
+	RAM_SIZE    = 0x00004000
 
 	ASFLAGS = \
 		-mcpu=cortex-m0 \
