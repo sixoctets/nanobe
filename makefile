@@ -3,6 +3,11 @@ export NANOBE_BASE
 
 ifeq ($(BOARD), HiFive1)
 	SOC = fe310
+	FLASH_START = 0x20000000
+	FLASH_SIZE  = 0x00020000
+	RAM_START   = 0x80000000
+	RAM_SIZE    = 0x00004000
+
 	INCLUDES = \
 		-I board/HiFive1 \
 
