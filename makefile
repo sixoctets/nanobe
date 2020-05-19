@@ -72,6 +72,26 @@ else ifeq ($(BOARD), nrf52840dongle_nrf52840)
 	INCLUDES = \
 		-I board/nrf52840dongle_nrf52840 \
 
+else ifeq ($(BOARD), nrf52dk_nrf52832)
+	SOC = nrf52832
+	FLASH_START = 0x00000000
+	FLASH_SIZE  = 0x00040000
+	RAM_START   = 0x20000000
+	RAM_SIZE    = 0x00008000
+
+	ASFLAGS = \
+		-mcpu=cortex-m4 \
+		-mthumb
+
+	CFLAGS = \
+		-mcpu=cortex-m4 \
+		-mthumb \
+		-DNRF52832_XXAB \
+		-DDEBUG=1 \
+
+	INCLUDES = \
+		-I board/nrf52dk_nrf52832 \
+
 else ifeq ($(BOARD), nrf51dk_nrf51822)
 	SOC = nrf51822
 	FLASH_START = 0x00000000
@@ -136,6 +156,23 @@ else ifeq ($(SOC), nrf52840)
 	SRCS_SOC = $(SRCS_SOC_NRF5)
 	SRCS_HAL = $(SRCS_HAL_NRF5)
 
+else ifeq ($(SOC), nrf52832)
+	ARCH = arm
+	ASMS_SOC_NRF5 = \
+		soc/nrf5/soc.s \
+
+	SRCS_SOC_NRF5 = \
+		soc/nrf5/soc_c.c \
+
+	SRCS_HAL_NRF5 = \
+		hal/nrf5/gpio.c \
+		hal/nrf5/clock.c \
+		hal/nrf5/uart.c \
+
+	ASMS_SOC = $(ASMS_SOC_NRF5)
+	SRCS_SOC = $(SRCS_SOC_NRF5)
+	SRCS_HAL = $(SRCS_HAL_NRF5)
+
 else ifeq ($(SOC), nrf51822)
 	ARCH = arm
 	ASMS_SOC_NRF5 = \
@@ -175,7 +212,6 @@ else ifeq ($(ARCH), arm)
 
   INCLUDES += \
 	-I . \
-	-I board/nrf5340pdk_nrf5340 \
 
 endif
 
