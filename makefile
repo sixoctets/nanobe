@@ -56,8 +56,8 @@ else ifeq ($(BOARD), nrf52840dongle_nrf52840)
 	SOC = nrf52840
 	FLASH_START = 0x00001000
 	FLASH_SIZE  = 0x000ff000
-	RAM_START   = 0x20000000
-	RAM_SIZE    = 0x00040000
+	RAM_START   = 0x20000008
+	RAM_SIZE    = 0x0003fff8
 
 	ASFLAGS = \
 		-mcpu=cortex-m4 \
