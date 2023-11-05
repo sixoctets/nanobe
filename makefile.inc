@@ -9,6 +9,7 @@ ASFLAGS += \
 CFLAGS += \
 	-Os \
 	-nostdlib \
+	-ffreestanding \
 	-fdata-sections \
 	-ffunction-sections \
 	-flto \
