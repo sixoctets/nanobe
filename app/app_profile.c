@@ -14,6 +14,7 @@ THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND 
 */
 
 #include "soc.h"
+#include "cpu.h"
 #include "irq.h"
 
 #include "util/misc.h"
@@ -57,6 +58,8 @@ static void nanobe_0(void)
 			DEBUG_PIN_SET(6);
 		}
 		DEBUG_PIN_ON(13);
+
+		cpu_sleep();
 	}
 }
 
@@ -99,6 +102,8 @@ int main(void)
 		} else {
 			DEBUG_PIN_CLR(12);
 		}
+
+		cpu_sleep();
 	}
 
 	return 0;
