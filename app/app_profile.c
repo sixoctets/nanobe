@@ -94,8 +94,11 @@ int main(void)
 	(void)clock_on();
 
 	while (1) {
-		DEBUG_PIN_OFF(12);
-		DEBUG_PIN_ON(12);
+		if (seconds & 1) {
+			DEBUG_PIN_SET(12);
+		} else {
+			DEBUG_PIN_CLR(12);
+		}
 	}
 
 	return 0;
