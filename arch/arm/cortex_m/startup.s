@@ -106,21 +106,6 @@ sleep:
 
 	.section .text
 	.thumb_func
-	.weak _soc_init
-	.type _soc_init, %function
-_soc_init:
-	add r0, #1
-	bx r0
-
-	.section .text
-	.thumb_func
-	.weak soc_init
-	.type soc_init, %function
-soc_init:
-	bx lr
-
-	.section .text
-	.thumb_func
 	.weak hardfault_handler
 	.type hardfault_handler, %function
 hardfault_handler:

@@ -201,6 +201,7 @@ ifeq ($(ARCH), riscv)
 else ifeq ($(ARCH), arm)
   ASMS_COMMON = \
 	arch/arm/cortex_m/startup.s \
+	arch/arm/cortex_m/soc.s \
 
   ASMS_NANOBE = \
 	arch/arm/cortex_m/nanobe.s \
