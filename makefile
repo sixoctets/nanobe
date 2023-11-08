@@ -132,7 +132,7 @@ else ifeq ($(SOC), nrf5340)
 
 	SRCS_HAL_NRF5 = \
 		hal/nrf5/gpio.c \
-		hal/nrf5/clock.c \
+		hal/nrf5/timer.c \
 		hal/nrf5/uart.c \
 
 	ASMS_SOC = $(ASMS_SOC_NRF5)
@@ -149,7 +149,7 @@ else ifeq ($(SOC), nrf52840)
 
 	SRCS_HAL_NRF5 = \
 		hal/nrf5/gpio.c \
-		hal/nrf5/clock.c \
+		hal/nrf5/timer.c \
 		hal/nrf5/uart.c \
 
 	ASMS_SOC = $(ASMS_SOC_NRF5)
@@ -166,7 +166,7 @@ else ifeq ($(SOC), nrf52832)
 
 	SRCS_HAL_NRF5 = \
 		hal/nrf5/gpio.c \
-		hal/nrf5/clock.c \
+		hal/nrf5/timer.c \
 		hal/nrf5/uart.c \
 
 	ASMS_SOC = $(ASMS_SOC_NRF5)
@@ -183,7 +183,7 @@ else ifeq ($(SOC), nrf51822)
 
 	SRCS_HAL_NRF5 = \
 		hal/nrf5/gpio.c \
-		hal/nrf5/clock.c \
+		hal/nrf5/timer.c \
 		hal/nrf5/uart.c \
 
 	ASMS_SOC = $(ASMS_SOC_NRF5)

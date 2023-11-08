@@ -20,7 +20,7 @@ THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND 
 #include "util/misc.h"
 
 #include "hal/isr.h"
-#include "hal/clock.h"
+#include "hal/timer.h"
 #include "hal/debug.h"
 
 #include "nanobe.h"
@@ -36,7 +36,7 @@ void * const main_stack_top = main_stack + sizeof(main_stack);
 static uint32_t volatile ticks;
 static uint32_t volatile seconds;
 
-static void isr_clock_cb(void *param)
+static void isr_timer_cb(void *param)
 {
 	ARG_UNUSED(param);
 
@@ -76,7 +76,7 @@ int main(void)
 	void *nanobe_sp;
 	uint32_t irq;
 	isr_t isr;
-	void *isr_param[] = {isr_clock_cb, 0};
+	void *isr_param[] = {isr_timer_cb, 0};
 
 	DEBUG_PIN_INIT(6);
 	DEBUG_PIN_INIT(12);
@@ -88,13 +88,13 @@ int main(void)
 				 nanobe_0_stack + sizeof(nanobe_0_stack));
 	nanobe_sched_enqueue(nanobe_sp);
 
-	(void)clock_init();
-	(void)clock_irq_init(&irq, &isr);
+	(void)timer_init();
+	(void)timer_irq_init(&irq, &isr);
 	_isr_table[irq].isr = isr;
 	_isr_table[irq].param = isr_param;
 
-	(void)clock_irq_on();
-	(void)clock_on();
+	(void)timer_irq_on();
+	(void)timer_on();
 
 	while (1) {
 		if (seconds & 1) {
