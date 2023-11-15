@@ -16,16 +16,20 @@ THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND 
 #if !defined(NRF_P0)
 #if defined(NRF_P0_S)
 #define NRF_P0 NRF_P0_S
-#else
+#elif defined(NRF_P0_NS)
 #define NRF_P0 NRF_P0_NS
+#else
+#define NRF_P0 NRF_GPIO
 #endif
 #endif
 
 #if !defined(NRF_P1)
 #if defined(NRF_P1_S)
 #define NRF_P1 NRF_P1_S
-#else
+#elif defined(NRF_P1_NS)
 #define NRF_P1 NRF_P1_NS
+#else
+#define NRF_P1 NRF_GPIO
 #endif
 #endif
 

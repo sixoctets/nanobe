@@ -14,6 +14,7 @@ THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND 
 */
 
 #include "soc.h"
+#include "board.h"
 #include "cpu.h"
 #include "irq.h"
 
@@ -40,24 +41,22 @@ static void isr_timer_cb(void *param)
 {
 	ARG_UNUSED(param);
 
-	DEBUG_PIN_ON(15);
+	DEBUG_PIN_ON(LED3);
 	ticks++;
 	if ((ticks % 100) == 0) {
 		seconds++;
 	}
-	DEBUG_PIN_OFF(15);
+	DEBUG_PIN_OFF(LED3);
 }
 
 static void nanobe_0(void)
 {
 	while(1) {
-		DEBUG_PIN_OFF(13);
 		if (seconds & 1) {
-			DEBUG_PIN_CLR(6);
+			DEBUG_PIN_CLR(LED2);
 		} else {
-			DEBUG_PIN_SET(6);
+			DEBUG_PIN_SET(LED2);
 		}
-		DEBUG_PIN_ON(13);
 
 		cpu_sleep();
 	}
@@ -65,9 +64,9 @@ static void nanobe_0(void)
 
 void nanobe_injection(void)
 {
-	DEBUG_PIN_ON(14);
+	DEBUG_PIN_ON(LED4);
 	nanobe_sched_yield();
-	DEBUG_PIN_OFF(14);
+	DEBUG_PIN_OFF(LED4);
 	return;
 }
 
@@ -78,11 +77,10 @@ int main(void)
 	isr_t isr;
 	void *isr_param[] = {isr_timer_cb, 0};
 
-	DEBUG_PIN_INIT(6);
-	DEBUG_PIN_INIT(12);
-	DEBUG_PIN_INIT(13);
-	DEBUG_PIN_INIT(14);
-	DEBUG_PIN_INIT(15);
+	DEBUG_PIN_INIT(LED1);
+	DEBUG_PIN_INIT(LED2);
+	DEBUG_PIN_INIT(LED3);
+	DEBUG_PIN_INIT(LED4);
 
 	nanobe_sp = _nanobe_init(nanobe_0,
 				 nanobe_0_stack + sizeof(nanobe_0_stack));
@@ -98,9 +96,9 @@ int main(void)
 
 	while (1) {
 		if (seconds & 1) {
-			DEBUG_PIN_SET(12);
+			DEBUG_PIN_SET(LED1);
 		} else {
-			DEBUG_PIN_CLR(12);
+			DEBUG_PIN_CLR(LED1);
 		}
 
 		cpu_sleep();

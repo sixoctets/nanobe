@@ -16,6 +16,6 @@ THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND 
 #ifndef _HAL_DEBUG_H_
 #define _HAL_DEBUG_H_
 
-#include "soc/nrf5/debug.h"
+#include "hal/nrf5/debug.h"
 
 #endif /* _HAL_DEBUG_H_ */

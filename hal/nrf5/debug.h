@@ -22,27 +22,60 @@ THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND 
 			} \
 		} while (0)
 
-#if defined(DEBUG)
+#if defined(DEBUG) && DEBUG
 
 #include "hal/nrf5/gpio_internal.h"
 
-#define DEBUG_PIN_INIT(x) do { \
-				NRF_GPIO->DIRSET = (1 << x); \
-				NRF_GPIO->OUTCLR = (1 << x); \
+#define DEBUG_PIN_INIT(p) do { \
+				uint8_t x = p; \
+				\
+				if (x < 32) { \
+					NRF_GPIO->DIRSET = (1 << x); \
+					NRF_GPIO->OUTCLR = (1 << x); \
+				} else if ((x >= 32) && (x < 64)) { \
+					NRF_P1->DIRSET = (1 << (x - 32)); \
+					NRF_P1->OUTCLR = (1 << (x - 32)); \
+				} \
 			  } while (0)
-#define DEBUG_PIN_SET(x)  do { \
-				NRF_GPIO->OUTSET = (1 << x); \
+#define DEBUG_PIN_SET(p)  do { \
+				uint8_t x = p; \
+				\
+				if (x < 32) { \
+					NRF_GPIO->OUTSET = (1 << x); \
+				} else if ((x >= 32) && (x < 64)) { \
+					NRF_P1->OUTSET = (1 << (x - 32)); \
+				} \
 			  } while (0)
-#define DEBUG_PIN_CLR(x)  do { \
-				NRF_GPIO->OUTCLR = (1 << x); \
+#define DEBUG_PIN_CLR(p)  do { \
+				uint8_t x = p; \
+				\
+				if (x < 32) { \
+					NRF_GPIO->OUTCLR = (1 << x); \
+				} else if ((x >= 32) && (x < 64)) { \
+					NRF_P1->OUTCLR = (1 << (x - 32)); \
+				} \
 			  } while (0)
-#define DEBUG_PIN_ON(x)   do { \
-				NRF_GPIO->OUTCLR = (1 << x); \
-				NRF_GPIO->OUTSET = (1 << x); \
+#define DEBUG_PIN_ON(p)   do { \
+				uint8_t x = p; \
+				\
+				if (x < 32) { \
+					NRF_GPIO->OUTCLR = (1 << x); \
+					NRF_GPIO->OUTSET = (1 << x); \
+				} else if ((x >= 32) && (x < 64)) { \
+					NRF_P1->OUTCLR = (1 << (x - 32)); \
+					NRF_P1->OUTSET = (1 << (x - 32)); \
+				} \
 			  } while (0)
-#define DEBUG_PIN_OFF(x)  do { \
-				NRF_GPIO->OUTSET = (1 << x); \
-				NRF_GPIO->OUTCLR = (1 << x); \
+#define DEBUG_PIN_OFF(p)  do { \
+				uint8_t x = p; \
+				\
+				if (x < 32) { \
+					NRF_GPIO->OUTSET = (1 << x); \
+					NRF_GPIO->OUTCLR = (1 << x); \
+				} else if ((x >= 32) && (x < 64)) { \
+					NRF_P1->OUTSET = (1 << (x - 32)); \
+					NRF_P1->OUTCLR = (1 << (x - 32)); \
+				} \
 			  } while (0)
 #else
 #define DEBUG_PIN_INIT(x)

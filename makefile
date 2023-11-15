@@ -11,7 +11,7 @@ ifeq ($(BOARD), HiFive1)
 	INCLUDES = \
 		-I board/HiFive1 \
 
-else ifeq ($(BOARD), nrf5340pdk_nrf5340_cpuapp)
+else ifeq ($(BOARD), nrf5340dk_nrf5340_cpuapp)
 	SOC = nrf5340
 	FLASH_START = 0x00000000
 	FLASH_SIZE  = 0x00100000
@@ -30,9 +30,9 @@ else ifeq ($(BOARD), nrf5340pdk_nrf5340_cpuapp)
 		-DDEBUG=1 \
 
 	INCLUDES = \
-		-I board/nrf5340pdk_nrf5340 \
+		-I board/nrf5340dk_nrf5340 \
 
-else ifeq ($(BOARD), nrf5340pdk_nrf5340_cpunet)
+else ifeq ($(BOARD), nrf5340dk_nrf5340_cpunet)
 	SOC = nrf5340
 	FLASH_START = 0x01000000
 	FLASH_SIZE  = 0x00040000
@@ -50,7 +50,7 @@ else ifeq ($(BOARD), nrf5340pdk_nrf5340_cpunet)
 		-DDEBUG=1 \
 
 	INCLUDES = \
-		-I board/nrf5340pdk_nrf5340 \
+		-I board/nrf5340dk_nrf5340 \
 
 else ifeq ($(BOARD), nrf52840dongle_nrf52840)
 	SOC = nrf52840
