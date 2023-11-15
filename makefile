@@ -72,6 +72,26 @@ else ifeq ($(BOARD), nrf52840dongle_nrf52840)
 	INCLUDES = \
 		-I board/nrf52840dongle_nrf52840 \
 
+else ifeq ($(BOARD), nrf52840dk_nrf52840)
+	SOC = nrf52840
+	FLASH_START = 0x00000000
+	FLASH_SIZE  = 0x00100000
+	RAM_START   = 0x20000000
+	RAM_SIZE    = 0x00040000
+
+	ASFLAGS = \
+		-mcpu=cortex-m4 \
+		-mthumb
+
+	CFLAGS = \
+		-mcpu=cortex-m4 \
+		-mthumb \
+		-DNRF52840_XXAA \
+		-DDEBUG=1 \
+
+	INCLUDES = \
+		-I board/nrf52840dk_nrf52840 \
+
 else ifeq ($(BOARD), nrf52dk_nrf52832)
 	SOC = nrf52832
 	FLASH_START = 0x00000000
