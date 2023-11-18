@@ -14,6 +14,9 @@ THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND 
 */
 
 #include <stdint.h>
+
+#include "soc.h"
+#include "cpu.h"
 #include "nanobe.h"
 
 static struct {
@@ -56,6 +59,7 @@ void nanobe_sched_yield(void)
 		return;
 	}
 	_sgrd = 1;
+	cpu_dmb();
 
 	if (sched.prev) {
 		nanobe_sched_enqueue(sched.prev);
@@ -66,6 +70,8 @@ void nanobe_sched_yield(void)
 
 	if (!ready) {
 		_sgrd = 0;
+		cpu_dmb();
+
 		return;
 	}
 
@@ -78,6 +84,7 @@ uint8_t nanobe_sched_lock(void)
 
 	lock = _sgrd;
 	_sgrd = 1;
+	cpu_dmb();
 
 	return lock;
 }
@@ -89,9 +96,11 @@ void nanobe_sched_unlock(uint8_t lock)
 	}
 
 	_sgrd = 0;
+	cpu_dmb();
 
 	if (_strg) {
 		_strg = 0;
+		cpu_dmb();
 
 		nanobe_sched_yield();
 	}

@@ -23,4 +23,18 @@ static inline void cpu_sleep(void)
 	__WFE();
 }
 
+static inline void cpu_dmb(void)
+{
+	/* NOTE: Refer to ARM Cortex-M Programming Guide to Memory Barrier
+	 *       Instructions, Section 4.1 Normal access in memories
+	 *
+	 *       Implementation: In the Cortex-M processors data transfers are
+	 *       carried out in the programmed order.
+	 *
+	 * Hence, there is no need to use a memory barrier instruction between
+	 * each access. Only a compiler memory clobber is sufficient.
+	 */
+	__asm__ volatile ("" : : : "memory");
+}
+
 #endif /* _CPU_H_ */
